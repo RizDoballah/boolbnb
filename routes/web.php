@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::resource('apartment', 'ApartmentController');
+Route::resource('admin', 'ApartmentController')->middleware('auth');
 
 Auth::routes();
 
