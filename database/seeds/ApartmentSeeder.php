@@ -27,9 +27,9 @@ class ApartmentSeeder extends Seeder
           $newApartment->square_meters = rand(40, 500);
           $newApartment->lat = $faker->latitude();
           $newApartment->lon = $faker->longitude();
-          $newApartment->main_img = "https://picsum.photos/id/" . rand ( 1 , 100 ). '/ 1200/800';
+          $newApartment->main_img = "https://picsum.photos/id/" . rand(1, 100) . '/1200/800';
 
-          $newApartment->save();
+          $newApartment->save(); 
 
 
         }
