@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-{{-- @dd($apartments) --}}
 <div class="container">
     <div class="row">
             @foreach ($apartments as $apartment)

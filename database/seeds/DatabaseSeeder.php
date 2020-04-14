@@ -1,5 +1,7 @@
 <?php
 
+use UserSeeder;
+use ApartmentSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
