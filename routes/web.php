@@ -25,4 +25,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'ApartmentController@index')->name('home');
 Route::get('/{id}', 'ApartmentController@show')->name('home.show');
 
-
+//prova
