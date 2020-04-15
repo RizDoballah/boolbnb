@@ -105,8 +105,10 @@ class ApartmentController extends Controller
 
     $data = $request->all();
     
-
-    $path = Storage::disk('public')->put('images', $request->main_img);
+    if(!empty($data['main_img'])) {
+        $data['main_img'] = Storage::disk('public')->put('images', $data['main_img']);
+       }
+    // $data['main_img'] = Storage::disk('public')->put('images', $request->main_img);
 
     // dd($updated);
 

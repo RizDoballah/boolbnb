@@ -51,12 +51,14 @@
                     </div>
 
                     
-
+                    
                     <div class="form-group">
                         <label for="main_img" >Immagine</label>
                         @isset($apartment->main_img)
-                            <img src="{{asset('storage/' .$apartment->main_img)}}" style="width: 300px" alt="">
-                        @endisset
+                            <img src="{{asset('storage/' . $apartment->main_img)}}" style="width: 300px" alt="">
+                        @endisset 
+                        
+
                         <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*"> 
                         @error('main_img')
                             <small class="form-text text-danger">{{$message}}</small>

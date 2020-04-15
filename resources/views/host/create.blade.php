@@ -52,7 +52,7 @@
 
                     <div class="form-group">
                         <label for="main_img" >Immagine</label>
-                        <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" > 
+                        <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" >
                         @error('main_img')
                             <small class="form-text text-danger">{{$message}}</small>
                         @enderror
@@ -67,3 +67,8 @@
     </div>
 
 @endsection
+
+
+{{-- src="http://127.0.0.1:8000/storage/C:\Users\matte\AppData\Local\Temp\php5BD6.tmp" --}}
+
+{{-- src="http://127.0.0.1:8000/storage/images/uaPjwtBVSGYAkqDaf8rwobXHJyJqWqRzUd7LFVcu.png" --}}
