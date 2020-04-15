@@ -4,11 +4,16 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::namespace('Host')
-->middleware('auth')
-->group(function () {
+Route::namespace('Host')->middleware('auth')->group(function () {
+
   Route::resource('host', 'ApartmentController');
+
 });
+
+
+
+
+
 
 Auth::routes();
 

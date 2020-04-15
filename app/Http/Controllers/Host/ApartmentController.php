@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Host;
 
-use App\Apartment;
 use App\User;
-use App\Http\Controllers\Controller;
+use App\Apartment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -43,27 +44,6 @@ class ApartmentController extends Controller
     public function store(Request $request)
 
     {
-      $request->validate($this->validateRules);
-
-
-      $data = $request->all();
-      dd($data);
-
-       $path = Storage::disk('public')->put('images', $data['main_img'] );
-
-      $apartment = Apartment::create([
-            'user_id' => Auth::id(),
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'main_img' => $path,
-            'square_meters'=>$data['square_meters'],
-            'rooms'=>$data['rooms'],
-            'bathroom'=>$data['bathroom']
-
-        ]);
-
-        return redirect()->route('host.show', $apartment->id);
-
 
     }
 
@@ -78,16 +58,55 @@ class ApartmentController extends Controller
     }
 
 
-    public function edit(Apartment $apartment)
+    public function edit($id)
     {
+        // $post = Post::where('slug', $slug)->firstOrFail();
+        // return view('admin.posts.edit', [
+        //     'post' => $post,
+        //     'tags' => Tag::all()
+        // ]);
 
+
+        $apartment = Apartment::find($id)->firstOrFail();
+
+        return view('host.edit', compact('apartment'));
     }
+
 
 
     public function update(Request $request, Apartment $apartment)
     {
+        $data = $request->all();
 
+
+
+        dd('CIAOOOOOOOO');
+
+        if ($apartment->user->id != Auth::user()->id) {
+            abort(404);
+        }
+
+        // $validatedData = $request->validate($this->data());
+
+        // if (!empty($request->main_img)) {
+        //     $path = Storage::disk('public')->put('images', $request->image_path);
+        //     $post->update(['main_img' => $path]);
+        // }
+
+        $apartment->update([
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'rooms' => $data['rooms'],
+            'bathroom' => $data['bathroom'],
+            'square_meters' => $data['square_meters']
+            // 'updated_at' => Carbon::now()
+        ]);
+ 
+
+        return redirect()->route('host.index', compact('apartment'));
     }
+
+
 
 
     public function destroy(Apartment $apartment)
