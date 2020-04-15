@@ -12,20 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
-     public function __construct()
-     {
-         $this->validateRules = [
-             'title'=> 'required',
-             'description'=> 'required|string|max:1000',
-             'lat'=> 'numeric',
-             'lon'=> 'numeric',
-             'main_img'=>'required|image',
-             'square_meters'=>'required|numeric|min:40|max:500',
-             'rooms'=>'required|numeric|min:1|max:10',
-             'bathrooms'=>'required|numeric|min:1|max:3',
-             'user_id'=>'exists:users,id',
-         ];
-     }
+     
 
     public function index()
     {
@@ -44,7 +31,39 @@ class ApartmentController extends Controller
     public function store(Request $request)
 
     {
+            $validatedData = $request->validate([
+                'title'=> 'required',
+                'description'=> 'required|string',
+                'lat'=> 'nullable|numeric',
+                'lon'=> 'nullable|numeric',
+                'main_img'=>'required|image',
+                'square_meters'=>'required|numeric',
+                'rooms'=>'required|numeric',
+                'bathroom'=>'required|numeric',
+                'user_id'=>'exists:users,id'
+             ]);
+             
+        // $request->validate($this->validateData);
+
+        $data = $request->all();
+
+        // dd($data);
+
+        // dd($validatedData);
+
+        $path = Storage::disk('public')->put('images', $request->main_img);
+
+        $newApartment = Apartment::create([
+            'user_id' => Auth::id(),
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'rooms' => $data['rooms'],
+            'bathroom' => $data['bathroom'],
+            'square_meters' => $data['square_meters'],
+            'main_img' => $path
+        ]);
         
+        return redirect(route('host.show', $newApartment));
     }
 
 
@@ -60,12 +79,7 @@ class ApartmentController extends Controller
 
     public function edit($id)
     {
-        // $post = Post::where('slug', $slug)->firstOrFail();
-        // return view('admin.posts.edit', [
-        //     'post' => $post,
-        //     'tags' => Tag::all()
-        // ]);
-
+       
 
         $apartment = Apartment::find($id)->firstOrFail();
 
@@ -74,39 +88,44 @@ class ApartmentController extends Controller
 
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $data = $request->all();
 
-        // if ($apartment->user->id != Auth::user()->id) {
-        //     abort(404);
-        // }
-
-
-        $apartment = Apartment::find($id);
-    //  dd($apartment);
+        $validatedData = $request->validate([
+            'title'=> 'required',
+            'description'=> 'required|string',
+            'lat'=> 'nullable|numeric',
+            'lon'=> 'nullable|numeric',
+            'main_img'=>'image',
+            'square_meters'=>'required|numeric',
+            'rooms'=>'required|numeric',
+            'bathroom'=>'required|numeric',
+            'user_id'=>'exists:users,id'
+         ]);
          
 
-        // $validatedData = $request->validate($this->data());
+    $data = $request->all();
+    dd($data);
 
-        // if (!empty($request->main_img)) {
-        //     $path = Storage::disk('public')->put('images', $request->image_path);
-        //     $post->update(['main_img' => $path]);
-        // }
+    $path = Storage::disk('public')->put('images', $request->main_img);
 
-        $apartment->update([
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'rooms' => $data['rooms'],
-            'bathroom' => $data['bathroom'],
-            'square_meters' => $data['square_meters']
-            // 'updated_at' => Carbon::now()
-        ]);
-            
-    //  dd($data);
+    $updated = $apartment->update($data);
 
+    // $newApartment = Apartment::create([
+    //     'user_id' => Auth::id(),
+    //     'title' => $data['title'],
+    //     'description' => $data['description'],
+    //     'rooms' => $data['rooms'],
+    //     'bathroom' => $data['bathroom'],
+    //     'square_meters' => $data['square_meters'],
+    //     'main_img' => $path
+    // ]);
+        
+        
+        if ($updated) {
+            return redirect()->route('host.show', $apartment);
+        }
 
-        return redirect()->route('host.show', $apartment);
     }
 
 

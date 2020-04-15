@@ -21,8 +21,8 @@ class CreateApartmentsTable extends Migration
             $table->integer('rooms');
             $table->integer('bathroom');
             $table->integer('square_meters');
-            $table->decimal('lat', 10, 7);
-            $table->decimal('lon', 10, 7);
+            $table->decimal('lat', 10, 7)->nullable();
+            $table->decimal('lon', 10, 7)->nullable();
             $table->string('main_img');
             $table->timestamps();
         });
