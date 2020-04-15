@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Host;
 
 use App\Apartment;
 use App\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -27,8 +28,9 @@ class ApartmentController extends Controller
 
     public function index()
     {
-        $apartments = Apartment::take(6)->get();
-        return view('guest.index', compact('apartments'));
+        $apartments = Apartment::where('user_id', Auth::id())->get();
+
+        return view('host.index', compact('apartments'));
     }
 
 
@@ -60,7 +62,7 @@ class ApartmentController extends Controller
 
         ]);
 
-        return view('guest.show', compact('apartment'));
+        return redirect()->route('host.show', $apartment->id);
 
 
     }
@@ -72,7 +74,7 @@ class ApartmentController extends Controller
 
         abort_if(empty($apartment), 404);
 
-        return view('guest.show', compact('apartment'));
+        return view('host.show', compact('apartment'));
     }
 
 
