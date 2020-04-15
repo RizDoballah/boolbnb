@@ -18,6 +18,15 @@ class ApartmentSeeder extends Seeder
       $faker = Faker::create('it_IT');
         for ($i=0; $i <40 ; $i++) {
 
+          $imgs = [
+            'img/img_1.jpg',
+            'img/img_2.jpg',
+            'img/img_3.jpg',
+            'img/img_4.jpg',
+            'img/img_5.jpg',
+            'img/img_6.jpg',
+          ];
+
           $newApartment = new Apartment;
           $newApartment->user_id= User::inRandomOrder()->first()->id;
           $newApartment->title = $faker->realText($maxNbChars = 30, $indexSize = 3);
@@ -27,7 +36,7 @@ class ApartmentSeeder extends Seeder
           $newApartment->square_meters = rand(40, 500);
           $newApartment->lat = $faker->latitude();
           $newApartment->lon = $faker->longitude();
-          $newApartment->main_img = "https://picsum.photos/id/" . rand(1, 100) . '/1200/800';
+          $newApartment->main_img = $imgs[array_rand($imgs)];
 
           $newApartment->save(); 
 
