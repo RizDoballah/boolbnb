@@ -12,20 +12,20 @@ use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
-    public function __construct()
-    {
-        $this->validateRules = [
-            'title'=> 'required',
-            'description'=> 'required|string|max:1000',
-            'lat'=> 'numeric',
-            'lon'=> 'numeric',
-            'main_img'=>'required|image',
-            'square_meters'=>'required|numeric|min:40|max:500',
-            'rooms'=>'required|numeric|min:1|max:10',
-            'bathrooms'=>'required|numeric|min:1|max:3',
-            'user_id'=>'exists:users,id',
-        ];
-    }
+     public function __construct()
+     {
+         $this->validateRules = [
+             'title'=> 'required',
+             'description'=> 'required|string|max:1000',
+             'lat'=> 'numeric',
+             'lon'=> 'numeric',
+             'main_img'=>'required|image',
+             'square_meters'=>'required|numeric|min:40|max:500',
+             'rooms'=>'required|numeric|min:1|max:10',
+             'bathrooms'=>'required|numeric|min:1|max:3',
+             'user_id'=>'exists:users,id',
+         ];
+     }
 
     public function index()
     {
@@ -44,7 +44,7 @@ class ApartmentController extends Controller
     public function store(Request $request)
 
     {
-
+        
     }
 
 
@@ -74,17 +74,18 @@ class ApartmentController extends Controller
 
 
 
-    public function update(Request $request, Apartment $apartment)
+    public function update(Request $request, $id)
     {
         $data = $request->all();
 
+        // if ($apartment->user->id != Auth::user()->id) {
+        //     abort(404);
+        // }
 
 
-        dd('CIAOOOOOOOO');
-
-        if ($apartment->user->id != Auth::user()->id) {
-            abort(404);
-        }
+        $apartment = Apartment::find($id);
+    //  dd($apartment);
+         
 
         // $validatedData = $request->validate($this->data());
 
@@ -101,9 +102,11 @@ class ApartmentController extends Controller
             'square_meters' => $data['square_meters']
             // 'updated_at' => Carbon::now()
         ]);
- 
+            
+    //  dd($data);
 
-        return redirect()->route('host.index', compact('apartment'));
+
+        return redirect()->route('host.show', $apartment);
     }
 
 

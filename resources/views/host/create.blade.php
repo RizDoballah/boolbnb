@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 
-                <form method=“POST” action="{{route('host.store')}}" enctype="multipart/form-data">
+                <form method='POST' action="{{route('host.store')}}" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
 
