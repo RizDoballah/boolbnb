@@ -7,6 +7,20 @@ use Illuminate\Http\Request;
 
 class ApartmentController extends Controller
 {
+    private function __construct()
+    {
+        $this->validation = [
+            'title'=> 'required',
+            'description'=> 'required|string|max:1000',
+            'lat'=> 'numeric',
+            'lon'=> 'numeric',
+            'main_img'=>'required|image',
+            'square_meters'=>'required|numeric|min:40|max:500',
+            'rooms'=>'required|numeric|min:1|max:10',
+            'bathrooms'=>'required|numeric|min:1|max:3',
+            'user_id'=>'exists:users,id',
+        ];
+    }
 
     public function index()
     {
