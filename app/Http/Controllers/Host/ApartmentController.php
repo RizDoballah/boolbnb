@@ -31,17 +31,17 @@ class ApartmentController extends Controller
     public function store(Request $request)
 
     {
-            $validatedData = $request->validate([
-                'title'=> 'required',
-                'description'=> 'required|string',
-                'lat'=> 'nullable|numeric',
-                'lon'=> 'nullable|numeric',
-                'main_img'=>'required|image',
-                'square_meters'=>'required|numeric',
-                'rooms'=>'required|numeric',
-                'bathroom'=>'required|numeric',
-                'user_id'=>'exists:users,id'
-             ]);
+        $validatedData = $request->validate([
+            'title'=> 'required',
+            'description'=> 'required|string',
+            'lat'=> 'nullable|numeric',
+            'lon'=> 'nullable|numeric',
+            'main_img'=>'required|image',
+            'square_meters'=>'required|numeric',
+            'rooms'=>'required|numeric',
+            'bathroom'=>'required|numeric',
+            'user_id'=>'exists:users,id'
+            ]);
              
         // $request->validate($this->validateData);
 
@@ -79,17 +79,16 @@ class ApartmentController extends Controller
 
     public function edit($id)
     {
-       
-
-        $apartment = Apartment::find($id)->firstOrFail();
+        $apartment = Apartment::find($id);
 
         return view('host.edit', compact('apartment'));
     }
 
 
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+        $apartment = Apartment::find($id);
 
         $validatedData = $request->validate([
             'title'=> 'required',
@@ -105,25 +104,30 @@ class ApartmentController extends Controller
          
 
     $data = $request->all();
-    dd($data);
+    
 
     $path = Storage::disk('public')->put('images', $request->main_img);
 
-    $updated = $apartment->update($data);
+    // dd($updated);
 
-    // $newApartment = Apartment::create([
-    //     'user_id' => Auth::id(),
-    //     'title' => $data['title'],
-    //     'description' => $data['description'],
-    //     'rooms' => $data['rooms'],
-    //     'bathroom' => $data['bathroom'],
-    //     'square_meters' => $data['square_meters'],
-    //     'main_img' => $path
-    // ]);
-        
+            // dd($data);
+        // dd($apartment);
+            
+    //  $apartment->update([
+    //      'title' => $data['title'],
+    //     //  'description' => $data['description'],
+    //     //  'rooms' => $data['rooms'],
+    //     //  'bathroom' => $data['bathroom'],
+    //     //  'square_meters' => $data['square_meters'],
+    //     //  'main_img' => $path
+    //  ]);
+
+    $updated = $apartment->update($data);
         
         if ($updated) {
             return redirect()->route('host.show', $apartment);
+        } else {
+            abort(404);
         }
 
     }

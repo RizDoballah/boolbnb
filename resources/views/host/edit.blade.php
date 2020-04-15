@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-12">
                 
-                <form method='POST' action="{{route('host.update', $apartment)}}" enctype="multipart/form-data">
+                <form method='POST' action="{{route('host.update', $apartment->id)}}" enctype="multipart/form-data">
                 @csrf
-                @method('PATCH')
+                @method('PUT')
 
                     <div class="form-group">
                         <label for="title">Titolo</label>
@@ -49,11 +49,14 @@
                             <small class="form-text text-danger">{{$message}}</small>
                         @enderror
                     </div>
+
                     
-                    <img src="{{$apartment->main_img}}" style="width: 300px" alt="">
 
                     <div class="form-group">
                         <label for="main_img" >Immagine</label>
+                        @isset($apartment->main_img)
+                            <img src="{{asset('storage/' .$apartment->main_img)}}" style="width: 300px" alt="">
+                        @endisset
                         <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*"> 
                         @error('main_img')
                             <small class="form-text text-danger">{{$message}}</small>
