@@ -43,13 +43,8 @@ class ApartmentController extends Controller
             'user_id'=>'exists:users,id'
             ]);
              
-        // $request->validate($this->validateData);
 
         $data = $request->all();
-
-        // dd($data);
-
-        // dd($validatedData);
 
         $path = Storage::disk('public')->put('images', $request->main_img);
 
@@ -81,14 +76,23 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::find($id);
 
+        if($apartment->user_id != Auth::user()->id){
+            abort(404);
+        }
+
+        abort_if(empty($apartment), 404);
+
         return view('host.edit', compact('apartment'));
     }
-
 
 
     public function update(Request $request, $id)
     {
         $apartment = Apartment::find($id);
+
+        if($apartment->user_id != Auth::user()->id){
+           abort(404);
+        }
 
         $validatedData = $request->validate([
             'title'=> 'required',
@@ -104,26 +108,11 @@ class ApartmentController extends Controller
          
 
     $data = $request->all();
-    
+
     if(!empty($data['main_img'])) {
         $data['main_img'] = Storage::disk('public')->put('images', $data['main_img']);
        }
-    // $data['main_img'] = Storage::disk('public')->put('images', $request->main_img);
-
-    // dd($updated);
-
-            // dd($data);
-        // dd($apartment);
-            
-    //  $apartment->update([
-    //      'title' => $data['title'],
-    //     //  'description' => $data['description'],
-    //     //  'rooms' => $data['rooms'],
-    //     //  'bathroom' => $data['bathroom'],
-    //     //  'square_meters' => $data['square_meters'],
-    //     //  'main_img' => $path
-    //  ]);
-
+    
     $updated = $apartment->update($data);
         
         if ($updated) {
@@ -134,11 +123,14 @@ class ApartmentController extends Controller
 
     }
 
-
-
-
-    public function destroy(Apartment $apartment)
+    public function destroy($id)
     {
+        $apartment = Apartment::find($id);
 
+        abort_if(empty($apartment), 404);
+
+        $apartment->delete();
+
+        return redirect()->route('host.index')->with('delete', " You deleted the post with id: $apartment->id");
     }
 }
