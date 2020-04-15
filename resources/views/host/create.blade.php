@@ -5,7 +5,7 @@
     <div class='container'>
         <div class="row">
             <div class="col-12">
-                <form method=“POST”>
+                <form method=“POST” action="{{route('host.store')}}" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
 
@@ -35,8 +35,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="main_img">Immagine</label>
-                        <input type="file" class="form-control-file" name="main_img">
+                        <label for="main_img" >Immagine</label>
+                        <input type="file" class="form-control-file" name="main_img" accept="image/*">
                     </div>
 
                     <button type='submit'>Salva</button>
@@ -48,4 +48,3 @@
     </div>
 
 @endsection
-

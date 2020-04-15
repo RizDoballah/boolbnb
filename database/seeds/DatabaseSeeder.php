@@ -1,8 +1,8 @@
 <?php
 
-use UserSeeder;
-use ApartmentSeeder;
 use Illuminate\Database\Seeder;
+// use UserSeeder;
+// use ApartmentSeeder;
 
 class DatabaseSeeder extends Seeder
 {
