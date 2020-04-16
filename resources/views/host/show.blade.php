@@ -13,6 +13,7 @@
                 <li class="list-inline-item">{{$apartment->square_meters}} Mq</li>
                 <li class="list-inline-item"> {{$apartment->rooms}} Camere</li>
                 <li class="list-inline-item">{{$apartment->bathroom}} Bagni </li>
+                <li class="list-inline-item">{{$apartment->beds}} Letti </li>
             </ul>
             <p>{{$apartment->description}}</p>
 

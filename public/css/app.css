@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@400;
+
+700&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -6,7 +8,6 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -10882,11 +10883,16 @@ a.text-dark:focus {
   }
 }
 
+* {
+  font-family: "Manrope", sans-serif;
+}
+
 header {
-  height: 800px;
+  height: 100vh;
   background-image: url(/images/img1_carousel.jpg?d7ad69257d05bb26b04f9f75961ad4b6);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 header .fab {

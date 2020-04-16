@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
+
+* {
+  font-family: 'Manrope', sans-serif;
+}
+
 header{
-  height: 800px;
+  height: 100vh;
   background-image: url('img/img1_carousel.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   .fab {
     vertical-align: middle;
     color: #FF5A5F;
