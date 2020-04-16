@@ -5,7 +5,7 @@
     <div class='container'>
         <div class="row">
             <div class="col-12">
-                
+
                 <form method='POST' action="{{route('host.store')}}" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
@@ -17,18 +17,33 @@
                             <small class="form-text text-danger">{{$message}}</small>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="address">Indirizzo</label>
+                        <input type="text" class="form-control @error('address') is-invalid @enderror" name='address'  placeholder="inserisci l'indirizzo" value="{{old('address')}}">
+                        @error('address')
+                            <small class="form-text text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
 
                     <div class="form-group">
                         <label for="rooms">stanze</label>
-                        <input type="number" class="form-control @error('rooms') is-invalid @enderror" name='rooms'  placeholder="inserisci un numero di stanza" value="{{old('rooms')}}">
+                        <input min="1" type="number" class="form-control @error('rooms') is-invalid @enderror" name='rooms'  placeholder="inserisci un numero di stanza" value="{{old('rooms')}}">
                         @error('rooms')
                             <small class="form-text text-danger">{{$message}}</small>
                         @enderror
                     </div>
 
                     <div class="form-group">
+                        <label for="beds">letti</label>
+                        <input min="1" type="number" class="form-control @error('beds') is-invalid @enderror" name='beds'  placeholder="inserisci numero letti" value="{{old('beds')}}">
+                        @error('beds')
+                            <small class="form-text text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="bathroom">bagni</label>
-                        <input type="number" class="form-control @error('bathroom') is-invalid @enderror" name='bathroom'  placeholder="inserisci numero bagni" value="{{old('bathroom')}}">
+                        <input min="1" type="number" class="form-control @error('bathroom') is-invalid @enderror" name='bathroom'  placeholder="inserisci numero bagni" value="{{old('bathroom')}}">
                         @error('bathroom')
                             <small class="form-text text-danger">{{$message}}</small>
                         @enderror
@@ -36,7 +51,7 @@
 
                     <div class="form-group">
                         <label for="square_meters">metri quadri</label>
-                        <input type="number" class="form-control @error('square_meters') is-invalid @enderror" name='square_meters'  placeholder="inserisci metri quadrati" value="{{old('square_meters')}}">
+                        <input min="1" type="number" class="form-control @error('square_meters') is-invalid @enderror" name='square_meters'  placeholder="inserisci metri quadrati" value="{{old('square_meters')}}">
                         @error('square_meters')
                             <small class="form-text text-danger">{{$message}}</small>
                         @enderror
@@ -64,6 +79,13 @@
                         <input type="checkbox" name="services[]" value="{{$service->id}}">
                         <span class="mr-4">{{$service->name}}</span>
                         @endforeach
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <select name="published" >
+                            <option value="1">Pubblicato</option>
+                            <option value="0">Non Pubblicato</option>
+                        </select>
                     </div>
 
                     <button type='submit'>Salva</button>

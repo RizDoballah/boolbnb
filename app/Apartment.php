@@ -13,12 +13,14 @@ class Apartment extends Model
         "title",
         "description",
         "rooms",
+        "beds",
         "bathroom",
         "square_meters",
         "lat",
         "lon",
-        "main_img"
-
+        "address",
+        "main_img",
+        "published"
     ];
 
     public function user()
@@ -32,5 +34,3 @@ class Apartment extends Model
     }
 
 }
-
-

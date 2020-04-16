@@ -20,16 +20,12 @@ class ServiceSeeder extends Seeder
             'Sauna',
             'Vista mare'
         ];
-        for ($i=0; $i < count($services); $i++) { 
+        for ($i=0; $i < count($services); $i++) {
 
             $newService = new Service;
             $newService->name = $services[$i];
             $newService->save();
 
         }
-        
-
-        
-
     }
 }

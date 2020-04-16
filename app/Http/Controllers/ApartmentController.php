@@ -13,14 +13,15 @@ class ApartmentController extends Controller
 
     public function index()
     {
-        $apartments = Apartment::take(6)->get();
+        $apartments = Apartment::take(6)->where('published', '1')->get();
+
         return view('guest.index', compact('apartments'));
     }
 
 
     public function create()
     {
-        
+
     }
 
 
@@ -28,13 +29,16 @@ class ApartmentController extends Controller
 
     {
 
-        
+
     }
 
 
     public function show($id)
     {
         $apartment = Apartment::find($id);
+        if($apartment->published == 0){
+          abort('404');
+        }
 
         abort_if(empty($apartment), 404);
 

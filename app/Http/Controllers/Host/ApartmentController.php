@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
-     
+
 
     public function index()
     {
@@ -35,19 +35,22 @@ class ApartmentController extends Controller
 
     {
 
-
+        // VALIDAZIONE
         $validatedData = $request->validate([
                 'title'=> 'required',
                 'description'=> 'required|string',
+                'address'=> 'string',
                 'lat'=> 'nullable|numeric',
                 'lon'=> 'nullable|numeric',
                 'main_img'=>'required|image',
                 'square_meters'=>'required|numeric',
-                'rooms'=>'required|numeric',
+                'rooms'=>'required|numeric|min:1',
                 'bathroom'=>'required|numeric',
+                'beds'=>'required|numeric',
+                'published'=>'required|boolean',
                 'user_id'=>'exists:users,id'
             ]);
-            
+
 
         $data = $request->all();
 
@@ -57,14 +60,17 @@ class ApartmentController extends Controller
         $newApartment = Apartment::create([
             'user_id' => Auth::id(),
             'title' => $data['title'],
+            'address' => $data['address'],
             'description' => $data['description'],
             'rooms' => $data['rooms'],
+            'beds' => $data['beds'],
             'bathroom' => $data['bathroom'],
             'square_meters' => $data['square_meters'],
-            'main_img' => $path
+            'main_img' => $path,
+            'published' => $data['published'],
         ]);
 
-        
+
         $services= $data['services'];
 
         if (!empty($services)) {
@@ -72,7 +78,7 @@ class ApartmentController extends Controller
         }
 
 
-        
+
         return redirect(route('host.show', $newApartment));
     }
 
@@ -114,7 +120,7 @@ class ApartmentController extends Controller
         if($apartment->user_id != Auth::user()->id){
            abort(404);
         }
-
+        // VALIDAZIONE
         $validatedData = $request->validate([
             'title'=> 'required',
             'description'=> 'required|string',
@@ -124,17 +130,23 @@ class ApartmentController extends Controller
             'square_meters'=>'required|numeric',
             'rooms'=>'required|numeric',
             'bathroom'=>'required|numeric',
-            'user_id'=>'exists:users,id'
+            'user_id'=>'exists:users,id',
+            'address'=> 'string',
+            'beds'=>'required|numeric',
+            'published'=>'required|boolean'
          ]);
-         
+
 
     $data = $request->all();
+
 
     if(!empty($data['main_img'])) {
         $data['main_img'] = Storage::disk('public')->put('images', $data['main_img']);
        }
-    
+
     $updated = $apartment->update($data);
+
+
 
 
     // if (!empty($request->tags)) {
@@ -145,13 +157,13 @@ class ApartmentController extends Controller
     //         }
     //     }
     // }
-    
+
         if(!empty($data['services'])){
             $apartment->services()->sync($data['services']);
         }
 
 
-        
+
         if ($updated) {
             return redirect()->route('host.show', $apartment);
         } else {
