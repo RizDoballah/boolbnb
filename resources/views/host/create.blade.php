@@ -58,6 +58,14 @@
                         @enderror
                     </div>
 
+                    <div class="form-group mb-4">
+                        <label class="mr-4 text-bold d-block" for="tags">Servizi</label>
+                        @foreach ($services as $service)
+                        <input type="checkbox" name="services[]" value="{{$service->id}}">
+                        <span class="mr-4">{{$service->name}}</span>
+                        @endforeach
+                    </div>
+
                     <button type='submit'>Salva</button>
 
                 </form>
@@ -67,8 +75,3 @@
     </div>
 
 @endsection
-
-
-{{-- src="http://127.0.0.1:8000/storage/C:\Users\matte\AppData\Local\Temp\php5BD6.tmp" --}}
-
-{{-- src="http://127.0.0.1:8000/storage/images/uaPjwtBVSGYAkqDaf8rwobXHJyJqWqRzUd7LFVcu.png" --}}

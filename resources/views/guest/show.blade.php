@@ -18,6 +18,16 @@
 
         </div>
     </div>
+
+    <div class="row">
+        <div class="col">
+            <h4 class="mt-3">Servizi</h4>
+            @foreach ($apartment->services as $service)
+                <button type="button" class="btn btn-secondary btn-lg" disabled>{{$service->name}}</button>
+            @endforeach
+        </div>
+    </div>
+    
 </div>
     
 @endsection

@@ -57,13 +57,24 @@
                         @isset($apartment->main_img)
                             <img src="{{asset($apartment->main_img)}}" style="width: 300px" alt="">
                         @endisset 
-                        {{-- 'storage/' .  --}}
 
                         <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*"> 
                         @error('main_img')
                             <small class="form-text text-danger">{{$message}}</small>
                         @enderror
                     </div>
+
+
+                    <div class="form-group">
+                        <label class="mr-4 text-bold" for="services">Servizi</label>
+                        @foreach ($services as $service)
+                        <input type="checkbox" name="services[]" value="{{$service->id}}"
+                            {{($apartment->services->contains($service->id) ? 'checked' : '')}}>
+    
+                        <span class="mr-4">{{$service->name}}</span>
+                        @endforeach
+                    </div>
+
 
                     <button type='submit'>Salva</button>
 
