@@ -1,3 +1,16 @@
+header{
+  height: 800px;
+  background-image: url('img/img1_carousel.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  .fab {
+    vertical-align: middle;
+    color: #FF5A5F;
+    font-size: 36px;
+  }
+
+}
+
 .apartment_img {
     width: 100%;
 }

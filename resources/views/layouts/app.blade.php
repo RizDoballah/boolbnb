@@ -2,12 +2,16 @@
 
 <body>
     <div id="app">
-
         @include('layouts._menu')
-​
-        <main class="py-4">
+
+      <main class="py-4">
             @yield('content')
-        </main>
+      </main>
+
+      <footer>
+
+      </footer>
+
     </div>
 </body>
 </html>
