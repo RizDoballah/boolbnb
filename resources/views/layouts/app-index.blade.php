@@ -9,18 +9,18 @@
           <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <form action="" method="get">
-                        @csrf
-                        @method('GET')
+                    
+                        {{-- @csrf
+                        @method('GET') --}}
                         <h3>Ricerca alloggi</h3>
-                        <input type="search" placeholder="Aggiungi una città o un indirizzo" name="autocomplete-regioni">
-                        <button type="submit">Cerca</button>
-                    </form>
+                        <input id="search_input" type="search" placeholder="Aggiungi una città o un indirizzo" name="autocomplete-regioni">
+                        <button id="search" name="search" type="submit">Cerca</button>
+
                   </div>
                 </div>
               </div>
             </div>
-            
+
           </header>
       <main class="py-4">
             @yield('content')

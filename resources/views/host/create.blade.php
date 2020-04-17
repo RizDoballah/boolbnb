@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label for="address">Indirizzo</label>
-                        <input type="text" class="form-control @error('address') is-invalid @enderror" name='address'  placeholder="inserisci l'indirizzo" value="{{old('address')}}">
+                        <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name='address'  placeholder="inserisci l'indirizzo" value="{{old('address')}}">
                         @error('address')
                             <small class="form-text text-danger">{{$message}}</small>
                         @enderror
@@ -88,7 +88,7 @@
                         </select>
                     </div>
 
-                    <button type='submit'>Salva</button>
+                    <button id="save_apt" type='submit'>Salva</button>
 
                 </form>
 
