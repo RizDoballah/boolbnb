@@ -49806,16 +49806,16 @@ $(document).ready(function () {
     });
   }); // Chiamata Ajax input Index
 
-  $('#search').on('click', function () {
+  $(document).on('keyup', '#search_input', function () {
     var searchVal = $('#search_input').val();
+    console.log(searchVal);
     var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
     console.log(url);
     $.ajax({
       'url': url,
       'data': {
-        // 'limit':1,
-        'key': key,
-        'radius': 20000
+        'limit': 1,
+        'key': key
       },
       'method': 'GET',
       'success': function success(data) {
@@ -49967,8 +49967,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\mump_project\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\mump_project\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

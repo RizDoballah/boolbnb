@@ -10,8 +10,15 @@
             <div class="col-12">
               <div class="form-group">
                 <h3>Ricerca alloggi</h3>
-                <input id="search_input" type="search" placeholder="Aggiungi una città o un indirizzo" name="autocomplete-regioni">
-                <button id="search" name="search" type="submit">Cerca</button>
+                <form method="POST" action="{{route('apartment.search')}}" >
+                  @csrf
+                  @method('POST')
+                  <input id="search_input" type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
+                  <input id="lat" type="hidden" name="lat" value="">
+                  <input id="lon" type="hidden" name="lon" value="">
+                  <button id="search" type="submit">Cerca</button>
+
+                </form>
               </div>
             </div>
           </div>
