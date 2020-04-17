@@ -49781,11 +49781,9 @@ var app = new Vue({
 }); // Jquery code
 
 $(document).ready(function () {
-  $('#search').on('click', function () {
-    var searchVal = $('#search_input').val(); // console.log(searchVal);
-
-    var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json?key=HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
-    console.log(url);
+  $('#address').on('blur', function () {
+    var addressVal = $('#address').val();
+    var url = 'https://api.tomtom.com/search/2/geocode/' + addressVal + '.json?key=HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
     $.ajax({
       'url': url,
       'data': {
@@ -49797,8 +49795,10 @@ $(document).ready(function () {
         var results = data.results; // console.log(results[0].position.lat);
 
         var lat = results[0].position.lat;
-        var lon = results[0].position.lon;
-        console.log(lat, lon);
+        var lon = results[0].position.lon; // console.log(lat, lon);
+
+        $('#lat').val(lat);
+        $('#lon').val(lon);
       },
       'error': function error(request, state, _error) {
         alert('Errore' + _error);

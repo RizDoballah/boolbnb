@@ -17,11 +17,11 @@ const app = new Vue({
 
 $(document).ready(function() {
 
-  $('#search').on('click', function() {
-    var searchVal =  $('#search_input').val();
-    // console.log(searchVal);
-    var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json?key=HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
-    console.log(url);
+  $('#address').on('blur', function() {
+
+    var addressVal =  $('#address').val();
+
+    var url = 'https://api.tomtom.com/search/2/geocode/' + addressVal + '.json?key=HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
     $.ajax({
       'url': url,
       'data': {'limit':1},
@@ -32,7 +32,10 @@ $(document).ready(function() {
         // console.log(results[0].position.lat);
         var lat = results[0].position.lat;
         var lon = results[0].position.lon;
-        console.log(lat, lon);
+        // console.log(lat, lon);
+
+        $('#lat').val(lat);
+        $('#lon').val(lon);
 
 
       },

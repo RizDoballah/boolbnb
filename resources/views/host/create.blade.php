@@ -24,6 +24,8 @@
                             <small class="form-text text-danger">{{$message}}</small>
                         @enderror
                     </div>
+                    <input id="lat" type="hidden" name="lat" value="">
+                    <input id="lon" type="hidden" name="lon" value="">
 
                     <div class="form-group">
                         <label for="rooms">stanze</label>
