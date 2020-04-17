@@ -17,48 +17,54 @@
       ​
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav ml-auto">
+
+        @if (Request::is('apartment/search'))
+            Sono dentro apartment search
+        @endif        
+
+
+
         <!-- Authentication Links -->
         @guest
-          <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
-          </li>
-          @if (Route::has('register'))
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
-            </li>
-          @endif
-        @else
-
-        <li class="nav-item dropdown">
-
-            {{-- Button with avatar --}}
-            <button type="button" id="navbarDropdown" class="button-host" data-toggle="dropdown">
-                <div class="button-text" aria-label="Menu di navigazione principale">Tu</div>
-                <div class="img-container">
-                <img class="avatar" src="{{Auth::user()->avatar}}" alt="">
-                </div>
-            </button>
-            {{-- end button with avatar --}}
-
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('host.index') }}">Gestisci alloggi</a>
-              <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-              Logout
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              @csrf
-            </form>
-          </div>
-
-
-            {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              {{ Auth::user()->name }} <span class="caret"></span>
-            </a> --}}
-
         </li>
-      @endguest
+        @if (Route::has('register'))
+            <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+            </li>
+        @endif
+        @else
+            <li class="nav-item dropdown">
+
+                {{-- Button with avatar --}}
+                <button type="button" id="navbarDropdown" class="button-host" data-toggle="dropdown">
+                    <div class="button-text" aria-label="Menu di navigazione principale">Tu</div>
+                    <div class="img-container">
+                    <img class="avatar" src="{{Auth::user()->avatar}}" alt="">
+                    </div>
+                </button>
+                {{-- end button with avatar --}}
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('host.index') }}">Gestisci alloggi</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+                </form>
+            </div>
+
+
+                {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }} <span class="caret"></span>
+                </a> --}}
+
+            </li>
+        @endguest
     </ul>
   </div>
 </div>
