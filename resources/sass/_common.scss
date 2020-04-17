@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;700&display=swap');
 
 * {
   font-family: 'Manrope', sans-serif;
@@ -20,3 +20,37 @@ header{
     width: 100px;
 }
 
+.box-search-index {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  padding: 35px;
+}
+
+#search_input {
+  width: 100%;
+  border-radius: 5px;
+  border-color: #EBEBEB;
+  border: 1px solid #EBEBEB;
+  padding: 10px;
+  color: #484848;
+  margin-bottom: 15px;
+}
+
+
+#search_input::placeholder {
+  color: #767676;
+}
+
+#search {
+  display: block;
+  border-radius: 3px;
+  font-weight: bold;
+  width: 100%;
+  background-color: #FF5862;
+  border: none;
+  color: white;
+  padding: 7px;
+  font-size: 16px;
+}

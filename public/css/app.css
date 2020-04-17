@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@400;
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@200;
 
 700&display=swap);@charset "UTF-8";
 
@@ -10903,6 +10903,56 @@ header {
   width: 100px;
 }
 
+.box-search-index {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  padding: 35px;
+}
+
+#search_input {
+  width: 100%;
+  border-radius: 5px;
+  border-color: #EBEBEB;
+  border: 1px solid #EBEBEB;
+  padding: 10px;
+  color: #484848;
+  margin-bottom: 15px;
+}
+
+#search_input::-webkit-input-placeholder {
+  color: #767676;
+}
+
+#search_input::-moz-placeholder {
+  color: #767676;
+}
+
+#search_input:-ms-input-placeholder {
+  color: #767676;
+}
+
+#search_input::-ms-input-placeholder {
+  color: #767676;
+}
+
+#search_input::placeholder {
+  color: #767676;
+}
+
+#search {
+  display: block;
+  border-radius: 3px;
+  font-weight: bold;
+  width: 100%;
+  background-color: #FF5862;
+  border: none;
+  color: white;
+  padding: 7px;
+  font-size: 16px;
+}
+
 .img-container {
   border-radius: 50%;
   height: 30px;
@@ -10915,6 +10965,7 @@ header {
 .button-host {
   cursor: pointer;
   display: inline-flex;
+  border: none;
   outline: none;
   padding: 5px 5px 5px 16px;
   align-items: center;
@@ -10939,5 +10990,11 @@ header {
 .button-text {
   font-size: 14px !important;
   font-weight: 600 !important;
+}
+
+.small-text-search {
+  font-size: 11px;
+  font-weight: bold;
+  color: #222222;
 }
 

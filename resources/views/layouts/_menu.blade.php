@@ -1,26 +1,34 @@
-
-  <nav class="navbar navbar-expand-md navbar-light ">
-    <div class="container-fluid my-4">
-      <a class="navbar-brand" href="{{ url('/') }}">
-      <img class="logo" src="{{asset('img/logo.png')}}" alt="Airbnb logo">
-      
+<nav class="navbar navbar-expand-md navbar-light ">
+  <div class="container-fluid my-4">
+    <a class="navbar-brand" href="{{ url('/') }}">
+      @include('layouts._logo')
+      {{-- <img class="logo" src="{{asset('img/logo.png')}}" alt="Airbnb logo"> --}}
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+    {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    ​
+    </button> --}}
+    ​ 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Left Side Of Navbar -->
       <ul class="navbar-nav mr-auto">
         ​
       </ul>
-      ​
+      ​@if (Request::is('apartment/search'))
+      <div class="form-group">
+        <form method="POST" action="{{route('apartment.search')}}" >
+          @csrf
+          @method('POST')
+          <input id="search_input" type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
+          <input id="lat" type="hidden" name="lat" value="">
+          <input id="lon" type="hidden" name="lon" value="">
+          <button id="search" type="submit">Cerca</button>
+        </form>
+      </div>
+      @endif  
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav ml-auto">
 
-        @if (Request::is('apartment/search'))
-            Sono dentro apartment search
-        @endif        
+             
 
 
 
