@@ -15,7 +15,7 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::take(6)->where('published', '1')->get();
 
-        return view('guest.index', compact('apartments'));
+        return view('index', compact('apartments'));
     }
 
 
@@ -42,7 +42,7 @@ class ApartmentController extends Controller
 
         abort_if(empty($apartment), 404);
 
-        return view('guest.show', compact('apartment'));
+        return view('show', compact('apartment'));
     }
 
 

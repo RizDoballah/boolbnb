@@ -8,20 +8,15 @@
         <div class="container">
           <div class="row">
             <div class="col-12">
-                <div class="form-group">
-                    
-                        {{-- @csrf
-                        @method('GET') --}}
-                        <h3>Ricerca alloggi</h3>
-                        <input id="search_input" type="search" placeholder="Aggiungi una città o un indirizzo" name="autocomplete-regioni">
-                        <button id="search" name="search" type="submit">Cerca</button>
-
-                  </div>
-                </div>
+              <div class="form-group">
+                <h3>Ricerca alloggi</h3>
+                <input id="search_input" type="search" placeholder="Aggiungi una città o un indirizzo" name="autocomplete-regioni">
+                <button id="search" name="search" type="submit">Cerca</button>
               </div>
             </div>
-
-          </header>
+          </div>
+        </div>
+      </header>
       <main class="py-4">
             @yield('content')
       </main>

@@ -19,7 +19,7 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::where('user_id', Auth::id())->get();
 
-        return view('host.index', compact('apartments'));
+        return view('host.apartments.index', compact('apartments'));
     }
 
 
@@ -27,7 +27,7 @@ class ApartmentController extends Controller
     {
         $services = Service::all();
 
-        return view('host.create', compact('services'));
+        return view('host.apartments.create', compact('services'));
     }
 
 
@@ -91,7 +91,7 @@ class ApartmentController extends Controller
 
         abort_if(empty($apartment), 404);
 
-        return view('host.show', compact('apartment'));
+        return view('host.apartments.show', compact('apartment'));
     }
 
 
@@ -107,7 +107,7 @@ class ApartmentController extends Controller
 
         abort_if(empty($apartment), 404);
 
-        return view('host.edit', [
+        return view('host.apartments.edit', [
             'services' => $services,
             'apartment' => $apartment
         ]);

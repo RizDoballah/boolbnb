@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <img class="apartment_img" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
+            <img class="apartment_img" src="{{asset($apartment->main_img)}}" alt="">
             <h1>{{$apartment->title}}</h1>
             {{-- <small>{{$apartment->square_meters}}</small> --}}
             <ul class="list-inline">
