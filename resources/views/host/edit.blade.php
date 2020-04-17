@@ -19,11 +19,13 @@
                     </div>
                     <div class="form-group">
                         <label for="address">Indirizzo</label>
-                        <input type="text" class="form-control @error('address') is-invalid @enderror" name='address'  placeholder="inserisci un indirizzo" value="{{$apartment->address}}">
+                        <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name='address'  placeholder="inserisci un indirizzo" value="{{$apartment->address}}">
                         @error('address')
                             <small class="form-text text-danger">{{$message}}</small>
                         @enderror
                     </div>
+                    <input id="lat" type="hidden" name="lat" value="{{$apartment->lat}}">
+                    <input id="lon" type="hidden" name="lon" value="{{$apartment->lon}}">
 
 
                     <div class="form-group">
