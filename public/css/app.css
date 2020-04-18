@@ -10953,6 +10953,34 @@ header {
   font-size: 16px;
 }
 
+footer {
+  background-color: white;
+  border-top: 1px solid #DDDDDD;
+}
+
+footer .footer_top {
+  padding: 40px;
+}
+
+footer .footer_top .footer_titles {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+footer .footer_top .footer_list {
+  list-style: none;
+}
+
+footer .footer_top .footer_list a {
+  text-decoration: none;
+  color: #222222;
+  font-size: 14px;
+}
+
+footer .footer_top .footer_list a:hover {
+  text-decoration: underline;
+}
+
 .img-container {
   border-radius: 50%;
   height: 30px;
