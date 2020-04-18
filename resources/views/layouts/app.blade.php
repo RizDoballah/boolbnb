@@ -1,5 +1,4 @@
 @include('layouts._head')
-
 <body>
     <div id="app">
         @if (Request::is('/'))
@@ -20,7 +19,6 @@
                     <input id="lat" type="hidden" name="lat" value="">
                     <input id="lon" type="hidden" name="lon" value="">
                     <button id="search" type="submit">Cerca</button>
-
                   </form>
                 </div>
               </div>
@@ -32,7 +30,7 @@
         @endif
 
 
-      <main class="py-4">
+      <main>
             @yield('content')
       </main>
 
@@ -129,6 +127,11 @@
           </div>
       </footer>
     </div>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.52.0/maps/maps-web.min.js"></script>
     <script src="{{asset('js/app.js')}}"></script>
+
+    {{-- @if (Request::is('apartment/search')) --}}
+    {{-- @endif --}}
+
 </body>
 </html>

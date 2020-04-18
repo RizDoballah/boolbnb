@@ -49808,29 +49808,45 @@ $(document).ready(function () {
 
   $(document).on('keyup', '#search_input', function () {
     var searchVal = $('#search_input').val();
-    console.log(searchVal);
-    var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
-    console.log(url);
-    $.ajax({
-      'url': url,
-      'data': {
-        'limit': 1,
-        'key': key
-      },
-      'method': 'GET',
-      'success': function success(data) {
-        console.log(data);
-        var results = data.results;
-        var lat = results[0].position.lat;
-        var lon = results[0].position.lon;
-        $('#lat').val(lat);
-        $('#lon').val(lon);
-      },
-      'error': function error(request, state, _error2) {
-        alert('Errore' + _error2);
-      }
-    });
+
+    if (searchVal.length >= 3) {
+      var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
+      $.ajax({
+        'url': url,
+        'data': {
+          'limit': 1,
+          'key': key
+        },
+        'method': 'GET',
+        'success': function success(data) {
+          var results = data.results;
+          var lat = results[0].position.lat;
+          var lon = results[0].position.lon;
+          $('#lat').val(lat);
+          $('#lon').val(lon);
+        },
+        'error': function error(request, state, _error2) {
+          alert('Errore' + _error2);
+        }
+      });
+    }
+  }); // Mappa tomtom
+  // $('.latHtml').html();
+
+  var latValue = $('#latValue').text();
+  var lonValue = $('#lonValue').text();
+  console.log(latValue);
+  console.log(lonValue); // tt.setProductInfo("Name", "1.0");
+
+  var map = tt.map({
+    key: "yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze",
+    container: "map",
+    style: "tomtom://vector/1/basic-main",
+    center: [lonValue, latValue],
+    zoom: 12
   });
+  var marker = new tt.Marker().setLngLat([lonValue, latValue]).addTo(map);
+  marker.setPopup(new tt.Popup().setHTML("boh"));
 });
 
 /***/ }),
@@ -49967,8 +49983,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Zeus/code/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Zeus/code/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -81,7 +81,7 @@ class ApartmentController extends Controller
 
 
 
-        return redirect(route('host.show', $newApartment));
+        return redirect(route('home.show', $newApartment));
     }
 
 
@@ -91,7 +91,7 @@ class ApartmentController extends Controller
 
         abort_if(empty($apartment), 404);
 
-        return view('host.apartments.show', compact('apartment'));
+        return view('show', compact('apartment'));
     }
 
 
@@ -167,7 +167,7 @@ class ApartmentController extends Controller
 
 
         if ($updated) {
-            return redirect()->route('host.show', $apartment);
+            return redirect()->route('home.show', $apartment);
         } else {
             abort(404);
         }
