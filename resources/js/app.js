@@ -76,11 +76,11 @@ $(document).ready(function () {
 
     // Display tomtom map
 
-    var latValue = $('#latValue').text();
-    var lonValue = $('#lonValue').text();
+    // var latValue = $('#latValue').text();
+    // var lonValue = $('#lonValue').text();
 
-    var latData = $('#img_apartment_search').attr('data-lat');
-    var lonData = $('#img_apartment_search').attr('data-lon');
+    var latData = $('.apartment_img').first().attr('data-lat');
+    var lonData = $('.apartment_img').first().attr('data-lon');
     console.log(latData);
     console.log(lonData);
 
@@ -88,13 +88,32 @@ $(document).ready(function () {
             key: "yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze",
             container: "map",
             style: "tomtom://vector/1/basic-main",
-            center: [lonValue, latValue],
-            zoom: 12
+            center: [lonData, latData],
+            zoom: 10
         });
 
+        $('.apartment_img').each(function() {
 
-    var marker = new tt.Marker().setLngLat([lonValue, latValue]).addTo(map);
-    marker.setPopup(new tt.Popup().setHTML("boh"));
+            let lat = $(this).attr('data-lat');
+            let lon = $(this).attr('data-lon');
+
+            var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
+            marker.setPopup(new tt.Popup().setHTML("boh"));
+            
+           
+
+
+            // $.each(this.attributes, function() {
+            //   // this.attributes is not a plain object, but an array
+            //   // of attribute nodes, which contain both the name and value
+            //   if(this.specified) {
+            //     console.log(this.name, this.value);
+            //   }
+            // });
+          });
+
+
+   
 
 
 

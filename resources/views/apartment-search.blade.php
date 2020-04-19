@@ -5,7 +5,7 @@
         <div class="col-6">
             @foreach ($result as $apartment)
             <a href="{{route('home.show', $apartment)}}">
-                <img id="img_apartment_search" data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img" src="{{asset($apartment->main_img)}}" alt="">
+                <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img" src="{{asset($apartment->main_img)}}" alt="">
             </a>
             <h1>{{$apartment->title}}</h1>
             <ul class="list-inline">
@@ -13,8 +13,6 @@
                 <li class="list-inline-item"> {{$apartment->rooms}} Camere</li>
                 <li class="list-inline-item">{{$apartment->bathroom}} Bagni </li>
                 <li class="list-inline-item">{{$apartment->beds}} Letti </li>
-                <li id="latValue">{{$apartment->lat}}</li>
-                <li id="lonValue">{{$apartment->lon}}</li>
             </ul>
             <div class="row">
                 <div class="col">
