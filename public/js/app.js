@@ -49809,7 +49809,7 @@ $(document).ready(function () {
   $(document).on('keyup', '#search_input', function () {
     var searchVal = $('#search_input').val();
 
-    if (searchVal.length >= 1) {
+    if (searchVal.length > 1) {
       var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
       $.ajax({
         'url': url,
@@ -49835,7 +49835,7 @@ $(document).ready(function () {
     // alert('ok');
     var searchVal = $('#search_input').val();
 
-    if (searchVal.length >= 1) {
+    if (searchVal.length > 1) {
       var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
       $.ajax({
         'url': url,
@@ -49862,45 +49862,48 @@ $(document).ready(function () {
     }
   });
   $(document).on('click', '.listElement', function (event) {
-    event.stopPropagation();
+    // event.stopPropagation();
+    var valInput = $('#search_input').val();
     var elementValue = $(this).html(); // console.log(elementValue);
 
     $('#search_input').val(elementValue);
     $('#search_autocomplete').html('');
 
-    if (searchVal.length = 0) {
+    if (valInput.length = 0) {
       $('#search_autocomplete').html('');
     }
   });
   $(document).on('click', '#search_input', function () {
     $('.listElement').show();
-  });
-  $(document).on('click', '#input_search', function (event) {
-    event.stopPropagation();
-  });
+  }); // $(document).on('click', '#input_search', function (event) {
+  //     event.stopPropagation();
+  // });
+
   $('#app').click(function () {
     $('.listElement').hide();
-  }); // $(document).on('blur', '#search_input', function() {
-  //     $('#search_autocomplete').hide();
-  // });
-  // Display tomtom map
+  }); // Display tomtom map
 
-  var latData = $('.apartment_img').first().attr('data-lat');
-  var lonData = $('.apartment_img').first().attr('data-lon');
-  var map = tt.map({
-    key: "yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze",
-    container: "map",
-    style: "tomtom:vector/1/basic-main",
-    center: [lonData, latData],
-    zoom: 10
-  });
-  map.addControl(new tt.NavigationControl());
-  $('.apartment_img').each(function () {
-    var lat = $(this).attr('data-lat');
-    var lon = $(this).attr('data-lon');
-    var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
-    marker.setPopup(new tt.Popup().setHTML("boh"));
-  });
+  if ($('#map').length) {
+    var latData = $('.apartment_img').first().attr('data-lat');
+    var lonData = $('.apartment_img').first().attr('data-lon'); // Inizialize map
+
+    var map = tt.map({
+      key: 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze',
+      container: "map",
+      style: "tomtom:vector/1/basic-main",
+      center: [lonData, latData],
+      zoom: 10
+    }); // Add navigation control
+
+    map.addControl(new tt.NavigationControl()); // Add a marker for every apartment
+
+    $('.apartment_img').each(function () {
+      var lat = $(this).attr('data-lat');
+      var lon = $(this).attr('data-lon');
+      var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
+      marker.setPopup(new tt.Popup().setHTML("boh"));
+    });
+  }
 });
 
 /***/ }),
@@ -50037,8 +50040,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Zeus/code/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Zeus/code/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

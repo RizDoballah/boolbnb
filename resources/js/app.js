@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     $(document).on('keyup', '#search_input', function () {
         var searchVal = $('#search_input').val();
-        if (searchVal.length >= 1) {
+        if (searchVal.length > 1) {
             var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
             $.ajax({
                 'url': url,
@@ -74,13 +74,13 @@ $(document).ready(function () {
     });
 
 
-    
+
     // Autocomplete 
 
-    $(document).on('keyup', '#search_input', function(){
+    $(document).on('keyup', '#search_input', function () {
         // alert('ok');
         var searchVal = $('#search_input').val();
-        if (searchVal.length >= 1) {
+        if (searchVal.length > 1) {
             var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
             $.ajax({
                 'url': url,
@@ -94,7 +94,7 @@ $(document).ready(function () {
                     $('#search_autocomplete').html('');
                     var results = data.results;
                     console.log(results);
-                    
+
                     results.forEach(element => {
                         var region = element.address.countrySubdivision;
                         var address = element.address.freeformAddress;
@@ -105,70 +105,68 @@ $(document).ready(function () {
                 'error': function (request, state, error) {
                     // alert('Errore' + error);
                 }
-                
+
             });
         }
     })
 
-    
 
-    $(document).on('click', '.listElement', function(event) {
-        event.stopPropagation();
+
+
+    $(document).on('click', '.listElement', function (event) {
+        // event.stopPropagation();
+        var valInput = $('#search_input').val();
         var elementValue = $(this).html();
         // console.log(elementValue);
         $('#search_input').val(elementValue);
         $('#search_autocomplete').html('');
-        if (searchVal.length = 0) {
+        if (valInput.length = 0) {
             $('#search_autocomplete').html('');
         }
     })
 
-    $(document).on('click', '#search_input', function(){
+    $(document).on('click', '#search_input', function () {
         $('.listElement').show();
     });
-    
-    $(document).on('click', '#input_search', function(event){
-        event.stopPropagation();
-    });
-    
-    $('#app').click(function() {
-        $('.listElement').hide();
-     });
 
-   
-
-    // $(document).on('blur', '#search_input', function() {
-    //     $('#search_autocomplete').hide();
+    // $(document).on('click', '#input_search', function (event) {
+    //     event.stopPropagation();
     // });
-   
-       
-    
+
+    $('#app').click(function () {
+        $('.listElement').hide();
+    });
+
+
 
     // Display tomtom map
 
-     var latData = $('.apartment_img').first().attr('data-lat');
-     var lonData = $('.apartment_img').first().attr('data-lon');
+    if ($('#map').length) {
 
-     var map = tt.map({
-         key: "yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze",
-         container: "map",
-         style: "tomtom:vector/1/basic-main",
-         center: [lonData, latData],
-         zoom: 10
-     });
+        var latData = $('.apartment_img').first().attr('data-lat');
+        var lonData = $('.apartment_img').first().attr('data-lon');
 
-     map.addControl(new tt.NavigationControl());
+        // Inizialize map
+        var map = tt.map({
+            key: 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze',
+            container: "map",
+            style: "tomtom:vector/1/basic-main",
+            center: [lonData, latData],
+            zoom: 10
+        });
+        // Add navigation control
+        map.addControl(new tt.NavigationControl());
 
-     $('.apartment_img').each(function () {
+        // Add a marker for every apartment
+        $('.apartment_img').each(function () {
+            let lat = $(this).attr('data-lat');
+            let lon = $(this).attr('data-lon');
+            var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
+            marker.setPopup(new tt.Popup().setHTML("boh"));
+        });
+    }
 
-         let lat = $(this).attr('data-lat');
-         let lon = $(this).attr('data-lon');
 
-         var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
-         marker.setPopup(new tt.Popup().setHTML("boh"));
 
-     });
+
 });
-
-
-
