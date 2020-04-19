@@ -37,7 +37,7 @@ $(document).ready(function () {
                 $('#lon').val(lon);
             },
             'error': function (request, state, error) {
-                alert('Errore' + error);
+                // alert('Errore' + error);
             }
         });
     });
@@ -64,11 +64,9 @@ $(document).ready(function () {
                     var lon = results[0].position.lon;
                     $('#lat').val(lat);
                     $('#lon').val(lon);
-                    // console.log(lat);
-                    // console.log(lon);
                 },
                 'error': function (request, state, error) {
-                    alert('Errore' + error);
+                    // alert('Errore' + error);
                 }
             });
         }
@@ -78,35 +76,42 @@ $(document).ready(function () {
     
     // Autocomplete 
 
-    $(document).on('keypress', '#search_input', function(){
+    $(document).on('keydown', '#search_input', function(){
         // alert('ok');
         var searchVal = $('#search_input').val();
-        if (searchVal.length >= 2) {
+        if (searchVal.length >= 1) {
             var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
             $.ajax({
                 'url': url,
                 'data': {
                     'limit': 5,
                     'key': key
+                    // 'countrySet': 'IT'
                 },
                 'method': 'GET',
                 'success': function (data) {
-                    console.log(data);
-                    
+                    $('#search_autocomplete').html('');
                     var results = data.results;
-                    var lat = results[0].position.lat;
-                    var lon = results[0].position.lon;
-                    $('#lat').val(lat);
-                    $('#lon').val(lon);
-                    console.log(lat);
-                    console.log(lon);
+                    results.forEach(element => {
+                        var region = element.address.countrySubdivision;
+                        var address = element.address.freeformAddress;
+                        var city = element.address.municipality;
+                        var autoComplete = address + ', ' + city + ', ' + region;
+                        $('#search_autocomplete').append('<option value="' + autoComplete + '">');
+                        console.log(autoComplete);
+                        
+                    });
+                    
+                    
                 },
                 'error': function (request, state, error) {
-                    alert('Errore' + error);
+                    // alert('Errore' + error);
                 }
             });
         }
     })
+
+
 
     // Display tomtom map
 
@@ -120,7 +125,7 @@ $(document).ready(function () {
          center: [lonData, latData],
          zoom: 10
      });
-     
+
      map.addControl(new tt.NavigationControl());
 
      $('.apartment_img').each(function () {

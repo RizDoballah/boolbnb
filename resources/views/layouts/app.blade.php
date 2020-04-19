@@ -15,11 +15,8 @@
                     @csrf
                     @method('POST')
                     <label class="small-text-search" for="search_input">DOVE</label>
-                    <input autocomplete="off" id="search_input" list="search12"  type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
-                    <datalist id="search12">
-                      <option value="Roma">
-                      <option value="Milano">
-                     <option value="Napoli">
+                    <input autocomplete="off" id="search_input" list="search_autocomplete"  type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
+                    <datalist id="search_autocomplete">
                     </datalist>
                     <input id="lat" type="hidden" name="lat" value="">
                     <input id="lon" type="hidden" name="lon" value="">

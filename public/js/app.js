@@ -49800,8 +49800,7 @@ $(document).ready(function () {
         $('#lat').val(lat);
         $('#lon').val(lon);
       },
-      'error': function error(request, state, _error) {
-        alert('Errore' + _error);
+      'error': function error(request, state, _error) {// alert('Errore' + error);
       }
     });
   }); // Chiamata Ajax input Index
@@ -49823,41 +49822,41 @@ $(document).ready(function () {
           var lat = results[0].position.lat;
           var lon = results[0].position.lon;
           $('#lat').val(lat);
-          $('#lon').val(lon); // console.log(lat);
-          // console.log(lon);
+          $('#lon').val(lon);
         },
-        'error': function error(request, state, _error2) {
-          alert('Errore' + _error2);
+        'error': function error(request, state, _error2) {// alert('Errore' + error);
         }
       });
     }
   }); // Autocomplete 
 
-  $(document).on('keypress', '#search_input', function () {
+  $(document).on('keydown', '#search_input', function () {
     // alert('ok');
     var searchVal = $('#search_input').val();
 
-    if (searchVal.length >= 2) {
+    if (searchVal.length >= 1) {
       var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
       $.ajax({
         'url': url,
         'data': {
           'limit': 5,
-          'key': key
+          'key': key // 'countrySet': 'IT'
+
         },
         'method': 'GET',
         'success': function success(data) {
-          console.log(data);
+          $('#search_autocomplete').html('');
           var results = data.results;
-          var lat = results[0].position.lat;
-          var lon = results[0].position.lon;
-          $('#lat').val(lat);
-          $('#lon').val(lon);
-          console.log(lat);
-          console.log(lon);
+          results.forEach(function (element) {
+            var region = element.address.countrySubdivision;
+            var address = element.address.freeformAddress;
+            var city = element.address.municipality;
+            var autoComplete = address + ', ' + city + ', ' + region;
+            $('#search_autocomplete').append('<option value="' + autoComplete + '">');
+            console.log(autoComplete);
+          });
         },
-        'error': function error(request, state, _error3) {
-          alert('Errore' + _error3);
+        'error': function error(request, state, _error3) {// alert('Errore' + error);
         }
       });
     }
