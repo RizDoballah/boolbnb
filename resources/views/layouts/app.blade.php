@@ -15,9 +15,10 @@
                     @csrf
                     @method('POST')
                     <label class="small-text-search" for="search_input">DOVE</label>
-                    <input autocomplete="off" id="search_input" list="search_autocomplete"  type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
-                    <datalist id="search_autocomplete">
-                    </datalist>
+                    <input autocomplete="off" id="search_input" type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
+                    {{-- <datalist id="search_autocomplete">
+                    </datalist> --}}
+                    <ul id="search_autocomplete"></ul>
                     <input id="lat" type="hidden" name="lat" value="">
                     <input id="lon" type="hidden" name="lon" value="">
                     <button id="search" type="submit">Cerca</button>

@@ -49,7 +49,7 @@ $(document).ready(function () {
 
     $(document).on('keyup', '#search_input', function () {
         var searchVal = $('#search_input').val();
-        if (searchVal.length >= 3) {
+        if (searchVal.length >= 1) {
             var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
             $.ajax({
                 'url': url,
@@ -76,7 +76,7 @@ $(document).ready(function () {
     
     // Autocomplete 
 
-    $(document).on('keydown', '#search_input', function(){
+    $(document).on('keyup', '#search_input', function(){
         // alert('ok');
         var searchVal = $('#search_input').val();
         if (searchVal.length >= 1) {
@@ -85,32 +85,40 @@ $(document).ready(function () {
                 'url': url,
                 'data': {
                     'limit': 5,
-                    'key': key
-                    // 'countrySet': 'IT'
+                    'key': key,
+                    'countrySet': 'IT'
                 },
                 'method': 'GET',
                 'success': function (data) {
                     $('#search_autocomplete').html('');
                     var results = data.results;
+                    console.log(results);
+                    
                     results.forEach(element => {
                         var region = element.address.countrySubdivision;
                         var address = element.address.freeformAddress;
-                        var city = element.address.municipality;
-                        var autoComplete = address + ', ' + city + ', ' + region;
-                        $('#search_autocomplete').append('<option value="' + autoComplete + '">');
-                        console.log(autoComplete);
-                        
+                        var autoComplete = address + ', ' + region;
+                        $('#search_autocomplete').append('<li class="listElement">' + autoComplete + '</li>');
                     });
-                    
-                    
                 },
                 'error': function (request, state, error) {
                     // alert('Errore' + error);
                 }
+                
             });
         }
     })
-
+    $(document).on('click', '.listElement', function(){
+        var elementValue = $(this).html();
+        // console.log(elementValue);
+        $('#search_input').val(elementValue);
+        $('#search_autocomplete').html('');
+        if (searchVal.length = 0) {
+            $('#search_autocomplete').html('');
+        }
+    })
+       
+        
 
 
     // Display tomtom map
