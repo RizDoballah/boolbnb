@@ -64,8 +64,8 @@ $(document).ready(function () {
                     var lon = results[0].position.lon;
                     $('#lat').val(lat);
                     $('#lon').val(lon);
-                    console.log(lat);
-                    console.log(lon);
+                    // console.log(lat);
+                    // console.log(lon);
                 },
                 'error': function (request, state, error) {
                     alert('Errore' + error);
@@ -75,48 +75,64 @@ $(document).ready(function () {
     });
 
 
+    
+    // Autocomplete 
+
+    $(document).on('keypress', '#search_input', function(){
+        // alert('ok');
+        var searchVal = $('#search_input').val();
+        if (searchVal.length >= 2) {
+            var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
+            $.ajax({
+                'url': url,
+                'data': {
+                    'limit': 5,
+                    'key': key
+                },
+                'method': 'GET',
+                'success': function (data) {
+                    console.log(data);
+                    
+                    var results = data.results;
+                    var lat = results[0].position.lat;
+                    var lon = results[0].position.lon;
+                    $('#lat').val(lat);
+                    $('#lon').val(lon);
+                    console.log(lat);
+                    console.log(lon);
+                },
+                'error': function (request, state, error) {
+                    alert('Errore' + error);
+                }
+            });
+        }
+    })
+
     // Display tomtom map
 
-    // var latValue = $('#latValue').text();
-    // var lonValue = $('#lonValue').text();
+     var latData = $('.apartment_img').first().attr('data-lat');
+     var lonData = $('.apartment_img').first().attr('data-lon');
 
-    var latData = $('.apartment_img').first().attr('data-lat');
-    var lonData = $('.apartment_img').first().attr('data-lon');
-    console.log(latData);
-    console.log(lonData);
+     var map = tt.map({
+         key: "yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze",
+         container: "map",
+         style: "tomtom:vector/1/basic-main",
+         center: [lonData, latData],
+         zoom: 10
+     });
+     
+     map.addControl(new tt.NavigationControl());
 
-            var map = tt.map({
-            key: "yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze",
-            container: "map",
-            style: "tomtom://vector/1/basic-main",
-            center: [lonData, latData],
-            zoom: 10
-        });
-        map.addControl(new tt.NavigationControl());
+     $('.apartment_img').each(function () {
 
-        $('.apartment_img').each(function() {
+         let lat = $(this).attr('data-lat');
+         let lon = $(this).attr('data-lon');
 
-            let lat = $(this).attr('data-lat');
-            let lon = $(this).attr('data-lon');
+         var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
+         marker.setPopup(new tt.Popup().setHTML("boh"));
 
-            var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
-            marker.setPopup(new tt.Popup().setHTML("boh"));
-            
-           
-
-
-            // $.each(this.attributes, function() {
-            //   // this.attributes is not a plain object, but an array
-            //   // of attribute nodes, which contain both the name and value
-            //   if(this.specified) {
-            //     console.log(this.name, this.value);
-            //   }
-            // });
-          });
-
-
-   
-
-
-
+     });
 });
+
+
+

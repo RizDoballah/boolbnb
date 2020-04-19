@@ -15,7 +15,12 @@
                     @csrf
                     @method('POST')
                     <label class="small-text-search" for="search_input">DOVE</label>
-                    <input id="search_input" type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
+                    <input autocomplete="off" id="search_input" list="search12"  type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
+                    <datalist id="search12">
+                      <option value="Roma">
+                      <option value="Milano">
+                     <option value="Napoli">
+                    </datalist>
                     <input id="lat" type="hidden" name="lat" value="">
                     <input id="lon" type="hidden" name="lon" value="">
                     <button id="search" type="submit">Cerca</button>
@@ -25,6 +30,11 @@
             </div>
           </div>
         </header>
+        {{-- <form action="/action_page.php" method="get">
+          <input autocomplete="off" list="search" name="browser">
+         
+          <input type="submit">
+        </form> --}}
         @else
         @include('layouts._menu')
         @endif
