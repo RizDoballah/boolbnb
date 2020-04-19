@@ -92,6 +92,7 @@ $(document).ready(function () {
             center: [lonData, latData],
             zoom: 10
         });
+        map.addControl(new tt.NavigationControl());
 
         $('.apartment_img').each(function() {
 
