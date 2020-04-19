@@ -73,19 +73,18 @@ $(document).ready(function () {
         }
     });
 
-    // Mappa tomtom
 
-    
-    // $('.latHtml').html();
+    // Display tomtom map
+
     var latValue = $('#latValue').text();
     var lonValue = $('#lonValue').text();
-    console.log(latValue);
-    console.log(lonValue);
-    
 
-    
-        // tt.setProductInfo("Name", "1.0");
-        var map = tt.map({
+    var latData = $('#img_apartment_search').attr('data-lat');
+    var lonData = $('#img_apartment_search').attr('data-lon');
+    console.log(latData);
+    console.log(lonData);
+
+            var map = tt.map({
             key: "yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze",
             container: "map",
             style: "tomtom://vector/1/basic-main",
