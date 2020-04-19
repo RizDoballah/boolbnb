@@ -48,7 +48,6 @@ $(document).ready(function () {
 
 
     $(document).on('keyup', '#search_input', function () {
-
         var searchVal = $('#search_input').val();
         if (searchVal.length >= 3) {
             var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
@@ -65,6 +64,8 @@ $(document).ready(function () {
                     var lon = results[0].position.lon;
                     $('#lat').val(lat);
                     $('#lon').val(lon);
+                    console.log(lat);
+                    console.log(lon);
                 },
                 'error': function (request, state, error) {
                     alert('Errore' + error);

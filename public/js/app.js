@@ -49824,6 +49824,8 @@ $(document).ready(function () {
           var lon = results[0].position.lon;
           $('#lat').val(lat);
           $('#lon').val(lon);
+          console.log(lat);
+          console.log(lon);
         },
         'error': function error(request, state, _error2) {
           alert('Errore' + _error2);
