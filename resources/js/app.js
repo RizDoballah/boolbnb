@@ -15,7 +15,8 @@ const app = new Vue({
 // Jquery code
 $(document).ready(function () {
 
-    var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
+    // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
+    var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
 
     // Chiamata Ajax address Create & Edit
 
@@ -108,7 +109,11 @@ $(document).ready(function () {
             });
         }
     })
-    $(document).on('click', '.listElement', function(){
+
+    
+
+    $(document).on('click', '.listElement', function(event) {
+        event.stopPropagation();
         var elementValue = $(this).html();
         // console.log(elementValue);
         $('#search_input').val(elementValue);
@@ -117,9 +122,27 @@ $(document).ready(function () {
             $('#search_autocomplete').html('');
         }
     })
-       
-        
 
+    $(document).on('click', '#search_input', function(){
+        $('.listElement').show();
+    });
+    
+    $(document).on('click', '#input_search', function(event){
+        event.stopPropagation();
+    });
+    
+    $('#app').click(function() {
+        $('.listElement').hide();
+     });
+
+   
+
+    // $(document).on('blur', '#search_input', function() {
+    //     $('#search_autocomplete').hide();
+    // });
+   
+       
+    
 
     // Display tomtom map
 

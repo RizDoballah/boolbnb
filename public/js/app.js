@@ -49781,7 +49781,8 @@ var app = new Vue({
 }); // Jquery code
 
 $(document).ready(function () {
-  var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X'; // Chiamata Ajax address Create & Edit
+  // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
+  var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze'; // Chiamata Ajax address Create & Edit
 
   $('#address').on('blur', function () {
     var addressVal = $('#address').val();
@@ -49860,7 +49861,8 @@ $(document).ready(function () {
       });
     }
   });
-  $(document).on('click', '.listElement', function () {
+  $(document).on('click', '.listElement', function (event) {
+    event.stopPropagation();
     var elementValue = $(this).html(); // console.log(elementValue);
 
     $('#search_input').val(elementValue);
@@ -49869,7 +49871,19 @@ $(document).ready(function () {
     if (searchVal.length = 0) {
       $('#search_autocomplete').html('');
     }
-  }); // Display tomtom map
+  });
+  $(document).on('click', '#search_input', function () {
+    $('.listElement').show();
+  });
+  $(document).on('click', '#input_search', function (event) {
+    event.stopPropagation();
+  });
+  $('#app').click(function () {
+    $('.listElement').hide();
+  }); // $(document).on('blur', '#search_input', function() {
+  //     $('#search_autocomplete').hide();
+  // });
+  // Display tomtom map
 
   var latData = $('.apartment_img').first().attr('data-lat');
   var lonData = $('.apartment_img').first().attr('data-lon');
