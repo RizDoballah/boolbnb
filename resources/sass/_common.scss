@@ -67,12 +67,18 @@ header{
   }
 
 
-    // Tomtom Map style
-//   #map {
-//     width: 100%;
-//     height: 100vh;
-//   }
+    
 
+// apartment search
+
+.filter_form {
+    input {
+        display: block;
+    }
+}
+
+
+// Tomtom Map style
   .map_show {
     width: 100%;
     height: 500px;
@@ -96,6 +102,11 @@ header{
 .h1_show_title {
     max-width: 80%;
 }
+
+
+
+
+
 
 // Info section
 

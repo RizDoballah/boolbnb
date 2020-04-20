@@ -19,20 +19,6 @@ class ApartmentController extends Controller
     }
 
 
-    public function create()
-    {
-
-    }
-
-
-    public function store(Request $request)
-
-    {
-
-
-    }
-
-
     public function show($id)
     {
         $apartment = Apartment::find($id);
@@ -46,20 +32,5 @@ class ApartmentController extends Controller
     }
 
 
-    public function edit(Apartment $apartment)
-    {
-
-    }
-
-
-    public function update(Request $request, Apartment $apartment)
-    {
-
-    }
-
-
-    public function destroy(Apartment $apartment)
-    {
-
-    }
+ 
 }

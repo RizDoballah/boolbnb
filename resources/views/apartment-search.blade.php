@@ -3,18 +3,77 @@
 <div class="container-fluid coord" data-lat="{{$coord['lat']}}" data-lon="{{$coord['lon']}}" >
     <div class="row">
 
-        <div class="col-6">
-
-          <div class="filters">
-            <h1>Display a Range Field</h1>
-            <form action="/action_page.php">
-              <label for="vol">Volume (between 0 and 50):</label>
-              <input type="range" id="vol" name="vol" min="0" max="50">
-              <input type="submit">
-            </form>
+        <div class="col-5">
+            <h1>Soggiorni a Milano</h1>
 
 
-          </div>
+            <div class="row my-4">
+                <div class="col-md-6 col-sm-12">Camere <input class="d-block" type="number"></div>
+                <div class="col-md-6 col-sm-12">Letti <input class="d-block" type="number"></div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6 col-sm-12">
+                    {{-- <h3>Filtra</h3> --}}
+                    <form method="GET" action="{{route('apartment.filter')}}">
+                        @csrf
+                        {{-- @method('POST') --}}
+
+                        <input type="hidden" name="lat" value="{{$coord['lat']}}">
+                        <input type="hidden" name="lon" value="{{$coord['lon']}}">
+
+                        <div class="form-check">
+                            <input class="form-check-input" name="wifi" type="checkbox">
+                            <label class="form-check-label" for="wifi">
+                                Wi-Fi
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" name="piscina" type="checkbox">
+                            <label class="form-check-label" for="piscina">
+                                Piscina
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" name="posto-macchina" type="checkbox">
+                            <label class="form-check-label" for="posto-macchina">
+                                Posto macchina
+                            </label>
+                        </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-check">
+                                <input class="form-check-input" name="sauna" type="checkbox">
+                                <label class="form-check-label" for="sauna">
+                                    Sauna
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" name="vista-mare" type="checkbox">
+                                <label class="form-check-label" for="vista-mare">
+                                    Piscina
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" name="portineria" type="checkbox">
+                                <label class="form-check-label" for="portineria">
+                                    Portineria
+                                </label>
+                            </div>
+                        </div>
+            </div>
+            <div class="row mb-1">
+                <div class="col-12">
+                    <label for="km">Distanza massima</label>
+                    <input type="range" name="km" min="1" max="120" value="20">
+                </div>
+            </div>
+            <button class="mb-4" type="submit">Filtra</button>
+        </form>
 
             @foreach ($result as $apartment)
             <div class="row">
@@ -44,7 +103,7 @@
         </div>
             @endforeach
         </div>
-        <div class="col-6">
+        <div class="col-7">
             <div id='map' class='map_apartment_search'></div>
         </div>
     </div>
