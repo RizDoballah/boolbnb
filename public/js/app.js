@@ -37360,7 +37360,7 @@ $(document).ready(function () {
     });
   }); // Chiamata Ajax input Index
 
-  $(document).on('keyup', '#search_input', function () {
+  $(document).on('keyup', '#search_input', delay(function () {
     var searchVal = $('#search_input').val();
 
     if (searchVal.length > 1) {
@@ -37383,9 +37383,9 @@ $(document).ready(function () {
         }
       });
     }
-  }); // Autocomplete 
+  }, 500)); // Autocomplete
 
-  $(document).on('keyup', '#search_input', function () {
+  $(document).on('keyup', '#search_input', delay(function () {
     // alert('ok');
     var searchVal = $('#search_input').val();
 
@@ -37404,17 +37404,35 @@ $(document).ready(function () {
           var results = data.results;
           console.log(results);
           results.forEach(function (element) {
+            var lat = element.position.lat;
+            var lon = element.position.lon;
+            console.log(lat, lon);
             var region = element.address.countrySubdivision;
             var address = element.address.freeformAddress;
             var autoComplete = address + ', ' + region;
-            $('#search_autocomplete').append('<li class="listElement">' + autoComplete + '</li>');
+            $('#search_autocomplete').append("<li data-lat=\"".concat(lat, "\" data-lon=\"").concat(lon, "\" class=\"listElement\">").concat(autoComplete, "</li>"));
           });
         },
         'error': function error(request, state, _error3) {// alert('Errore' + error);
         }
       });
     }
-  });
+  }, 500));
+
+  function delay(fn, ms) {
+    var timer = 0;
+    return function () {
+      clearTimeout(timer);
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      timer = setTimeout(fn.bind.apply(fn, [this].concat(args)), ms || 0);
+    };
+  } // Selezionare un result della lista
+
+
   $(document).on('click', '.listElement', function (event) {
     // event.stopPropagation();
     var valInput = $('#search_input').val();
@@ -37426,6 +37444,11 @@ $(document).ready(function () {
     if (valInput.length = 0) {
       $('#search_autocomplete').html('');
     }
+
+    var lat = $(this).attr('data-lat');
+    var lon = $(this).attr('data-lon');
+    $('#lat').val(lat);
+    $('#lon').val(lon);
   });
   $(document).on('click', '#search_input', function () {
     $('.listElement').show();
@@ -37444,7 +37467,7 @@ $(document).ready(function () {
     var map = tt.map({
       key: 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze',
       container: "map",
-      style: "tomtom:vector/1/basic-main",
+      style: "tomtom://vector/1/basic-main",
       center: [lonData, latData],
       zoom: 10
     }); // Add navigation control
@@ -37525,8 +37548,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\dati_utente\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\dati_utente\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -35,8 +35,8 @@ class ApartmentSeeder extends Seeder
           $newApartment->beds = rand(1, 10);
           $newApartment->bathroom = rand(1, 3);
           $newApartment->square_meters = rand(20, 500);
-          $newApartment->lat = $faker->latitude();
-          $newApartment->lon = $faker->longitude();
+          $newApartment->lat = rand(4550, 4246) / 100;
+          $newApartment->lon = rand(1015, 1238) / 100;
           $newApartment->address = $faker->address();
           $newApartment->main_img = $imgs[array_rand($imgs)];
           $newApartment->published = rand(0, 1);

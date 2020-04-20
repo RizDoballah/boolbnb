@@ -30,7 +30,7 @@
         </header>
         {{-- <form action="/action_page.php" method="get">
           <input autocomplete="off" list="search" name="browser">
-         
+
           <input type="submit">
         </form> --}}
         @else
@@ -65,7 +65,7 @@
             </li>
             </ul>
           </div>
-          
+
           <div class="container_info">
             <ul>
               <h3>Per gli Host</h3>
@@ -117,18 +117,18 @@
               <p>Istruzione e aggiornamenti</p>
             </li>
             <hr>
-             
+
             </ul>
           </div>
-           
-            
+
+
           </div>
         </div>
       </div>
 
-        
+
         <div class="container_footertop ">
-          
+
             <div class="pad1">
               <ul class="footer_list">
                 <li><h5 class="footer_titles">INFORMAZIONI</h5></li>
@@ -207,7 +207,7 @@
                 </ul>
               </div>
             </div>
-          
+
           <div class="footer_bottom container">
             <div class="text">
               <ul class="list-inline">
