@@ -3,10 +3,8 @@
     <div id="app">
         @include('layouts._header')
 
-
       <main>
             @yield('content')
-
       </main>
 
       <footer>
@@ -92,7 +90,7 @@
 
     <div class="container_footertop container-fluid ">
         <div class="row">
-            
+
             <div class="col-md-3 col-sm-2">
                 <ul class="footer_list">
                     <li><h5 class="footer_titles">INFORMAZIONI</h5></li>

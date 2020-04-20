@@ -10886,6 +10886,8 @@ a.text-dark:focus {
 * {
   font-family: "Manrope", sans-serif;
   color: #3F3F3F;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header {
@@ -11137,5 +11139,11 @@ header {
 
 h1 {
   font-weight: bold;
+}
+
+.menu-link {
+  color: #3F3F3F;
+  font-weight: bold;
+  font-size: 14px;
 }
 
