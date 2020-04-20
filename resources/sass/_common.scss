@@ -13,37 +13,36 @@ header{
   background-position: center;
 }
 
-.apartment_img {
-    width: 100%;
-}
 
 .logo {
     width: 100px;
 }
 
+
+// Home page
+
 .box-search-index {
   background-color: white;
   border-radius: 5px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-  width: 400px;
+  width: 100%;
   padding: 35px;
 }
-
 #search_input {
   width: 100%;
   border-radius: 5px;
-  border-color: #EBEBEB;
   border: 1px solid #EBEBEB;
   padding: 10px;
   color: #484848;
   margin-bottom: 15px;
+  outline: none;
 }
-
-
 #search_input::placeholder {
   color: #767676;
 }
-
+#search_input:focus {
+    border: 1px solid #232323;
+  }
 #search {
   display: block;
   border-radius: 3px;
@@ -55,7 +54,6 @@ header{
   padding: 7px;
   font-size: 16px;
 }
-
 #search_autocomplete {
   position: absolute;
   background-color: white;
@@ -65,7 +63,10 @@ header{
       list-style: none;
     }
   }
-
+  .apartment_img {
+    width: 100%;
+    border-radius: 12px;
+}
 
     
 
@@ -109,9 +110,6 @@ header{
 
 // Info section
 
-
-
-
 .container_informazioni{
   background-color: rgb(247, 247, 247);
   border-bottom: solid 1px lightgrey;
@@ -150,8 +148,6 @@ header{
   padding-bottom: 40px;
   font-size: 22px;
 }
-
-
 
 .container_footertop {
   background-color: white;
