@@ -37483,7 +37483,16 @@ $(document).ready(function () {
       var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
       marker.setPopup(new tt.Popup().setHTML("boh"));
     });
-  }
+  } // Slider km
+
+
+  var slider = document.getElementById("km");
+  var output = document.getElementById("distanza_km");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function () {
+    output.innerHTML = this.value;
+  };
 });
 
 /***/ }),

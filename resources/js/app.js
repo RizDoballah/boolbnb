@@ -180,6 +180,15 @@ $(document).ready(function () {
     }
 
 
+    // Slider km
+    var slider = document.getElementById("km");
+    var output = document.getElementById("distanza_km");
+    output.innerHTML = slider.value;
+    
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+
 
 
 });
