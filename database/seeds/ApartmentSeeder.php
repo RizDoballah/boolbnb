@@ -16,7 +16,7 @@ class ApartmentSeeder extends Seeder
     public function run(Faker $faker)
     {
       $faker = Faker::create('it_IT');
-        for ($i=0; $i <40 ; $i++) {
+        for ($i = 0; $i < 40 ; $i++) {
 
           $imgs = [
             'img/img_1.jpg',
@@ -66,7 +66,6 @@ class ApartmentSeeder extends Seeder
           $newApartment->main_img = $imgs[array_rand($imgs)];
           $newApartment->published = rand(0, 1);
           $newApartment->save();
-
         }
     }
 }
