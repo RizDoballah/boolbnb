@@ -28,7 +28,7 @@ class SearchApartmentController extends Controller
       return view('apartment-search', compact('result', 'coord'));
     }
 
-    
+
 
 
 
@@ -48,18 +48,24 @@ class SearchApartmentController extends Controller
 
       public function filter(Request $request)
       {
-       
+
 
 
         $data = $request->all();
-        // dd($data);
         $coord = [
-        'lat'=>$data['lat'],
-        'lon'=>$data['lon']
+          'lat'=>$data['lat'],
+          'lon'=>$data['lon']
+        ];
+        $km = [
+          'km'=>$data['km']
         ];
 
-        $apartments = Apartment::all();
 
+        // $apartments = Apartment::all();
+         $apartments = Apartment::where('beds', $data['letti'])
+         ->where('rooms', $data['camere'])->get();
+          // ['rooms', $data['camere']]
+          // dd($apartments);
 
         $result = [];
         foreach ($apartments as $apartment) {
@@ -70,6 +76,7 @@ class SearchApartmentController extends Controller
              $result[]=$apartment;
            }
         }
+        // dd($result);
 
 
         // "wifi" => "on"
@@ -80,8 +87,7 @@ class SearchApartmentController extends Controller
         // "portineria" => "on"
 
 
-          return view('apartment-search', compact('result', 'coord'));
-      }
+          return view('apartment-search', compact('result', 'coord', 'km'));      }
 
 
 

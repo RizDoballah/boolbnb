@@ -37335,8 +37335,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 
 
 $(document).ready(function () {
-  // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
-  var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze'; // Chiamata Ajax address Create & Edit
+  var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X'; // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
+  // Chiamata Ajax address Create & Edit
 
   $('#address').on('blur', function () {
     var addressVal = $('#address').val();
@@ -37466,7 +37466,7 @@ $(document).ready(function () {
     console.log(latData); // Inizialize map
 
     var map = tt.map({
-      key: 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze',
+      key: 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X',
       container: "map",
       style: "tomtom://vector/1/basic-main",
       center: [lonData, latData],
@@ -37549,8 +37549,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\dati_utente\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\dati_utente\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\mump_project\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\mump_project\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

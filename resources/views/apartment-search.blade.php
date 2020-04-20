@@ -10,8 +10,8 @@
             @csrf
 
             <div class="row my-4">
-                <div class="col-md-6 col-sm-12">Camere <input class="d-block" name="camere" type="number"></div>
-                <div class="col-md-6 col-sm-12">Letti <input class="d-block" name="letti" type="number"></div>
+                <div class="col-md-6 col-sm-12">Camere <input min='1' value='1' class="d-block" name="camere" type="number"></div>
+                <div class="col-md-6 col-sm-12">Letti <input min='1' value='1' class="d-block" name="letti" type="number"></div>
             </div>
 
             <div class="row mb-4">
@@ -69,7 +69,7 @@
             <div class="row mb-1">
                 <div class="col-12">
                     <label for="km">Distanza</label>
-                    <input type="range" name="km" min="1" max="120" value="20">
+                    <input type="range" name="km" min="1" max="120" value="{{(!empty($km['km'])) ? $km['km'] : 20}}">
                 </div>
             </div>
             <button class="mb-4" type="submit">Filtra</button>

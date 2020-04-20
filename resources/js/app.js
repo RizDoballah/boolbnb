@@ -13,8 +13,8 @@ require('./bootstrap');
 // Jquery code
 $(document).ready(function () {
 
-    // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
-    var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
+    var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
+    // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
 
     // Chiamata Ajax address Create & Edit
 
@@ -158,7 +158,7 @@ $(document).ready(function () {
 
         // Inizialize map
         var map = tt.map({
-            key: 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze',
+            key: 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X',
             container: "map",
             style: "tomtom://vector/1/basic-main",
             center: [lonData, latData],
