@@ -6,18 +6,18 @@
         <div class="col-5">
             <h1>Soggiorni a Milano</h1>
 
+            <form method="GET" action="{{route('apartment.filter')}}">
+            @csrf
 
             <div class="row my-4">
-                <div class="col-md-6 col-sm-12">Camere <input class="d-block" type="number"></div>
-                <div class="col-md-6 col-sm-12">Letti <input class="d-block" type="number"></div>
+                <div class="col-md-6 col-sm-12">Camere <input class="d-block" name="camere" type="number"></div>
+                <div class="col-md-6 col-sm-12">Letti <input class="d-block" name="letti" type="number"></div>
             </div>
 
             <div class="row mb-4">
                 <div class="col-md-6 col-sm-12">
                     {{-- <h3>Filtra</h3> --}}
-                    <form method="GET" action="{{route('apartment.filter')}}">
-                        @csrf
-                        {{-- @method('POST') --}}
+
 
                         <input type="hidden" name="lat" value="{{$coord['lat']}}">
                         <input type="hidden" name="lon" value="{{$coord['lon']}}">

@@ -52,7 +52,7 @@ class SearchApartmentController extends Controller
 
 
         $data = $request->all();
-
+        // dd($data);
         $coord = [
         'lat'=>$data['lat'],
         'lon'=>$data['lon']
@@ -70,8 +70,6 @@ class SearchApartmentController extends Controller
              $result[]=$apartment;
            }
         }
-
-        // $result
 
 
         // "wifi" => "on"
