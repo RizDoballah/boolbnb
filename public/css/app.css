@@ -10898,6 +10898,28 @@ header {
   background-position: center;
 }
 
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  height: 82px;
+  background-color: white;
+  border-bottom: 1px solid #DFDFDF;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.menu-index {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  height: 82px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
 .logo {
   width: 100px;
 }
@@ -10908,9 +10930,10 @@ header {
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   width: 100%;
   padding: 35px;
+  margin-top: 160px;
 }
 
-#search_input {
+.search_input {
   width: 100%;
   border-radius: 5px;
   border: 1px solid #EBEBEB;
@@ -10920,31 +10943,31 @@ header {
   outline: none;
 }
 
-#search_input::-webkit-input-placeholder {
+.search_input::-webkit-input-placeholder {
   color: #767676;
 }
 
-#search_input::-moz-placeholder {
+.search_input::-moz-placeholder {
   color: #767676;
 }
 
-#search_input:-ms-input-placeholder {
+.search_input:-ms-input-placeholder {
   color: #767676;
 }
 
-#search_input::-ms-input-placeholder {
+.search_input::-ms-input-placeholder {
   color: #767676;
 }
 
-#search_input::placeholder {
+.search_input::placeholder {
   color: #767676;
 }
 
-#search_input:focus {
+.search_input:focus {
   border: 1px solid #232323;
 }
 
-#search {
+.search {
   display: block;
   border-radius: 3px;
   font-weight: bold;
@@ -10970,6 +10993,10 @@ header {
 .apartment_img {
   width: 100%;
   border-radius: 12px;
+}
+
+.padding-top {
+  margin-top: 82px;
 }
 
 .filter_form input {
@@ -11109,7 +11136,7 @@ header {
   padding: 5px 5px 5px 16px;
   align-items: center;
   border-radius: 21px;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
   height: 42px;
   transition: box-shadow 0.2s ease;
   background-color: #ffffff;

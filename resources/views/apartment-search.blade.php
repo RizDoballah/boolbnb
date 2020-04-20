@@ -4,7 +4,8 @@
     <div class="row">
 
         <div class="col-5">
-            <h1>Soggiorni a <span id="city"></span></h1>
+            <h1 class="pt-5">Soggiorni a </h1>
+            {{-- <span id="city"></span> --}}
 
             <form method="GET" action="{{route('apartment.filter')}}">
             @csrf
@@ -19,52 +20,52 @@
                     {{-- <h3>Filtra</h3> --}}
 
 
-                        <input type="hidden" name="lat" value="{{$coord['lat']}}">
-                        <input type="hidden" name="lon" value="{{$coord['lon']}}">
+                    <input type="hidden" name="lat" value="{{$coord['lat']}}">
+                    <input type="hidden" name="lon" value="{{$coord['lon']}}">
 
+                    <div class="form-check">
+                        <input class="form-check-input" name="services[]" value="Wi-fi" type="checkbox">
+                        <label class="form-check-label" for="wifi">
+                            Wi-Fi
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" name="services[]" value="Piscina" type="checkbox">
+                        <label class="form-check-label" for="piscina">
+                            Piscina
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" name="services[]" value="Posto macchina" type="checkbox">
+                        <label class="form-check-label" for="posto-macchina">
+                            Posto macchina
+                        </label>
+                    </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
                         <div class="form-check">
-                            <input class="form-check-input" name="services[]" value="Wi-fi" type="checkbox">
-                            <label class="form-check-label" for="wifi">
-                                Wi-Fi
+                            <input class="form-check-input" name="services[]" value="Sauna" type="checkbox">
+                            <label class="form-check-label" for="sauna">
+                                Sauna
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" name="services[]" value="Piscina" type="checkbox">
-                            <label class="form-check-label" for="piscina">
+                            <input class="form-check-input" name="services[]" value="Vista mare" type="checkbox">
+                            <label class="form-check-label" for="vista-mare">
                                 Piscina
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" name="services[]" value="Posto macchina" type="checkbox">
-                            <label class="form-check-label" for="posto-macchina">
-                                Posto macchina
+                            <input class="form-check-input" name="services[]" value="Portineria" type="checkbox">
+                            <label class="form-check-label" for="portineria">
+                                Portineria
                             </label>
                         </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <div class="form-check">
-                                <input class="form-check-input" name="services[]" value="Sauna" type="checkbox">
-                                <label class="form-check-label" for="sauna">
-                                    Sauna
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" name="services[]" value="Vista mare" type="checkbox">
-                                <label class="form-check-label" for="vista-mare">
-                                    Piscina
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" name="services[]" value="Portineria" type="checkbox">
-                                <label class="form-check-label" for="portineria">
-                                    Portineria
-                                </label>
-                            </div>
-                        </div>
+                    </div>
             </div>
             <div class="row mb-1">
                 <div class="col-12">
@@ -76,7 +77,7 @@
         </form>
 
             @foreach ($result as $apartment)
-            <div class="row">
+            <div class="row mb-4">
             <div class="col-6">
                 <a href="{{route('home.show', $apartment)}}">
                     <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img"
@@ -85,7 +86,7 @@
             </div>
 
             <div class="col-6">
-                <h3>{{$apartment->title}}</h3>
+                <h4>{{$apartment->title}}</h4>
                 <ul class="list-inline">
                     <li class="list-inline-item">{{$apartment->square_meters}} Mq</li>
                     <li class="list-inline-item"> {{$apartment->rooms}} Camere</li>

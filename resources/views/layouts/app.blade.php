@@ -3,7 +3,7 @@
     <div id="app">
         @include('layouts._header')
 
-      <main>
+      <main class="{{ (Request::is('/')) ? '' : 'padding-top' }}">
             @yield('content')
       </main>
 

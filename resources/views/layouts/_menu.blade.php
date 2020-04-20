@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light ">
+<nav class="{{(Request::is('/')) ? 'navbar navbar-expand navbar-light menu-index' : 'navbar navbar-expand navbar-light menu' }}">
   <div class="container-fluid my-4">
     <a class="navbar-brand" href="{{ url('/') }}">
       @include('layouts._logo')
@@ -9,16 +9,15 @@
       <ul class="navbar-nav mr-auto">
       </ul>
       ​@if (Request::is('apartment/search'))
-      <div class="form-group">
-        <form method="POST" action="{{route('apartment.search')}}" >
-          @csrf
-          @method('POST')
-          <input id="search_input_navbar" type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
-          <input id="lat" type="hidden" name="lat" value="">
-          <input id="lon" type="hidden" name="lon" value="">
-          <button id="search_button_navbar" type="submit">Cerca</button>
-        </form>
-      </div>
+      <form method="POST" action="{{route('apartment.search')}}">
+        @csrf
+        @method('POST')
+        <input autocomplete="off" id="search_input" class="" type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
+        <ul id="search_autocomplete"></ul>
+        <input id="lat" type="hidden" name="lat" value="">
+        <input id="lon" type="hidden" name="lon" value="">
+        <button id="search" class="" type="submit">Cerca</button>
+    </form>
       @endif  
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav ml-auto">
