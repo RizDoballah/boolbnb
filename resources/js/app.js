@@ -54,6 +54,9 @@ $(document).ready(function () {
                 },
                 'method': 'GET',
                 'success': function (data) {
+                    $('#city').text(searchVal);
+                    // console.log($('#city').text(searchVal));
+                    
                     var results = data.results;
                     var lat = results[0].position.lat;
                     var lon = results[0].position.lon;

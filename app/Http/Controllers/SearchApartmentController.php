@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Apartment;
+use App\Service;
 use Illuminate\Http\Request;
 
 class SearchApartmentController extends Controller
@@ -61,11 +62,23 @@ class SearchApartmentController extends Controller
         ];
 
 
-        // $apartments = Apartment::all();
+        
          $apartments = Apartment::where('beds', $data['letti'])
          ->where('rooms', $data['camere'])->get();
-          // ['rooms', $data['camere']]
-          // dd($apartments);
+          
+        // foreach ($apartments as $apartment) {
+        //     foreach ($apartment->services as $service) {
+        //     }
+        //   }
+
+        //  foreach ($data['services'] as $service) {
+        //     $service;
+        //      $resultFilter = [];
+        //      if (condition) {
+        //      }
+        //  }
+
+       
 
         $result = [];
         foreach ($apartments as $apartment) {

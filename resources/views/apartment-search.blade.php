@@ -4,7 +4,7 @@
     <div class="row">
 
         <div class="col-5">
-            <h1>Soggiorni a Milano</h1>
+            <h1>Soggiorni a <span id="city"></span></h1>
 
             <form method="GET" action="{{route('apartment.filter')}}">
             @csrf
@@ -23,21 +23,21 @@
                         <input type="hidden" name="lon" value="{{$coord['lon']}}">
 
                         <div class="form-check">
-                            <input class="form-check-input" name="wifi" type="checkbox">
+                            <input class="form-check-input" name="services[]" value="Wi-fi" type="checkbox">
                             <label class="form-check-label" for="wifi">
                                 Wi-Fi
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" name="piscina" type="checkbox">
+                            <input class="form-check-input" name="services[]" value="Piscina" type="checkbox">
                             <label class="form-check-label" for="piscina">
                                 Piscina
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" name="posto-macchina" type="checkbox">
+                            <input class="form-check-input" name="services[]" value="Posto macchina" type="checkbox">
                             <label class="form-check-label" for="posto-macchina">
                                 Posto macchina
                             </label>
@@ -45,21 +45,21 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-check">
-                                <input class="form-check-input" name="sauna" type="checkbox">
+                                <input class="form-check-input" name="services[]" value="Sauna" type="checkbox">
                                 <label class="form-check-label" for="sauna">
                                     Sauna
                                 </label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" name="vista-mare" type="checkbox">
+                                <input class="form-check-input" name="services[]" value="Vista mare" type="checkbox">
                                 <label class="form-check-label" for="vista-mare">
                                     Piscina
                                 </label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" name="portineria" type="checkbox">
+                                <input class="form-check-input" name="services[]" value="Portineria" type="checkbox">
                                 <label class="form-check-label" for="portineria">
                                     Portineria
                                 </label>
