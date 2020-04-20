@@ -40,12 +40,96 @@
 
       <main>
             @yield('content')
+
       </main>
 
       <footer>
-        <div class="footer_top container">
-          <div class="row">
-            <div class="col-3">
+      <div class="container_informazioni">
+        <h1 class='title_info'>Informazioni</h1>
+        <div class="informazioni">
+          <div class="container_info">
+            <ul>
+              <h3>Per gli ospiti</h3>
+              <hr>
+              <li class='li_info'><a href=""> <b>Aggiornamenti di Viaggio</b>
+              <p>Cosa dovresti sapere</p>
+              </a>
+            </li>
+            <hr>
+            <li class='li_info'><a href=""><b>Opzioni di cancellazione</b>
+              <p>Scopri cosa e' coperto</p>
+            </li>
+            <hr>
+              <li class='li_info'><a href=""><b>Centro Assistenza</b>
+              <p>Ricevi supporto</p>
+            </li>
+            </ul>
+          </div>
+          
+          <div class="container_info">
+            <ul>
+              <h3>Per gli Host</h3>
+              <hr>
+              <li class='li_info'><a href=""><b>Messaggio di Brian Chesky</b>
+              <p>Un messaggio dal nostro CEO</p>
+              </a>
+            </li>
+            <hr>
+            <li class='li_info'><a href=""><b>Risorse per gli host</b>
+              <p>L'impatto dell'emergenza covid-19</p>
+            </li>
+            <hr>
+              <li class='li_info'><a href=""><b>Offrire alloggi per l'emergenza</b>
+              <p>Scopri come aiutare</p>
+            </li>
+            </ul>
+          </div>
+
+          <div class="container_info">
+            <ul>
+              <h3>Per gli operatori impegnati nell'emergenza covid-19</h3>
+              <hr>
+              <li class='li_info'><a href=""><b>Alloggi per l'emergenza</b>
+              <p>scopri il nostro programma</p>
+              </a>
+            </li>
+            <hr>
+            <li class='li_info'><a href=""><b>Registrati</b>
+              <p>Controlla le opzioni di soggiorno</p>
+            </li>
+            <hr>
+              <li class='li_info'><a href=""><b>Fai una donazione</b>
+              <p>Supporta le organizzazioni no profit</p>
+            </li>
+            </ul>
+          </div>
+
+          <div class="container_info">
+            <ul>
+              <h3>Altro</h3>
+              <hr>
+              <li class='li_info'><a href=""><b>Airbnb newsroom</b>
+              <p>Ultimi annunci</p>
+              </a>
+            </li>
+            <hr>
+            <li class='li_info'><a href=""><b>Organizzazione mondiale della sanita'</b>
+              <p>Istruzione e aggiornamenti</p>
+            </li>
+            <hr>
+             
+            </ul>
+          </div>
+           
+            
+          </div>
+        </div>
+      </div>
+
+        
+        <div class="container_footertop ">
+          
+            <div class="pad1">
               <ul class="footer_list">
                 <li><h5 class="footer_titles">INFORMAZIONI</h5></li>
                 <li>
@@ -65,7 +149,8 @@
                 </li>
               </ul>
             </div>
-              <div class="col-3">
+
+              <div class="pad2">
                 <ul class="footer_list">
                   <li><h5 class="footer_titles">COMMUNITY</h5></li>
                   <li>
@@ -82,7 +167,8 @@
                   </li>
                 </ul>
               </div>
-              <div class="col-3">
+
+              <div class="pad2">
                 <ul class="footer_list">
                   <li><h5 class="footer_titles">OSPITA</h5></li>
                   <li>
@@ -105,7 +191,8 @@
                   </li>
                 </ul>
               </div>
-              <div class="col-3">
+
+              <div class="pad1">
                 <ul class="footer_list">
                   <li><h5 class="footer_titles">ASSISTENZA</h5></li>
                   <li>
@@ -120,7 +207,7 @@
                 </ul>
               </div>
             </div>
-          </div>
+          
           <div class="footer_bottom container">
             <div class="text">
               <ul class="list-inline">
