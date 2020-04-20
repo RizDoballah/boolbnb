@@ -8,18 +8,23 @@ class SearchApartmentController extends Controller
 {
     public function index(Request $request){
       $data = $request->all();
+      // dd($data);
+      $coord = [
+      'lat'=>$data['lat'],
+      'lon'=>$data['lon']
+      ];
       $apartments = Apartment::all();
       $result = [];
       foreach ($apartments as $apartment) {
          $lat = $apartment->lat;
          $lon = $apartment->lon;
          $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
-         if($dist <= 2000){
+         if($dist <= 20){
            $result[]=$apartment;
          }
 
       }
-      return view('apartment-search', compact('result'));
+      return view('apartment-search', compact('result', 'coord'));
     }
 
     public function distance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371)

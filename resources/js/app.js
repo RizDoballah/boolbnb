@@ -152,8 +152,9 @@ $(document).ready(function () {
 
     if ($('#map').length) {
 
-        var latData = $('.apartment_img').first().attr('data-lat');
-        var lonData = $('.apartment_img').first().attr('data-lon');
+        var latData = $('.coord').attr('data-lat');
+        var lonData = $('.coord').attr('data-lon');
+        console.log(latData);
 
         // Inizialize map
         var map = tt.map({

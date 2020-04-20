@@ -37461,8 +37461,9 @@ $(document).ready(function () {
   }); // Display tomtom map
 
   if ($('#map').length) {
-    var latData = $('.apartment_img').first().attr('data-lat');
-    var lonData = $('.apartment_img').first().attr('data-lon'); // Inizialize map
+    var latData = $('.coord').attr('data-lat');
+    var lonData = $('.coord').attr('data-lon');
+    console.log(latData); // Inizialize map
 
     var map = tt.map({
       key: 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze',
