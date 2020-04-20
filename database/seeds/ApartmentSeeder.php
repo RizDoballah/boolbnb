@@ -23,8 +23,13 @@ class ApartmentSeeder extends Seeder
             'img/img_2.jpg',
             'img/img_3.jpg',
             'img/img_4.jpg',
-            'img/img_5.jpg',
             'img/img_6.jpg',
+            'img/img_7.jpg',
+            'img/img_8.jpg',
+            'img/img_9.jpg',
+            'img/img_10.jpg',
+            'img/img_11.jpg',
+            'img/img_12.jpg'
           ];
 
           $titles = [
@@ -51,18 +56,16 @@ class ApartmentSeeder extends Seeder
           $newApartment->user_id= User::inRandomOrder()->first()->id;
           $newApartment->title = $titles[array_rand($titles)];
           $newApartment->description = $faker->realtext(1000);
-          $newApartment->rooms = rand(1, 10);
-          $newApartment->beds = rand(1, 10);
+          $newApartment->rooms = rand(1, 3);
+          $newApartment->beds = rand(1, 3);
           $newApartment->bathroom = rand(1, 3);
           $newApartment->square_meters = rand(20, 500);
-          $newApartment->lat = rand(4550, 4246) / 100;
-          $newApartment->lon = rand(1015, 1238) / 100;
+          $newApartment->lat = rand(4440, 4430) / 100;
+          $newApartment->lon = rand(1110, 1150) / 100;
           $newApartment->address = $faker->address();
           $newApartment->main_img = $imgs[array_rand($imgs)];
           $newApartment->published = rand(0, 1);
-
           $newApartment->save();
-
 
         }
     }
