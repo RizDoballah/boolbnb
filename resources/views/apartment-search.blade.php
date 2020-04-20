@@ -68,7 +68,7 @@
             </div>
             <div class="row mb-1">
                 <div class="col-12">
-                    <label for="km">Distanza massima</label>
+                    <label for="km">Distanza</label>
                     <input type="range" name="km" min="1" max="120" value="20">
                 </div>
             </div>
@@ -85,7 +85,7 @@
             </div>
 
             <div class="col-6">
-                <h1>{{$apartment->title}}</h1>
+                <h3>{{$apartment->title}}</h3>
                 <ul class="list-inline">
                     <li class="list-inline-item">{{$apartment->square_meters}} Mq</li>
                     <li class="list-inline-item"> {{$apartment->rooms}} Camere</li>

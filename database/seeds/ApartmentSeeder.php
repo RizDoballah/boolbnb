@@ -27,9 +27,29 @@ class ApartmentSeeder extends Seeder
             'img/img_6.jpg',
           ];
 
+          $titles = [
+              'Appartamento di charme con patio',
+              'The smallest apartment with the biggest view',
+              'Tornabuoni panoramic apartment',
+              'Oricellari luxury apartment',
+              'Apartment city centre',
+              'Loft panoramico con ascensore',
+              'Luxury seafront studio',
+              'Apt between city center and beach',
+              'Splendida vista sul mare',
+              'Terraced houses in a residence',
+              'Modern and central apartment',
+              'Bilocale fronte mare, panorama ineguagliabile',
+              'Grazioso appartamento vista mare',
+              'Studio flat with air conditioning',
+              'Grazioso appartamento ben servito',
+              'Relaxing and design apartment',
+              'Nice studio flat'
+          ];
+
           $newApartment = new Apartment;
           $newApartment->user_id= User::inRandomOrder()->first()->id;
-          $newApartment->title = $faker->realText($maxNbChars = 30, $indexSize = 3);
+          $newApartment->title = $titles[array_rand($titles)];
           $newApartment->description = $faker->realtext(1000);
           $newApartment->rooms = rand(1, 10);
           $newApartment->beds = rand(1, 10);

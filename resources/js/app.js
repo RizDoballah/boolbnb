@@ -162,7 +162,7 @@ $(document).ready(function () {
             container: "map",
             style: "tomtom://vector/1/basic-main",
             center: [lonData, latData],
-            zoom: 10
+            zoom: 8
         });
         // Add navigation control
         map.addControl(new tt.NavigationControl());
