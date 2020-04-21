@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 show_image">
             <a href="{{route('home.show', $apartment)}}">
-                <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img" src="{{asset($apartment->main_img)}}" alt="">
+                <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img coord" src="{{asset($apartment->main_img)}}" alt="">
                 {{-- <img class="apartment_img" src="{{asset('storage/' . $apartment->main_img)}}" alt=""> --}}
             </a>
         </div>
@@ -21,8 +21,8 @@
                 <li class="list-inline-item"> {{$apartment->rooms}} Camere</li>
                 <li class="list-inline-item">{{$apartment->bathroom}} Bagni </li>
                 <li class="list-inline-item">{{$apartment->beds}} Letti </li>
-                <li id="latValue">{{$apartment->lat}}</li>
-                <li id="lonValue">{{$apartment->lon}}</li>
+                {{-- <li id="latValue">{{$apartment->lat}}</li>
+                <li id="lonValue">{{$apartment->lon}}</li> --}}
             </ul>
             <p>{{$apartment->description}}</p>
 
