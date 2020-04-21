@@ -12,8 +12,6 @@ Route::namespace('Host')->middleware('auth')->group(function () {
 
 
 
-
-
 // AUTENTICAZIONE
 Auth::routes();
 
@@ -30,3 +28,5 @@ Route::post('/apartment/search', 'SearchApartmentController@index')->name('apart
 // Filtra appartamenti
 Route::get('/apartment/search', 'SearchApartmentController@filter')->name('apartment.filter');
 
+// Messaggi
+Route::get('/messages', 'MessageController@index')->name('message.index')->middleware('auth');

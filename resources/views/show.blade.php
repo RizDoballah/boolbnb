@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('content')
+  
 {{-- @dd($apartments) --}}
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 show_image">
             <a href="{{route('home.show', $apartment)}}">
-                <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img  coord" src="{{asset($apartment->main_img)}}" alt="">
+                <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="coord" src="{{asset($apartment->main_img)}}" alt="">
                 {{-- <img class="apartment_img" src="{{asset('storage/' . $apartment->main_img)}}" alt=""> --}}
             </a>
         </div>
@@ -80,5 +81,3 @@
 
 
 @endsection
-
-

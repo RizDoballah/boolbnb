@@ -46,7 +46,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('host.index') }}">Gestisci alloggi</a>
 
-                      <a class="dropdown-item" href="">Messaggi</a>
+                      <a class="dropdown-item" href="{{route('message.index')}}">Messaggi</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">

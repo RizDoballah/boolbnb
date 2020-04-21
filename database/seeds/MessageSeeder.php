@@ -17,6 +17,7 @@ class MessageSeeder extends Seeder
         for ($i= 1; $i <= 40 ; $i++) {
           $newMessage = new Message;
           $newMessage->email = $faker->email;
+          $newMessage->name = $faker->name;
           $newMessage->body = $faker->realtext(300);
           $newMessage->apartment_id = $i;
 

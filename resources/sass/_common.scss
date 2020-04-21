@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;700&display=swap');
 
 * {
-     font-family: 'Manrope', sans-serif;
-    color: $text-color;
-    // background-color: white;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: 'Manrope', sans-serif;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
 }
 
@@ -85,13 +84,13 @@ header{
   background-color: white;
   padding: 0;
     li {
-      padding: 5px;
-      list-style: none;
+    padding: 5px;
+    list-style: none;
     }
   }
   .apartment_img {
-    width: 100%;
-    border-radius: 12px;
+  width: 100%;
+  border-radius: 12px;
 }
 
 .padding-top {
@@ -106,7 +105,7 @@ header{
     }
 }
 .apartment_search_line {
-    border: 1ps solid #E8E8E8;
+    border: 1px solid #E8E8E8;
     padding: 0;
     margin: 20px 0 20px 0;
 }
@@ -130,7 +129,7 @@ header{
 
 // Show page CSS
   .show_image {
-      height: 300px;
+      height: 400px;
       overflow: hidden;
       img {
           transform: translate(0, -25%);
