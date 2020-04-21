@@ -18,7 +18,7 @@
         <input id="lon" type="hidden" name="lon" value="">
         <button id="search" class="" type="submit">Cerca</button>
     </form>
-      @endif  
+      @endif
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->
@@ -45,6 +45,8 @@
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('host.index') }}">Gestisci alloggi</a>
+
+                      <a class="dropdown-item" href="">Messaggi</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">

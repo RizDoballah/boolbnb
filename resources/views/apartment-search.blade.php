@@ -83,6 +83,10 @@
             <button class="mt-4 mb-5" type="submit">Filtra</button>
 
             </form>
+            @if (empty($result))
+              <h4>Nessun risultato</h4>
+              <p>Prova a modificare la tua ricerca rimuovendo filtri o ampliando l'area nella mappa</p>  
+            @endif
             @foreach ($result as $apartment)
             <div class="row">
                 <div class="col-5">
