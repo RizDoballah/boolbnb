@@ -50,8 +50,6 @@ class SearchApartmentController extends Controller
       public function filter(Request $request)
       {
 
-
-
         $data = $request->all();
         $coord = [
           'lat'=>$data['lat'],
@@ -61,27 +59,26 @@ class SearchApartmentController extends Controller
           'km'=>$data['km']
         ];
 
+        $apartments = new Apartment;
+        if (!empty($data['beds'])) {
+            $apartments = $apartments->where('beds', $data['beds']);
+        }
+        if (!empty($data['rooms'])) {
+            $apartments = $apartments->where('rooms', $data['rooms']);
+        }
+        if (!empty($data['services'])) {
 
-        
-         $apartments = Apartment::where('beds', $data['letti'])
-         ->where('rooms', $data['camere'])->get();
-          
-        // foreach ($apartments as $apartment) {
-        //     foreach ($apartment->services as $service) {
-        //     }
-        //   }
+            foreach ($data['services'] as $service) {
+                $apartments = $apartments->whereHas('services', function($query) use($service) {
+                    $query->where('name', $service);
+                });
+            }
+        }
 
-        //  foreach ($data['services'] as $service) {
-        //     $service;
-        //      $resultFilter = [];
-        //      if (condition) {
-        //      }
-        //  }
-
-       
+        $filteredApt = $apartments->get();
 
         $result = [];
-        foreach ($apartments as $apartment) {
+        foreach ($filteredApt as $apartment) {
            $lat = $apartment->lat;
            $lon = $apartment->lon;
            $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
@@ -89,18 +86,9 @@ class SearchApartmentController extends Controller
              $result[]=$apartment;
            }
         }
-        // dd($result);
 
-
-        // "wifi" => "on"
-        // "piscina" => "on"
-        // "posto-macchina" => "on"
-        // "sauna" => "on"
-        // "vista-mare" => "on"
-        // "portineria" => "on"
-
-
-          return view('apartment-search', compact('result', 'coord', 'km'));      }
+          return view('apartment-search', compact('result', 'coord', 'km'));      
+    }
 
 
 
