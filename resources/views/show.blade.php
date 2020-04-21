@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 show_image">
             <a href="{{route('home.show', $apartment)}}">
-                <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img coord" src="{{asset($apartment->main_img)}}" alt="">
+                <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img  coord" src="{{asset($apartment->main_img)}}" alt="">
                 {{-- <img class="apartment_img" src="{{asset('storage/' . $apartment->main_img)}}" alt=""> --}}
             </a>
         </div>
@@ -42,23 +42,7 @@
             @endforeach
         </div>
     </div>
-
-    {{-- Prova messaggi --}}
-
-    {{-- <div class="row">
-        <div class="col-6">
-            <form>
-                <div class="form-group my-5">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </form>
-        </div>
-    </div> --}}
+</div>
 
     {{-- ***************************************** --}}
 
@@ -93,7 +77,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 @endsection
 
