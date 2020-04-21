@@ -86,7 +86,7 @@ $(document).ready(function () {
                 }
             });
         }
-    }, 500));
+    }, 300));
 
 
 
@@ -126,7 +126,7 @@ $(document).ready(function () {
 
             });
         }
-    }, 500));
+    }, 300));
 
     function delay(fn, ms) {
       let timer = 0

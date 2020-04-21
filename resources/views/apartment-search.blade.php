@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+  {{-- @dd(empty($data)) --}}
 <div class="container-fluid coord" data-lat="{{$coord['lat']}}" data-lon="{{$coord['lon']}}" >
     <div class="row">
 
@@ -11,8 +12,8 @@
          @csrf
 
             <div class="row my-4">
-                <div class="col-md-6 col-sm-12">Camere <input min='1' value='' class="d-block" name="rooms" type="number"></div>
-                <div class="col-md-6 col-sm-12">Letti <input min='1' value='' class="d-block" name="beds" type="number"></div>
+                <div class="col-md-6 col-sm-12">Camere <input min='1' value='{{(!empty($data['rooms'])) ? $data['rooms'] : ''}}' class="d-block" name="rooms" type="number"></div>
+                <div class="col-md-6 col-sm-12">Letti <input min='1' value='{{(!empty($data['beds'])) ? $data['beds'] : ''}}' class="d-block" name="beds" type="number"></div>
             </div>
 
             <div class="row mb-4">
@@ -24,21 +25,22 @@
                     <input type="hidden" name="lon" value="{{$coord['lon']}}">
 
                     <div class="form-check">
-                        <input class="form-check-input" name="services[]" value="Wi-fi" type="checkbox">
+                        <input class="form-check-input" name="services[]" value="Wi-fi" {{(in_array('Wi-fi', $data['services']) ? 'checked' : '')}} type="checkbox">
                         <label class="form-check-label" for="wifi">
                             Wi-Fi
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" name="services[]" value="Piscina" type="checkbox">
+                        <input class="form-check-input" name="services[]" value="Piscina" {{(in_array('Piscina', $data['services']) ? 'checked' : '')}} type="checkbox">
                         <label class="form-check-label" for="piscina">
                             Piscina
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" name="services[]" value="Posto macchina" type="checkbox">
+                        <input class="form-check-input" name="services[]" value="Posto macchina"{{(in_array('Posto macchina', $data['services']) ? 'checked' : '')}}
+                         type="checkbox">
                         <label class="form-check-label" for="posto-macchina">
                             Posto macchina
                         </label>
@@ -46,21 +48,21 @@
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="form-check">
-                            <input class="form-check-input" name="services[]" value="Sauna" type="checkbox">
+                            <input class="form-check-input" name="services[]" value="Sauna" {{(in_array('Sauna', $data['services']) ? 'checked' : '')}} type="checkbox">
                             <label class="form-check-label" for="sauna">
                                 Sauna
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" name="services[]" value="Vista mare" type="checkbox">
+                            <input class="form-check-input" name="services[]" value="Vista mare" {{(in_array('Vista mare', $data['services']) ? 'checked' : '')}} type="checkbox">
                             <label class="form-check-label" for="vista-mare">
                                 Piscina
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" name="services[]" value="Portineria" type="checkbox">
+                            <input class="form-check-input" name="services[]" value="Portineria" {{(in_array('Portineria', $data['services']) ? 'checked' : '')}} type="checkbox">
                             <label class="form-check-label" for="portineria">
                                 Portineria
                             </label>
@@ -73,7 +75,7 @@
                     <div class="slidecontainer">
                         <p>Distanza in Km <span id="distanza_km" class="font-weight-bold"></span></p>
                         <input type="range" name="km" min="1" max="150" value="{{(!empty($km['km'])) ? $km['km'] : 20}}" class="slider" id="km">
-                        
+
                     </div>
 
                 </div>
@@ -110,7 +112,7 @@
 
             <hr class="apartment_search_line">
             @endforeach
-           
+
         </div>
 
         <div class="col-7">

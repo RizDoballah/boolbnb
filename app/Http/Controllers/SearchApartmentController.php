@@ -51,6 +51,7 @@ class SearchApartmentController extends Controller
       {
 
         $data = $request->all();
+
         $coord = [
           'lat'=>$data['lat'],
           'lon'=>$data['lon']
@@ -87,7 +88,7 @@ class SearchApartmentController extends Controller
            }
         }
 
-          return view('apartment-search', compact('result', 'coord', 'km'));      
+          return view('apartment-search', compact('result', 'coord', 'km', 'data'));
     }
 
 
