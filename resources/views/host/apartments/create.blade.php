@@ -33,6 +33,16 @@
         <input class='counter' type="text" placeholder="value..." value='0' />
         <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
         </button>
+        <div class="form-group">
+          <h4>Dove si trova il tuo alloggio?</h4>
+          <h5 class="title_input mt-5 mb-3">Indirizzo</h5>
+          <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name='address'  placeholder="inserisci l'indirizzo" value="{{old('address')}}">
+          @error('address')
+              <small class="form-text text-danger">{{$message}}</small>
+          @enderror
+        </div>
+        <input id="lat" type="hidden" name="lat" value="">
+        <input id="lon" type="hidden" name="lon" value="">
 
 
       </div>

@@ -13,7 +13,7 @@ require('./bootstrap');
 // Jquery code
 $(document).ready(function () {
 
-  // input number create page
+  // Plus minus counter input
   $('button').click(function(e){
        var button_classes, value = +$('.counter').val();
        button_classes = $(e.currentTarget).prop('class');

@@ -37335,7 +37335,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 
 
 $(document).ready(function () {
-  // input number create page
+  // Plus minus counter input
   $('button').click(function (e) {
     var button_classes,
         value = +$('.counter').val();
