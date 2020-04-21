@@ -13,7 +13,7 @@ class ApartmentServiceSeeder extends Seeder
             for ($i=1; $i <= 40; $i++) { 
 
                 for ($y=1; $y < rand(2, 6); $y++) {
-                    DB::table('apartment_service')->insert(
+                    DB::table('apartment_service')->insertOrIgnore(
                         array('apartment_id' => $i, 'service_id' => rand(1, 6))
                     );
                 }
