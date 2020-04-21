@@ -167,7 +167,27 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
   vertical-align: middle;
   font-size: 10px;
 }
+// Messages page
+.message {
+  display: flex;
+  justify-content: space-around;
 
+  // flex-wrap: wrap;
+  border-bottom: 1px solid #ebebeb;
+  padding: 30px 0;
+  .message_img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      height: 100%;
+    }
+  }
+  .message_body {
+    width: 70%;
+  }
+}
 
 // Info section
 

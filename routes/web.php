@@ -15,6 +15,9 @@ Route::namespace('Host')->middleware('auth')->group(function () {
 // AUTENTICAZIONE
 Auth::routes();
 
+// Messaggi
+Route::get('/messages', 'MessageController@index')->name('messages.index');
+
 // HOME
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -27,6 +30,3 @@ Route::post('/apartment/search', 'SearchApartmentController@index')->name('apart
 
 // Filtra appartamenti
 Route::get('/apartment/search', 'SearchApartmentController@filter')->name('apartment.filter');
-
-// Messaggi
-Route::get('/messages', 'MessageController@index')->name('message.index')->middleware('auth');
