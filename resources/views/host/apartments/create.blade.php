@@ -2,7 +2,46 @@
 
 @section('content')
 
-    <div class='container'>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h4 class="mt-4">Quante persone può ospitare il tuo alloggio?</h4>
+        <h5 class="title_input mt-5 mb-5">Ospiti</h5>
+        <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
+        </button>
+        <input class='counter' type="text" placeholder="value..." value='0' />
+        <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
+        </button>
+        <h4>Quante camere da letto possono utilizzare gli ospiti?</h4>
+        <h5 class="title_input mt-5 mb-5">Camere</h5>
+        <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
+        </button>
+        <input class='counter' type="text" placeholder="value..." value='0' />
+        <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
+        </button>
+        <h4>Quanti letti possono utilizzare gli ospiti?</h4>
+        <h5 class="title_input mt-5 mb-5">Letti</h5>
+        <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
+        </button>
+        <input class='counter' type="text" placeholder="value..." value='0' />
+        <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
+        </button>
+        <h4>Quanti bagni?</h4>
+        <h5 class="title_input mt-5 mb-5">Bagni</h5>
+        <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
+        </button>
+        <input class='counter' type="text" placeholder="value..." value='0' />
+        <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
+        </button>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+    {{-- <div class='container'>
         <div class="row">
             <div class="col-12">
 
@@ -96,6 +135,6 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
 
 @endsection

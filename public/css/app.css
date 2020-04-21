@@ -10886,6 +10886,7 @@ a.text-dark:focus {
 * {
   font-family: "Manrope", sans-serif;
   color: #3F3F3F;
+  background-color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11030,6 +11031,36 @@ header {
 
 .h1_show_title {
   max-width: 80%;
+}
+
+.title_input {
+  display: inline-block;
+  margin-right: 150px;
+}
+
+.counter {
+  width: 45px;
+  border: none;
+  text-align: center;
+  color: #3F3F3F;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.up_count,
+.down_count {
+  border-radius: 50%;
+  background: white;
+  color: #008489;
+  padding: 3px 10px;
+  border: 1px solid #008489;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.fas {
+  color: #008489;
+  vertical-align: middle;
+  font-size: 10px;
 }
 
 .container_informazioni {

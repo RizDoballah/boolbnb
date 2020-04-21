@@ -3,6 +3,7 @@
 * {
      font-family: 'Manrope', sans-serif;
     color: $text-color;
+    background-color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -128,19 +129,45 @@ header{
 
 
 // Show page CSS
-.show_image {
-    height: 600px;
-    overflow: hidden;
-    img {
-        transform: translate(0, -25%);
-    }
+  .show_image {
+      height: 600px;
+      overflow: hidden;
+      img {
+          transform: translate(0, -25%);
+      }
+  }
+  .h1_show_title {
+      max-width: 80%;
+  }
+
+// Create page host
+
+.title_input {
+  display: inline-block;
+  margin-right: 150px;
 }
-.h1_show_title {
-    max-width: 80%;
+.counter {
+width: 45px;
+border: none;
+text-align: center;
+color: $text-color;
+font-weight: bold;
+font-size: 18px;
 }
-
-
-
+.up_count,
+.down_count {
+border-radius: 50%;
+background: white;
+color: #008489;
+padding: 3px 10px;
+border: 1px solid #008489;
+transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.fas {
+  color: #008489;
+  vertical-align: middle;
+  font-size: 10px;
+}
 
 
 // Info section
@@ -196,7 +223,7 @@ header{
     color: black;
   }
 }
- 
+
 .pad1 {
   padding: 40px 100px;
 }
@@ -213,7 +240,7 @@ header{
     color: black;
   }
 }
- 
+
 .pad1 {
   padding: 40px 100px;
 }
@@ -238,7 +265,7 @@ header{
 .slidecontainer {
     width: 100%;
   }
-  
+
   .slider {
     -webkit-appearance: none;
     width: 100%;
@@ -250,11 +277,11 @@ header{
     -webkit-transition: .2s;
     transition: opacity .2s;
   }
-  
+
   .slider:hover {
     opacity: 1;
   }
-  
+
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -264,7 +291,7 @@ header{
     background: $main-color;
     cursor: pointer;
   }
-  
+
   .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;

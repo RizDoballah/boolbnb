@@ -13,6 +13,24 @@ require('./bootstrap');
 // Jquery code
 $(document).ready(function () {
 
+  // input number create page
+  $('button').click(function(e){
+       var button_classes, value = +$('.counter').val();
+       button_classes = $(e.currentTarget).prop('class');
+       if(button_classes.indexOf('up_count') !== -1){
+           value = (value) + 1;
+       } else {
+           value = (value) - 1;
+       }
+       value = value < 0 ? 0 : value;
+       $('.counter').val(value);
+   });
+   $('.counter').click(function(){
+       $(this).focus().select();
+   });
+
+
+
     var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
     // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
 
@@ -56,7 +74,7 @@ $(document).ready(function () {
                 'success': function (data) {
                     $('#city').text(searchVal);
                     // console.log($('#city').text(searchVal));
-                    
+
                     var results = data.results;
                     var lat = results[0].position.lat;
                     var lon = results[0].position.lon;
@@ -135,7 +153,7 @@ $(document).ready(function () {
         let lon = $(this).attr('data-lon');
         $('#lat').val(lat);
         $('#lon').val(lon);
-    })
+    });
 
     $(document).on('click', '#search_input', function () {
         $('.listElement').show();
@@ -184,10 +202,12 @@ $(document).ready(function () {
     var slider = document.getElementById("km");
     var output = document.getElementById("distanza_km");
     output.innerHTML = slider.value;
-    
+
     slider.oninput = function() {
       output.innerHTML = this.value;
     }
+
+
 
 
 
