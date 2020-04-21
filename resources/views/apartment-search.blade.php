@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('content')
-  {{-- @dd(empty($data)) --}}
 <div class="container-fluid coord" data-lat="{{$coord['lat']}}" data-lon="{{$coord['lon']}}" >
     <div class="row">
-
         <div class="col-5">
             <h1 class="pt-5">Soggiorni</h1>
             {{-- <span id="city"></span> --}}
@@ -18,28 +16,25 @@
 
             <div class="row mb-4">
                 <div class="col-md-6 col-sm-12">
-                    {{-- <h3>Filtra</h3> --}}
-
 
                     <input type="hidden" name="lat" value="{{$coord['lat']}}">
                     <input type="hidden" name="lon" value="{{$coord['lon']}}">
-
                     <div class="form-check">
-                        <input class="form-check-input" name="services[]" value="Wi-fi" {{(in_array('Wi-fi', $data['services']) ? 'checked' : '')}} type="checkbox">
+                        <input class="form-check-input" name="services[]" value="Wi-fi" {{(!empty($data['services']) && in_array('Wi-fi', $data['services'])) ? 'checked' : ''}} type="checkbox">
                         <label class="form-check-label" for="wifi">
                             Wi-Fi
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" name="services[]" value="Piscina" {{(in_array('Piscina', $data['services']) ? 'checked' : '')}} type="checkbox">
+                        <input class="form-check-input" name="services[]" value="Piscina" {{(!empty($data['services']) && in_array('Piscina', $data['services'])) ? 'checked' : ''}} type="checkbox">
                         <label class="form-check-label" for="piscina">
                             Piscina
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" name="services[]" value="Posto macchina"{{(in_array('Posto macchina', $data['services']) ? 'checked' : '')}}
+                        <input class="form-check-input" name="services[]" value="Posto macchina"{{(!empty($data['services']) && in_array('Posto macchina', $data['services'])) ? 'checked' : ''}}
                          type="checkbox">
                         <label class="form-check-label" for="posto-macchina">
                             Posto macchina
@@ -48,27 +43,27 @@
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="form-check">
-                            <input class="form-check-input" name="services[]" value="Sauna" {{(in_array('Sauna', $data['services']) ? 'checked' : '')}} type="checkbox">
+                            <input class="form-check-input" name="services[]" value="Sauna" {{(!empty($data['services']) && in_array('Sauna', $data['services'])) ? 'checked' : ''}} type="checkbox">
                             <label class="form-check-label" for="sauna">
                                 Sauna
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" name="services[]" value="Vista mare" {{(in_array('Vista mare', $data['services']) ? 'checked' : '')}} type="checkbox">
+                            <input class="form-check-input" name="services[]" value="Vista mare" {{(!empty($data['services']) && in_array('Vista mare', $data['services'])) ? 'checked' : ''}} type="checkbox">
                             <label class="form-check-label" for="vista-mare">
                                 Piscina
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" name="services[]" value="Portineria" {{(in_array('Portineria', $data['services']) ? 'checked' : '')}} type="checkbox">
+                            <input class="form-check-input" name="services[]" value="Portineria" {{(!empty($data['services']) && in_array('Portineria', $data['services'])) ? 'checked' : ''}} type="checkbox">
                             <label class="form-check-label" for="portineria">
                                 Portineria
                             </label>
                         </div>
                     </div>
-            </div>
+            </div> 
             <div class="row mb-1">
                 <div class="col-12">
 

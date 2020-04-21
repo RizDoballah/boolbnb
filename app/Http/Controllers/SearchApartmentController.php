@@ -87,7 +87,6 @@ class SearchApartmentController extends Controller
              $result[]=$apartment;
            }
         }
-
           return view('apartment-search', compact('result', 'coord', 'km', 'data'));
     }
 
