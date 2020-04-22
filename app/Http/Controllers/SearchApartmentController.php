@@ -14,7 +14,8 @@ class SearchApartmentController extends Controller
       // dd($data);
       $coord = [
       'lat'=>$data['lat'],
-      'lon'=>$data['lon']
+      'lon'=>$data['lon'],
+      'city'=>$data['city']
       ];
       $apartments = Apartment::all();
       $result = [];
@@ -28,9 +29,6 @@ class SearchApartmentController extends Controller
       }
       return view('apartment-search', compact('result', 'coord'));
     }
-
-
-
 
 
     public function distance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371)

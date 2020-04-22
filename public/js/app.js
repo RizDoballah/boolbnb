@@ -37396,8 +37396,10 @@ $(document).ready(function () {
           var results = data.results;
           var lat = results[0].position.lat;
           var lon = results[0].position.lon;
+          var city = results[0].address.municipality;
           $('#lat').val(lat);
           $('#lon').val(lon);
+          $('#city').val(city);
         },
         'error': function error(request, state, _error2) {// alert('Errore' + error);
         }
@@ -37497,8 +37499,10 @@ $(document).ready(function () {
     $('.addPin').each(function () {
       var lat = $(this).attr('data-lat');
       var lon = $(this).attr('data-lon');
+      var title = $(this).parent().parent().parent().children('.col-7').find('h4').html();
+      console.log(title);
       var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
-      marker.setPopup(new tt.Popup().setHTML("boh"));
+      marker.setPopup(new tt.Popup().setHTML(title));
     });
   } // Slider km
 

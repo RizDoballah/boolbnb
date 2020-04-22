@@ -3,7 +3,7 @@
 <div class="container-fluid coord" data-lat="{{$coord['lat']}}" data-lon="{{$coord['lon']}}" >
     <div class="row">
         <div class="col-5">
-            <h1 class="pt-5">Soggiorni</h1>
+            <h1 class="pt-5">Soggiorni a {{$coord['city']}}</h1>
 
          <form method="GET" action="{{route('apartment.filter')}}">
          @csrf
@@ -103,7 +103,7 @@
                 </div>
 
                 <div class="col-7">
-                    <h4>{{$apartment->title}}</h4>
+                    <h4 class='title_apartment'>{{$apartment->title}}</h4>
                     <ul class="list-inline">
                         <li class="list-inline-item">{{$apartment->square_meters}} Mq</li>
                         <li class="list-inline-item"> {{$apartment->rooms}} Camere</li>

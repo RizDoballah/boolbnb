@@ -78,8 +78,11 @@ $(document).ready(function () {
                     var results = data.results;
                     var lat = results[0].position.lat;
                     var lon = results[0].position.lon;
+                    var city = results[0].address.municipality;
                     $('#lat').val(lat);
                     $('#lon').val(lon);
+                    $('#city').val(city);
+
                 },
                 'error': function (request, state, error) {
                     // alert('Errore' + error);
@@ -87,7 +90,6 @@ $(document).ready(function () {
             });
         }
     }, 300));
-
 
 
     // Autocomplete
@@ -191,8 +193,10 @@ $(document).ready(function () {
         $('.addPin').each(function () {
             let lat = $(this).attr('data-lat');
             let lon = $(this).attr('data-lon');
+            let title = $(this).parent().parent().parent().children('.col-7').find('h4').html();
+            console.log(title);
             var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
-            marker.setPopup(new tt.Popup().setHTML("boh"));
+            marker.setPopup(new tt.Popup().setHTML(title));
         });
     }
 

@@ -17,6 +17,7 @@
                         <ul id="search_autocomplete"></ul>
                         <input id="lat" type="hidden" name="lat" value="">
                         <input id="lon" type="hidden" name="lon" value="">
+                        <input id="city" type="hidden" name="city" value="">
                         <button id="search" class="search" type="submit">Cerca</button>
                     </form>
 
