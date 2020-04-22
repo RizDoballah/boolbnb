@@ -1,7 +1,7 @@
 @if (Request::is('/'))
 <header>
     <div class="container-fluid">
-        @include('layouts._menu')
+        @include('layouts.partials._menu')
     </div>
     <div class="container">
         <div class="row">
@@ -27,5 +27,5 @@
 </header>
 @else
 
-@include('layouts._menu')
+@include('layouts.partials._menu')
 @endif

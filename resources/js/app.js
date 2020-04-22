@@ -208,16 +208,16 @@ $(document).ready(function () {
 
 
     // Invio messaggio
-    
+
     $('#send').on('click', function(){
         var name = $('#name').val();
         var email = $('#email').val();
         var body = $('#body').val();
         var id = $('#id-apt').val();
-        
-        
+
+
         var url =  window.location.protocol + '//' + window.location.host + "/api/sendmessage";
-        
+
         $.ajax({
             'url': url,
             'method': 'POST',
@@ -232,6 +232,7 @@ $(document).ready(function () {
 
                 if(message.sent) {
                     $('#modal').html('Il messaggio è stato inviato');
+                    $('#send').hide();
                 } else {
                     $('#errors').html('Tutti i campi devono essere compilati');
                 }

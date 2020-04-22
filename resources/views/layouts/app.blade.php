@@ -1,7 +1,7 @@
-@include('layouts._head')
+@include('layouts.partials._head')
 <body>
     <div id="app">
-        @include('layouts._header')
+        @include('layouts.partials._header')
 
       <main class="{{ (Request::is('/')) ? '' : 'padding-top' }}">
             @yield('content')
@@ -134,7 +134,7 @@
             </div>
         </div>
     </div>
-            
+
           <div class="footer_bottom container">
             <div class="text">
               <ul class="list-inline">

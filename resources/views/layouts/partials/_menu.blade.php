@@ -1,7 +1,7 @@
 <nav class="{{(Request::is('/')) ? 'navbar navbar-expand navbar-light menu-index' : 'navbar navbar-expand navbar-light menu' }}">
   <div class="container-fluid my-4">
     <a class="navbar-brand" href="{{ url('/') }}">
-      @include('layouts._logo')
+      @include('layouts.partials._logo')
       {{-- <img class="logo" src="{{asset('img/logo.png')}}" alt="Airbnb logo"> --}}
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">

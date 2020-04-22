@@ -18,57 +18,63 @@
 
                     <input type="hidden" name="lat" value="{{$coord['lat']}}">
                     <input type="hidden" name="lon" value="{{$coord['lon']}}">
-                    <div class="form-check">
+
+                    <div class="checkbox_filter">
+                      <label class="container_checkbox">
                         <input class="form-check-input" name="services[]" value="Wi-fi" {{(!empty($data['services']) && in_array('Wi-fi', $data['services'])) ? 'checked' : ''}} type="checkbox">
-                        <label class="form-check-label" for="wifi">
-                            Wi-Fi
-                        </label>
+
+                        <i class="fas fa-wifi"></i> Wi-Fi
+                        <span class="checkmark"></span>
+                      </label>
                     </div>
 
-                    <div class="form-check">
+                    <div class="checkbox_filter">
+                      <label class="container_checkbox">
                         <input class="form-check-input" name="services[]" value="Piscina" {{(!empty($data['services']) && in_array('Piscina', $data['services'])) ? 'checked' : ''}} type="checkbox">
-                        <label class="form-check-label" for="piscina">
-                            Piscina
-                        </label>
+                          <i class="fas fa-swimming-pool"></i> Piscina
+                          <span class="checkmark"></span>
                     </div>
 
-                    <div class="form-check">
+                    <div class="checkbox_filter">
+                      <label class="container_checkbox">
                         <input
                             class="form-check-input"
-                            name="services[]" 
+                            name="services[]"
                             value="Posto macchina"{{(!empty($data['services']) && in_array('Posto macchina', $data['services'])) ? 'checked' : ''}}
                             type="checkbox"
                         >
-                        <label class="form-check-label" for="posto-macchina">
-                            Posto macchina
-                        </label>
+                            <i class="fas fa-parking"></i>  Posto macchina
+                            <span class="checkmark"></span>
                     </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
 
-                        <div class="form-check">
+                        <div class="checkbox_filter">
+                          <label class="container_checkbox">
                             <input class="form-check-input" name="services[]" value="Sauna" {{(!empty($data['services']) && in_array('Sauna', $data['services'])) ? 'checked' : ''}} type="checkbox">
-                            <label class="form-check-label" for="sauna">
-                                Sauna
-                            </label>
+
+                                <i class="fas fa-hot-tub"></i> Sauna
+                                <span class="checkmark"></span>
                         </div>
 
-                        <div class="form-check">
+                        <div class="checkbox_filter">
+                          <label class="container_checkbox">
                             <input class="form-check-input" name="services[]" value="Vista mare" {{(!empty($data['services']) && in_array('Vista mare', $data['services'])) ? 'checked' : ''}} type="checkbox">
-                            <label class="form-check-label" for="vista-mare">
-                                Piscina
-                            </label>
+
+                              <i class="fas fa-water"></i> Vista Mare
+                              <span class="checkmark"></span>
                         </div>
 
-                        <div class="form-check">
+                        <div class="checkbox_filter">
+                          <label class="container_checkbox">
                             <input class="form-check-input" name="services[]" value="Portineria" {{(!empty($data['services']) && in_array('Portineria', $data['services'])) ? 'checked' : ''}} type="checkbox">
-                            <label class="form-check-label" for="portineria">
-                                Portineria
-                            </label>
+
+                              <i class="fas fa-concierge-bell"></i> Portineria
+                              <span class="checkmark"></span>
                         </div>
 
                     </div>
-            </div> 
+            </div>
             <div class="row mb-1">
                 <div class="col-12">
 
@@ -85,7 +91,7 @@
             </form>
             @if (empty($result))
               <h4>Nessun risultato</h4>
-              <p>Prova a modificare la tua ricerca rimuovendo filtri o ampliando l'area nella mappa</p>  
+              <p>Prova a modificare la tua ricerca rimuovendo filtri o ampliando l'area nella mappa</p>
             @endif
             @foreach ($result as $apartment)
             <div class="row">

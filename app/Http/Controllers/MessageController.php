@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Validator; 
+use Validator;
 use App\Message;
 use App\Apartment;
 use App\User;
@@ -17,15 +17,15 @@ class MessageController extends Controller
      */
     public function index()
     {
-
+      $messages = [];
       $apartments = new Apartment;
       $apartments = $apartments->where('user_id', Auth::id())->get();
+      foreach ($apartments as $apartment) {
+        $messages[] = Message::where('apartment_id', $apartment->id)->latest()->get();
+      }
 
-        return view('messages.index', compact('apartments'));
+        return view('messages.index', compact('messages'));
     }
-
-
-
 
     public function store(Request $request)
     {
@@ -43,7 +43,7 @@ class MessageController extends Controller
         'sent' => false
         ]);
      }
-        
+
         $newMessage = Message::create([
             'name' => $data['name'],
             'body' => $data['body'],
