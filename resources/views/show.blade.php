@@ -61,19 +61,25 @@
                     <form method="POST">
                         @csrf
                         @method('POST')
+                        <input type="hidden" name="_token" id="csrf" value="{{Session::token()}}">
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <label for="name" class="col-form-label">Nome:</label>
+                            <input type="text" class="form-control" id="name">
                         </div>
                         <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="text" class="form-control" id="email">
                         </div>
+                        <div class="form-group">
+                            <label for="body" class="col-form-label">Messaggio:</label>
+                            <textarea class="form-control" id="body"></textarea>
+                        </div>
+                        <input type="hidden" value="{{$apartment->id}}" id="id-apt" name="apartment_id">
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                    <button id='send' type="button" class="btn btn-primary">Invia</button>
                 </div>
             </div>
         </div>

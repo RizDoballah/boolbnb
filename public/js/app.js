@@ -37502,15 +37502,41 @@ $(document).ready(function () {
       marker.setPopup(new tt.Popup().setHTML("boh"));
     });
   } // Slider km
+  // var slider = document.getElementById("km");
+  // var output = document.getElementById("distanza_km");
+  // output.innerHTML = slider.value;
+  // slider.oninput = function() {
+  //   output.innerHTML = this.value;
+  // }
+  // Invio messaggio
 
 
-  var slider = document.getElementById("km");
-  var output = document.getElementById("distanza_km");
-  output.innerHTML = slider.value;
+  $('#send').on('click', function () {
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var body = $('#body').val(); // console.log(name);
 
-  slider.oninput = function () {
-    output.innerHTML = this.value;
-  };
+    var id = $('#id-apt').val();
+    var url = window.location.protocol + '//' + window.location.host + "/api/sendmessage"; // console.log(url);
+
+    $.ajax({
+      'url': url,
+      'method': 'POST',
+      'data': {
+        '_token': $("#csrf").val(),
+        'name': name,
+        'email': email,
+        'body': body,
+        'apartment_id': id
+      },
+      'success': function success(data) {
+        console.log(data);
+      },
+      'error': function error(_error4, state) {
+        console.log(_error4);
+      }
+    });
+  });
 });
 
 /***/ }),
@@ -37578,8 +37604,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

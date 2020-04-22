@@ -199,16 +199,46 @@ $(document).ready(function () {
 
 
     // Slider km
-    var slider = document.getElementById("km");
-    var output = document.getElementById("distanza_km");
-    output.innerHTML = slider.value;
+    // var slider = document.getElementById("km");
+    // var output = document.getElementById("distanza_km");
+    // output.innerHTML = slider.value;
 
-    slider.oninput = function() {
-      output.innerHTML = this.value;
-    }
+    // slider.oninput = function() {
+    //   output.innerHTML = this.value;
+    // }
 
 
-
+    // Invio messaggio
+    
+    $('#send').on('click', function(){
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var body = $('#body').val();
+        // console.log(name);
+        var id = $('#id-apt').val();
+        
+        var url =  window.location.protocol + '//' + window.location.host + "/api/sendmessage";
+        // console.log(url);
+        
+        $.ajax({
+            'url': url,
+            'method': 'POST',
+            'data': {
+                '_token': $("#csrf").val(),
+                'name': name,
+                'email': email,
+                'body': body,
+                'apartment_id': id
+            },
+            'success': function(data){
+                console.log(data);
+                
+            },
+            'error': function(error,state){
+                console.log(error);
+            }
+        });
+    });
 
 
 });

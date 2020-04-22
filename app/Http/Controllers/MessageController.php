@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Message;
 use App\Apartment;
 use App\User;
+// use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -42,7 +43,36 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        
+        // $validateData = $request->validate([
+        //     'name' => 'required|string',
+        //     'body' => 'required|string',
+        //     'email' => 'required|email'
+        // ]);
+        
+        // $newMessage = Message::create([
+        //     'name' => $data['name'],
+        //     'body' => $data['body'],
+        //     'email' =>$data['email'],
+        //     'apartment_id' => $data['apartment_id']
+        // ]);
+        $newMessage = new Message;
+        $newMessage->fill($data);
+       
+        // $newMessage->name = Input::get('name');
+        $save = $newMessage->save();
+
+        // if ($validateData->fails()) {    
+        //     return response()->json($validateData->messages(), 200);
+        // }
+        return response()->json($newMessage);
+
+        // "SQLSTATE[HY000]: General error: 1364 Field 'apartment_id' doesn't have a default value (SQL: insert into `messages` (`name`, `email`, `body`, `updated_at`, `created_at`) values (sss, sss, ss, 2020-04-22 10:02:54, 2020-04-22 10:02:54))"
+
+
+        // return response()->json($data);
+        // dd($data);
     }
 
     /**
