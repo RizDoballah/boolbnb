@@ -175,7 +175,6 @@ $(document).ready(function () {
 
         var latData = $('.coord').attr('data-lat');
         var lonData = $('.coord').attr('data-lon');
-        console.log(latData);
 
         // Inizialize map
         var map = tt.map({
@@ -189,7 +188,7 @@ $(document).ready(function () {
         map.addControl(new tt.NavigationControl());
 
         // Add a marker for every apartment
-        $('.apartment_img').each(function () {
+        $('.addPin').each(function () {
             let lat = $(this).attr('data-lat');
             let lon = $(this).attr('data-lon');
             var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
@@ -199,13 +198,13 @@ $(document).ready(function () {
 
 
     // Slider km
-    // var slider = document.getElementById("km");
-    // var output = document.getElementById("distanza_km");
-    // output.innerHTML = slider.value;
+    var slider = $("km");
+    var output = $("distanza_km");
+    output.innerHTML = slider.value;
 
-    // slider.oninput = function() {
-    //   output.innerHTML = this.value;
-    // }
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
 
 
     // Invio messaggio
@@ -236,7 +235,6 @@ $(document).ready(function () {
                 } else {
                     $('#errors').html('Tutti i campi devono essere compilati');
                 }
-                
             },
             'error': function(error,state){
                 console.log(error);

@@ -37482,8 +37482,7 @@ $(document).ready(function () {
 
   if ($('#map').length) {
     var latData = $('.coord').attr('data-lat');
-    var lonData = $('.coord').attr('data-lon');
-    console.log(latData); // Inizialize map
+    var lonData = $('.coord').attr('data-lon'); // Inizialize map
 
     var map = tt.map({
       key: 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X',
@@ -37495,20 +37494,22 @@ $(document).ready(function () {
 
     map.addControl(new tt.NavigationControl()); // Add a marker for every apartment
 
-    $('.apartment_img').each(function () {
+    $('.addPin').each(function () {
       var lat = $(this).attr('data-lat');
       var lon = $(this).attr('data-lon');
       var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
       marker.setPopup(new tt.Popup().setHTML("boh"));
     });
   } // Slider km
-  // var slider = document.getElementById("km");
-  // var output = document.getElementById("distanza_km");
-  // output.innerHTML = slider.value;
-  // slider.oninput = function() {
-  //   output.innerHTML = this.value;
-  // }
-  // Invio messaggio
+
+
+  var slider = $("km");
+  var output = $("distanza_km");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function () {
+    output.innerHTML = this.value;
+  }; // Invio messaggio
 
 
   $('#send').on('click', function () {

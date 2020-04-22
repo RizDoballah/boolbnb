@@ -4,7 +4,6 @@
     <div class="row">
         <div class="col-5">
             <h1 class="pt-5">Soggiorni</h1>
-            {{-- <span id="city"></span> --}}
 
          <form method="GET" action="{{route('apartment.filter')}}">
          @csrf
@@ -34,14 +33,19 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" name="services[]" value="Posto macchina"{{(!empty($data['services']) && in_array('Posto macchina', $data['services'])) ? 'checked' : ''}}
-                         type="checkbox">
+                        <input
+                            class="form-check-input"
+                            name="services[]" 
+                            value="Posto macchina"{{(!empty($data['services']) && in_array('Posto macchina', $data['services'])) ? 'checked' : ''}}
+                            type="checkbox"
+                        >
                         <label class="form-check-label" for="posto-macchina">
                             Posto macchina
                         </label>
                     </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
+
                         <div class="form-check">
                             <input class="form-check-input" name="services[]" value="Sauna" {{(!empty($data['services']) && in_array('Sauna', $data['services'])) ? 'checked' : ''}} type="checkbox">
                             <label class="form-check-label" for="sauna">
@@ -62,6 +66,7 @@
                                 Portineria
                             </label>
                         </div>
+
                     </div>
             </div> 
             <div class="row mb-1">
@@ -86,7 +91,7 @@
             <div class="row">
                 <div class="col-5">
                     <a href="{{route('home.show', $apartment)}}">
-                        <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img"
+                        <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img addPin"
                             src="{{asset($apartment->main_img)}}" alt="">
                     </a>
                 </div>
