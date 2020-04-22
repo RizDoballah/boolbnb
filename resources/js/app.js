@@ -214,11 +214,10 @@ $(document).ready(function () {
         var name = $('#name').val();
         var email = $('#email').val();
         var body = $('#body').val();
-        // console.log(name);
         var id = $('#id-apt').val();
         
+        
         var url =  window.location.protocol + '//' + window.location.host + "/api/sendmessage";
-        // console.log(url);
         
         $.ajax({
             'url': url,
@@ -230,26 +229,14 @@ $(document).ready(function () {
                 'body': body,
                 'apartment_id': id
             },
-            'success': function(data){
-                // var emailError = data.email[0];
-                // var bodyError = data.body[0];
-                // var nameError = data.name[0];
+            'success': function(message){
 
+                if(message.sent) {
+                    $('#modal').html('Il messaggio è stato inviato');
+                } else {
+                    $('#errors').html('Tutti i campi devono essere compilati');
+                }
                 
-                // if(typeof data.email[0] !== "undefined" ) {
-                //     $('#email_error').html(data.email[0]);
-                // }
-
-                // console.log(data.body);
-                
-
-                 if(data) {
-                     $('error').html(data);
-                 }
-
-                //  if(data.name[0].length) {
-                //      $('#name_error').html(data.name[0]);
-                //  }
             },
             'error': function(error,state){
                 console.log(error);

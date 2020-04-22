@@ -5,7 +5,6 @@ use Validator;
 use App\Message;
 use App\Apartment;
 use App\User;
-// use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -25,22 +24,9 @@ class MessageController extends Controller
         return view('messages.index', compact('apartments'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function store(Request $request)
     {
         $data = $request->all();
@@ -50,9 +36,12 @@ class MessageController extends Controller
             'email' => 'required|email'
             ]);
 
-        
+
      if ($validator->fails()) {
-        return response()->json($validator->messages(), 200);
+        return response()->json([
+        'errors' => $validator->messages(),
+        'sent' => false
+        ]);
      }
         
         $newMessage = Message::create([
@@ -62,8 +51,15 @@ class MessageController extends Controller
             'apartment_id' => $data['apartment_id']
         ]);
 
-        return response()->json('Il messaggio è stato inviato');
+        return response()->json([
+            'errors' => false,
+            'sent' => true]);
     }
+
+
+
+
+
 
     /**
      * Display the specified resource.

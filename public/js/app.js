@@ -37514,11 +37514,9 @@ $(document).ready(function () {
   $('#send').on('click', function () {
     var name = $('#name').val();
     var email = $('#email').val();
-    var body = $('#body').val(); // console.log(name);
-
+    var body = $('#body').val();
     var id = $('#id-apt').val();
-    var url = window.location.protocol + '//' + window.location.host + "/api/sendmessage"; // console.log(url);
-
+    var url = window.location.protocol + '//' + window.location.host + "/api/sendmessage";
     $.ajax({
       'url': url,
       'method': 'POST',
@@ -37529,20 +37527,12 @@ $(document).ready(function () {
         'body': body,
         'apartment_id': id
       },
-      'success': function success(data) {
-        // var emailError = data.email[0];
-        // var bodyError = data.body[0];
-        // var nameError = data.name[0];
-        // if(typeof data.email[0] !== "undefined" ) {
-        //     $('#email_error').html(data.email[0]);
-        // }
-        // console.log(data.body);
-        if (data) {
-          $('error').html(data);
-        } //  if(data.name[0].length) {
-        //      $('#name_error').html(data.name[0]);
-        //  }
-
+      'success': function success(message) {
+        if (message.sent) {
+          $('#modal').html('Il messaggio è stato inviato');
+        } else {
+          $('#errors').html('Tutti i campi devono essere compilati');
+        }
       },
       'error': function error(_error4, state) {
         console.log(_error4);
@@ -37616,8 +37606,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Zeus/code/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Zeus/code/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

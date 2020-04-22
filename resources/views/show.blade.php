@@ -16,17 +16,13 @@
     <div class="row">
         <div class="col-7">
             <h1 class="h1_show_title">{{$apartment->title}}</h1>
-            {{-- <small>{{$apartment->square_meters}}</small> --}}
             <ul class="list-inline">
                 <li class="list-inline-item">{{$apartment->square_meters}} Mq</li>
                 <li class="list-inline-item"> {{$apartment->rooms}} Camere</li>
                 <li class="list-inline-item">{{$apartment->bathroom}} Bagni </li>
                 <li class="list-inline-item">{{$apartment->beds}} Letti </li>
-                {{-- <li id="latValue">{{$apartment->lat}}</li>
-                <li id="lonValue">{{$apartment->lon}}</li> --}}
             </ul>
             <p>{{$apartment->description}}</p>
-
         </div>
 
         <div class="col-5">
@@ -43,45 +39,44 @@
             @endforeach
         </div>
     </div>
+    <button type="button" class="btn btn-primary my-5" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Invia un messaggio</button>
 </div>
 
     {{-- ***************************************** --}}
 
-    <button type="button" class="btn btn-primary my-5" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Invia un messaggio</button>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Invia un messaggio al proprietario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form method="POST">
-                        @csrf
-                        @method('POST')
-                        <input type="hidden" name="_token" id="csrf" value="{{Session::token()}}">
-                        <div class="form-group">
-                            <label for="name" class="col-form-label">Nome:</label>
-                            <input type="text" class="form-control" id="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="col-form-label">Email:</label>
-                            <input type="text" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="body" class="col-form-label">Messaggio:</label>
-                            <textarea class="form-control" id="body"></textarea>
-                        </div>
-                        <input type="hidden" value="{{$apartment->id}}" id="id-apt" name="apartment_id">
-                    </form>
+
+                <div id="modal" class="modal-body">
+                    <input type="hidden" name="_token" id="csrf" value="{{Session::token()}}">
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Il tuo nome</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-form-label">La tua e-mail</label>
+                        <input type="text" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="body" class="col-form-label">Il tuo messaggio</label>
+                        <textarea class="form-control" id="body"></textarea>
+                    </div>
+                    <input type="hidden" value="{{$apartment->id}}" id="id-apt" name="apartment_id">
+                    <small id="errors" class="form-text text-danger"></small>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                    <small id="error" class="form-text text-danger"></small>
                     <button id='send' type="button" class="btn btn-primary">Invia</button>
                 </div>
+
             </div>
         </div>
     </div>
