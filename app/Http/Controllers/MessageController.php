@@ -53,7 +53,6 @@ class MessageController extends Controller
         
      if ($validator->fails()) {
         return response()->json($validator->messages(), 200);
-
      }
         
         $newMessage = Message::create([
@@ -63,7 +62,7 @@ class MessageController extends Controller
             'apartment_id' => $data['apartment_id']
         ]);
 
-        return response()->json($newMessage);
+        return response()->json('Il messaggio è stato inviato');
     }
 
     /**

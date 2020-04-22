@@ -231,8 +231,25 @@ $(document).ready(function () {
                 'apartment_id': id
             },
             'success': function(data){
-                console.log(data);
+                // var emailError = data.email[0];
+                // var bodyError = data.body[0];
+                // var nameError = data.name[0];
+
                 
+                // if(typeof data.email[0] !== "undefined" ) {
+                //     $('#email_error').html(data.email[0]);
+                // }
+
+                // console.log(data.body);
+                
+
+                 if(data) {
+                     $('error').html(data);
+                 }
+
+                //  if(data.name[0].length) {
+                //      $('#name_error').html(data.name[0]);
+                //  }
             },
             'error': function(error,state){
                 console.log(error);

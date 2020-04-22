@@ -79,6 +79,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                    <small id="error" class="form-text text-danger"></small>
                     <button id='send' type="button" class="btn btn-primary">Invia</button>
                 </div>
             </div>
