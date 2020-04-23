@@ -37341,7 +37341,17 @@ $(document).ready(function () {
   });
   $(document).on('click', '.down_count', function () {
     if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
-  });
+  }); //   var counter = 0
+  //     $("#counter").text(counter);
+  //     $("#add").click(function(){
+  //         counter = counter + 1;
+  //         $("#counter").text(counter);
+  //     });
+  //     $("#subtract").click(function(){
+  //         counter = counter - 1;
+  //         $("#counter").text(counter);
+  //     });
+
   var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X'; // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
   // Chiamata Ajax address Create & Edit
 
@@ -37602,8 +37612,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

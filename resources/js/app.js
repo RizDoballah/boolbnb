@@ -21,6 +21,18 @@ $(document).ready(function () {
      if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
   });
 
+//   var counter = 0
+//     $("#counter").text(counter);
+//     $("#add").click(function(){
+//         counter = counter + 1;
+//         $("#counter").text(counter);
+//     });
+
+//     $("#subtract").click(function(){
+//         counter = counter - 1;
+//         $("#counter").text(counter);
+//     });
+
 
     var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
     // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';

@@ -12,12 +12,12 @@
       <form method="POST" action="{{route('apartment.search')}}">
         @csrf
         @method('POST')
-        <input autocomplete="off" id="search_input" class="" type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
+        <input autocomplete="off" id="search_input" class="search_apartment_input" type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
         <ul id="search_autocomplete"></ul>
         <input id="lat" type="hidden" name="lat" value="">
         <input id="lon" type="hidden" name="lon" value="">
         <input id="city" type="hidden" name="city" value="">
-        <button id="search" class="" type="submit">Cerca</button>
+        <button id="search" class="btn btn_main" type="submit">Cerca</button>
     </form>
       @endif
 
