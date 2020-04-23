@@ -37489,15 +37489,14 @@ $(document).ready(function () {
       var lat = $(this).attr('data-lat');
       var lon = $(this).attr('data-lon');
       var title = $(this).parent().parent().parent().children('.col-7').find('h4').html();
-      console.log(title);
       var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
       marker.setPopup(new tt.Popup().setHTML(title));
     });
   } // Slider km
 
 
-  var slider = $("km");
-  var output = $("distanza_km");
+  var slider = document.getElementById("km");
+  var output = document.getElementById("distanza_km");
   output.innerHTML = slider.value;
 
   slider.oninput = function () {

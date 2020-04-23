@@ -15,7 +15,7 @@ class SearchApartmentController extends Controller
       $coord = [
       'lat'=>$data['lat'],
       'lon'=>$data['lon'],
-      'city'=>$data['city']
+      'city'=>$data['city'],
       ];
       $apartments = Apartment::all();
       $result = [];
@@ -23,9 +23,17 @@ class SearchApartmentController extends Controller
          $lat = $apartment->lat;
          $lon = $apartment->lon;
          $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
+         // Apartment::update([
+         //   'dist'=>$dist
+         // ]);
+         // dd($apartment['dist']);
          if($dist <= 20){
            $result[]=$apartment;
+
          }
+
+
+         // $query = "SELECT * FROM table WHERE lon BETWEEN '$minLon' AND '$maxLon' AND lat BETWEEN '$minLat' AND '$maxLat'";
       }
       return view('apartment-search', compact('result', 'coord'));
     }
@@ -52,7 +60,8 @@ class SearchApartmentController extends Controller
 
         $coord = [
           'lat'=>$data['lat'],
-          'lon'=>$data['lon']
+          'lon'=>$data['lon'],
+          'city'=>$data['city']
         ];
         $km = [
           'km'=>$data['km']

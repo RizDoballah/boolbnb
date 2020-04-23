@@ -185,7 +185,6 @@ $(document).ready(function () {
             let lat = $(this).attr('data-lat');
             let lon = $(this).attr('data-lon');
             let title = $(this).parent().parent().parent().children('.col-7').find('h4').html();
-            console.log(title);
             var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
             marker.setPopup(new tt.Popup().setHTML(title));
         });
@@ -193,14 +192,12 @@ $(document).ready(function () {
 
 
     // Slider km
-    var slider = $("km");
-    var output = $("distanza_km");
+    var slider = document.getElementById("km");
+    var output = document.getElementById("distanza_km");
     output.innerHTML = slider.value;
-
     slider.oninput = function() {
       output.innerHTML = this.value;
     }
-
 
     // Invio messaggio
 

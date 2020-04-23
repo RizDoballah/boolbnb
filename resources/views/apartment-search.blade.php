@@ -4,7 +4,6 @@
     <div class="row">
         <div class="col-5">
             <h1 class="pt-5">Soggiorni a {{$coord['city']}}</h1>
-
          <form method="GET" action="{{route('apartment.filter')}}">
          @csrf
 
@@ -18,6 +17,7 @@
 
                     <input type="hidden" name="lat" value="{{$coord['lat']}}">
                     <input type="hidden" name="lon" value="{{$coord['lon']}}">
+                    <input type="hidden" name="city" value="{{$coord['city']}}">
 
                     <div class="checkbox_filter">
                       <label class="container_checkbox">
