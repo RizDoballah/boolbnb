@@ -39,7 +39,9 @@
             @endforeach
         </div>
     </div>
-    <button type="button" class="btn btn-primary my-5" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Invia un messaggio</button>
+    @if($apartment->user_id != Auth::id())
+        <button type="button" class="btn btn-primary my-5" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Invia un messaggio</button>
+    @endif
 </div>
 
     {{-- ***************************************** --}}

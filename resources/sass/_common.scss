@@ -45,6 +45,15 @@ header{
 
 // Home page
 
+.btn_main{
+    color: white;
+    background-color: $main-color;
+    &:hover {
+        color: white;
+        background-color: darken($main-color, 2%)
+    }
+}
+
 .box-search-index {
   background-color: white;
   border-radius: 5px;

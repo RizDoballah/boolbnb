@@ -192,22 +192,23 @@ $(document).ready(function () {
 
 
     // Slider km
-    var slider = document.getElementById("km");
-    var output = document.getElementById("distanza_km");
-    output.innerHTML = slider.value;
-    slider.oninput = function() {
-      output.innerHTML = this.value;
+    if ($('#distanza_km').length) {
+        var slider = document.getElementById("km");
+        var output = document.getElementById("distanza_km");
+        output.innerHTML = slider.value;
+        slider.oninput = function() {
+        output.innerHTML = this.value;
+        }
     }
+    
 
     // Invio messaggio
 
-    $('#send').on('click', function(){
+    $('#send').on('click', function(){        
         var name = $('#name').val();
         var email = $('#email').val();
         var body = $('#body').val();
         var id = $('#id-apt').val();
-
-
         var url =  window.location.protocol + '//' + window.location.host + "/api/sendmessage";
 
         $.ajax({

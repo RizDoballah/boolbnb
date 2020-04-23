@@ -22,9 +22,10 @@ class ApartmentController extends Controller
     public function show($id)
     {
         $apartment = Apartment::find($id);
-        // if($apartment->published == 0){
-        //   abort('404');
-        // }
+
+        if($apartment->user_id != Auth::id() && $apartment->published == 0) {
+            abort('404');
+        }
 
         abort_if(empty($apartment), 404);
 

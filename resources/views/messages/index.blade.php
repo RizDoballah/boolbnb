@@ -15,6 +15,7 @@
 
                   <div class="message_text">
                       <h5>{{$message->name}}</h5>
+                      <small>{{$message->email}}</small>
                       <time>{{$message->created_at}}</time>
                   </div>
 
@@ -25,27 +26,6 @@
 
             @endforeach
           @endforeach
-
-            {{-- @foreach ($apartments as $apartment)
-                @foreach ($apartment->messages as $message)
-
-                <div class="message">
-                    <div class="message_img">
-                        <img src="{{$message->apartment->main_img}}" alt="">
-                    </div>
-
-                    <div class="message_text">
-                        <h5>{{$message->name}}</h5>
-                        <time>{{$message->created_at}}</time>
-                    </div>
-
-                    <div class="message_body">
-                        {{$message->body}}
-                    </div>
-
-                </div>
-                @endforeach
-            @endforeach --}}
 
         </div>
     </div>

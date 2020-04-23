@@ -18,22 +18,16 @@ class SearchApartmentController extends Controller
       'city'=>$data['city'],
       ];
       $apartments = Apartment::all();
-      $result = [];
       foreach ($apartments as $apartment) {
          $lat = $apartment->lat;
          $lon = $apartment->lon;
          $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
-         // Apartment::update([
-         //   'dist'=>$dist
-         // ]);
-         // dd($apartment['dist']);
-         if($dist <= 20){
-           $result[]=$apartment;
+         $apartment->update([
+            'dist'=>$dist
+          ]);
 
-         }
+          $result = Apartment::where('dist', "<=", 20)->orderBy('dist', 'asc')->get();
 
-
-         // $query = "SELECT * FROM table WHERE lon BETWEEN '$minLon' AND '$maxLon' AND lat BETWEEN '$minLat' AND '$maxLat'";
       }
       return view('apartment-search', compact('result', 'coord'));
     }

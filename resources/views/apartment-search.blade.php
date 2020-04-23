@@ -58,11 +58,13 @@
                         </div>
 
                         <div class="checkbox_filter">
-                          <label class="container_checkbox">
-                            <input class="form-check-input" name="services[]" value="Vista mare" {{(!empty($data['services']) && in_array('Vista mare', $data['services'])) ? 'checked' : ''}} type="checkbox">
+                            <label class="container_checkbox">
+                                <input class="form-check-input" name="services[]" value="Vista mare"
+                                    {{(!empty($data['services']) && in_array('Vista mare', $data['services'])) ? 'checked' : ''}}
+                                    type="checkbox">
 
-                              <i class="fas fa-water"></i> Vista Mare
-                              <span class="checkmark"></span>
+                                <i class="fas fa-water"></i> Vista Mare
+                                <span class="checkmark"></span>
                         </div>
 
                         <div class="checkbox_filter">
@@ -81,7 +83,6 @@
                     <div class="slidecontainer">
                         <p>Distanza in Km <span id="distanza_km" class="font-weight-bold"></span></p>
                         <input type="range" name="km" min="1" max="150" value="{{(!empty($km['km'])) ? $km['km'] : 20}}" class="slider" id="km">
-
                     </div>
 
                 </div>
@@ -110,13 +111,14 @@
                         <li class="list-inline-item">{{$apartment->bathroom}} Bagni </li>
                         <li class="list-inline-item">{{$apartment->beds}} Letti </li>
                     </ul>
-                    <div class="row">
-                        <div class="col">
-                            @foreach ($apartment->services as $service)
-                            <button type="button" class="btn btn-secondary btn-lg" disabled>{{$service->name}}</button>
-                            @endforeach
-                        </div>
-                    </div>
+                    <ul class="list-inline">
+                        @foreach ($apartment->services as $service)
+                                <li class="list-inline-item">{{$service->name}}</li>
+                        @endforeach
+                    </ul>
+                    <p>{{$apartment->dist}} km da {{$coord['city']}}</p>
+                    
+          
                 </div>
             </div>
 

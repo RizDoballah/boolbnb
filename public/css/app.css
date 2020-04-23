@@ -10924,6 +10924,16 @@ header {
   width: 100px;
 }
 
+.btn_main {
+  color: white;
+  background-color: #FF5862;
+}
+
+.btn_main:hover {
+  color: white;
+  background-color: #ff4e58;
+}
+
 .box-search-index {
   background-color: white;
   border-radius: 5px;

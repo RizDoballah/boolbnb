@@ -20,17 +20,21 @@
         <button id="search" class="" type="submit">Cerca</button>
     </form>
       @endif
+
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav ml-auto">
+
         <!-- Authentication Links -->
         @guest
         <li class="nav-item">
-            <a class="nav-link menu-link" href="{{route('login')}}">Accedi</a>
+            <a class="nav-link menu-link" data-toggle="modal" data-target="#exampleModalCenter" href="">Accedi</a>
         </li>
+        
         @if (Route::has('register'))
             <li class="nav-item">
-                <a class="nav-link menu-link" href="{{route('register')}}">Registrati</a>
+                <a data-toggle="modal" data-target="#register" class="nav-link menu-link" href="">Registrati</a>
             </li>
+
         @endif
         @else
             <li class="nav-item dropdown">
