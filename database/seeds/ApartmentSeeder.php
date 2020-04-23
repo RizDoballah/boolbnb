@@ -19,17 +19,17 @@ class ApartmentSeeder extends Seeder
         for ($i = 0; $i < 40 ; $i++) {
 
           $imgs = [
-            'img/img_1.jpg',
-            'img/img_2.jpg',
-            'img/img_3.jpg',
-            'img/img_4.jpg',
-            'img/img_6.jpg',
-            'img/img_7.jpg',
-            'img/img_8.jpg',
-            'img/img_9.jpg',
-            'img/img_10.jpg',
-            'img/img_11.jpg',
-            'img/img_12.jpg'
+            'images/img_1.jpg',
+            'images/img_2.jpg',
+            'images/img_3.jpg',
+            'images/img_4.jpg',
+            'images/img_6.jpg',
+            'images/img_7.jpg',
+            'images/img_8.jpg',
+            'images/img_9.jpg',
+            'images/img_10.jpg',
+            'images/img_11.jpg',
+            'images/img_12.jpg'
           ];
 
           $titles = [
