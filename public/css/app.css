@@ -11136,9 +11136,9 @@ header {
   max-width: 80%;
 }
 
-.title_input {
-  display: inline-block;
-  width: 200px;
+.label_create {
+  width: 250px;
+  font-size: 18px;
 }
 
 .counter {
@@ -11168,9 +11168,16 @@ header {
   font-size: 10px;
 }
 
-#address {
-  border: 1px solid #008489;
+#address,
+#title {
+  width: 400px;
   height: 50px;
+  border: 1px solid #008489;
+}
+
+#description {
+  width: 400px;
+  border: 1px solid #008489;
 }
 
 .message {

@@ -8,52 +8,101 @@
         <form method='POST' action="{{route('host.store')}}" enctype="multipart/form-data">
         @csrf
         @method('POST')
-
-
-        <h4 class="mt-4">Quante persone può ospitare il tuo alloggio?</h4>
-        <h5 class="title_input mt-5 mb-5">Ospiti</h5>
-        <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
-        </button>
-        <input class='counter' type="text" value='0'/>
-        <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
-        </button>
-        <h4>Quante camere da letto possono utilizzare gli ospiti?</h4>
-        <h5 class="title_input my-5">Camere</h5>
-        <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
-        </button>
-        <input class='counter' type="text"  value='0' />
-        <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
-        </button>
-        <h4>Quanti letti possono utilizzare gli ospiti?</h4>
-        <h5 class="title_input my-5">Letti</h5>
-        <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
-        </button>
-        <input class='counter' type="text" value='0' />
-        <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
-        </button>
-        <h4>Quanti bagni?</h4>
-        <h5 class="title_input my-5">Bagni</h5>
-        <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
-        </button>
-        <input class='counter' type="text" value='0' />
-        <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
-        </button>
         <div class="form-group">
-          <h4>Dove si trova il tuo alloggio?</h4>
-          <h5 class="title_input mt-5 mb-3">Indirizzo</h5>
-          <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name='address'  placeholder="inserisci l'indirizzo" value="{{old('address')}}">
-          @error('address')
+          <h4 class="mt-5 mb-3">Crea un titolo per il tuo annuncio</h4>
+          <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name='title'  placeholder="inserisci un titolo" value="{{old('title')}}">
+          @error('title')
               <small class="form-text text-danger">{{$message}}</small>
           @enderror
         </div>
-        <input id="lat" type="hidden" name="lat" value="">
-        <input id="lon" type="hidden" name="lon" value="">
-
-
+        <div class="form-group">
+          <h4 class="mt-4">Quante persone può ospitare il tuo alloggio?</h4>
+          <label class="my-5 label_create" for="guest">Ospiti</label>
+          <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
+          </button>
+          <input class='counter' type="text" value='0'/>
+          <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <div class="form-group">
+          <h4>Quante camere da letto possono utilizzare gli ospiti?</h4>
+          <label class="my-5 label_create" for="rooms">Camere</label>
+          <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
+          </button>
+          <input class='counter' type="text"  value='0' />
+          <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <div class="form-group">
+          <h4>Quanti letti possono utilizzare gli ospiti?</h4>
+          <label class="my-5 label_create" for="beds">letti</label>
+          <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
+          </button>
+          <input class='counter' type="text" value='0' />
+          <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <div class="form-group">
+          <h4>Quanti bagni?</h4>
+          <label class="my-5 label_create" for="bathroom">Bagni</label>
+          <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
+          </button>
+          <input class='counter' type="text" value='0' />
+          <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <div class="form-group">
+          <h4>Quanto é grande il tuo allogio?</h4>
+          <label class="my-5 label_create" for="square_meters">Metri Quadri</label>
+          <button class='down_count btn' title='Down'><i class="fas fa-minus"></i>
+          </button>
+          <input class='counter' type="text" value='0' />
+          <button class='up_count btn' title='Up'><i class="fas fa-plus"></i>
+          </button>
+        </div>
       </div>
-
+      <div class="col-6">
+        <div class="form-group">
+          <h4 class="mt-5 mb-3">Dove si trova il tuo alloggio?</h4>
+          <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name='address'  placeholder="inserisci l'indirizzo" value="{{old('address')}}">
+          @error('address')
+            <small class="form-text text-danger">{{$message}}</small>
+          @enderror
+          <input id="lat" type="hidden" name="lat" value="">
+          <input id="lon" type="hidden" name="lon" value="">
+        </div>
+        <div class="form-group">
+          <h4 class="mt-5 mb-3">Descrivi il tuo alloggio agli ospiti</h4>
+          <textarea id="description"class="form-control @error('description') is-invalid @enderror" name='description' rows="5">{{old('description')}}</textarea>
+            @error('description')
+              <small class="form-text text-danger">{{$message}}</small>
+            @enderror
+          </div>
+          <div class="form-group">
+            <h4 class="mt-5 mb-3">Aggiungi foto al tuo annuncio</h4>
+            <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" >
+            @error('main_img')
+              <small class="form-text text-danger">{{$message}}</small>
+            @enderror
+          </div>
+          <div class="form-group">
+            <h4 class="mt-5 mb-3">Quali servizi metti a disposizione?</h4>
+            @foreach ($services as $service)
+              <input type="checkbox" name="services[]" value="{{$service->id}}">
+              <span class="mr-4">{{$service->name}}</span>
+            @endforeach
+          </div>
+          <div class="form-group">
+            <select name="published" >
+              <option value="1">Pubblicato</option>
+              <option value="0">Non Pubblicato</option>
+            </select>
+          </div>
+          <button id="save_apt" type='submit'>Salva</button>
+      </form>
+      </div>
+      </div>
     </div>
-
   </div>
 
     {{-- <div class='container'>
