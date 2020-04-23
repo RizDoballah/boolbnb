@@ -10,14 +10,13 @@ class ApartmentServiceSeeder extends Seeder
     {
         $apartments = Apartment::all();
         
-            for ($i=1; $i <= 40; $i++) { 
-
-                for ($y=1; $y < rand(2, 6); $y++) {
-                    DB::table('apartment_service')->insertOrIgnore(
-                        array('apartment_id' => $i, 'service_id' => rand(1, 6))
-                    );
-                }
-
+            for ($i=1; $i <= 40; $i++) {
+                $apartment = Apartment::find($i);
+                $rand1 = rand(1, 6);
+                $rand2 = rand(1, 6);
+                $rand3 = rand(1, 6);
+                $rand4 = rand(1, 6);
+                $apartment->services()->sync([$rand1, $rand2, $rand3, $rand4]);
              }
 
       }
