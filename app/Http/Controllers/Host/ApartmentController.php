@@ -34,7 +34,9 @@ class ApartmentController extends Controller
     public function store(Request $request)
 
     {
+        $data = $request->all();
 
+        // dd($data);
         // VALIDAZIONE
         $validatedData = $request->validate([
                 'title'=> 'required',
@@ -52,7 +54,6 @@ class ApartmentController extends Controller
             ]);
 
 
-        $data = $request->all();
 
 
         $path = Storage::disk('public')->put('images', $request->main_img);
