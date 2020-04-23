@@ -1,12 +1,6 @@
 require('./bootstrap');
 
-// window.Vue = require('vue');
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-// const app = new Vue({
-//     el: '#app',
-// });
 
 
 
@@ -21,21 +15,10 @@ $(document).ready(function () {
      if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
   });
 
-//   var counter = 0
-//     $("#counter").text(counter);
-//     $("#add").click(function(){
-//         counter = counter + 1;
-//         $("#counter").text(counter);
-//     });
 
-//     $("#subtract").click(function(){
-//         counter = counter - 1;
-//         $("#counter").text(counter);
-//     });
-
-
-    var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
+    // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
     // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
+    var key = 'LbMZ7czn7WGWFrpGsjzcCu1JmYZLiH0Q';
 
     // Chiamata Ajax address Create & Edit
 
@@ -57,7 +40,7 @@ $(document).ready(function () {
                 $('#lon').val(lon);
             },
             'error': function (request, state, error) {
-                // alert('Errore' + error);
+                alert('Errore' + error);
             }
         });
     });
@@ -126,7 +109,7 @@ $(document).ready(function () {
                     });
                 },
                 'error': function (request, state, error) {
-                    // alert('Errore' + error);
+                    alert('Errore' + error);
                 }
 
             });
@@ -148,7 +131,6 @@ $(document).ready(function () {
         // event.stopPropagation();
         var valInput = $('#search_input').val();
         var elementValue = $(this).html();
-        // console.log(elementValue);
         $('#search_input').val(elementValue);
         $('#search_autocomplete').html('');
         if (valInput.length = 0) {
@@ -164,9 +146,6 @@ $(document).ready(function () {
         $('.listElement').show();
     });
 
-    // $(document).on('click', '#input_search', function (event) {
-    //     event.stopPropagation();
-    // });
 
     $('#app').click(function () {
         $('.listElement').hide();
@@ -183,7 +162,7 @@ $(document).ready(function () {
 
         // Inizialize map
         var map = tt.map({
-            key: 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X',
+            key: key,
             container: "map",
             style: "tomtom://vector/1/basic-main",
             center: [lonData, latData],

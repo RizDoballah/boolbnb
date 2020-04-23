@@ -37326,12 +37326,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue');
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// const app = new Vue({
-//     el: '#app',
-// });
-// Jquery code
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Jquery code
 
 
 $(document).ready(function () {
@@ -37341,19 +37336,10 @@ $(document).ready(function () {
   });
   $(document).on('click', '.down_count', function () {
     if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
-  }); //   var counter = 0
-  //     $("#counter").text(counter);
-  //     $("#add").click(function(){
-  //         counter = counter + 1;
-  //         $("#counter").text(counter);
-  //     });
-  //     $("#subtract").click(function(){
-  //         counter = counter - 1;
-  //         $("#counter").text(counter);
-  //     });
+  }); // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
+  // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
 
-  var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X'; // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
-  // Chiamata Ajax address Create & Edit
+  var key = 'LbMZ7czn7WGWFrpGsjzcCu1JmYZLiH0Q'; // Chiamata Ajax address Create & Edit
 
   $('#address').on('blur', function () {
     var addressVal = $('#address').val();
@@ -37372,7 +37358,8 @@ $(document).ready(function () {
         $('#lat').val(lat);
         $('#lon').val(lon);
       },
-      'error': function error(request, state, _error) {// alert('Errore' + error);
+      'error': function error(request, state, _error) {
+        alert('Errore' + _error);
       }
     });
   }); // Chiamata Ajax input Index
@@ -37434,7 +37421,8 @@ $(document).ready(function () {
             $('#search_autocomplete').append("<li data-lat=\"".concat(lat, "\" data-lon=\"").concat(lon, "\" class=\"listElement\">").concat(autoComplete, "</li>"));
           });
         },
-        'error': function error(request, state, _error3) {// alert('Errore' + error);
+        'error': function error(request, state, _error3) {
+          alert('Errore' + _error3);
         }
       });
     }
@@ -37457,8 +37445,7 @@ $(document).ready(function () {
   $(document).on('click', '.listElement', function (event) {
     // event.stopPropagation();
     var valInput = $('#search_input').val();
-    var elementValue = $(this).html(); // console.log(elementValue);
-
+    var elementValue = $(this).html();
     $('#search_input').val(elementValue);
     $('#search_autocomplete').html('');
 
@@ -37473,10 +37460,7 @@ $(document).ready(function () {
   });
   $(document).on('click', '#search_input', function () {
     $('.listElement').show();
-  }); // $(document).on('click', '#input_search', function (event) {
-  //     event.stopPropagation();
-  // });
-
+  });
   $('#app').click(function () {
     $('.listElement').hide();
   }); // Display tomtom map
@@ -37486,7 +37470,7 @@ $(document).ready(function () {
     var lonData = $('.coord').attr('data-lon'); // Inizialize map
 
     var map = tt.map({
-      key: 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X',
+      key: key,
       container: "map",
       style: "tomtom://vector/1/basic-main",
       center: [lonData, latData],
@@ -37612,8 +37596,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Zeus/code/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Zeus/code/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

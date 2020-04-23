@@ -35,8 +35,8 @@ class ApartmentController extends Controller
 
     {
         $data = $request->all();
-
         // dd($data);
+
         // VALIDAZIONE
         $validatedData = $request->validate([
                 'title'=> 'required',
@@ -52,9 +52,6 @@ class ApartmentController extends Controller
                 'published'=>'required|boolean',
                 'user_id'=>'exists:users,id'
             ]);
-
-
-
 
         $path = Storage::disk('public')->put('images', $request->main_img);
 
@@ -73,14 +70,10 @@ class ApartmentController extends Controller
             'published' => $data['published'],
         ]);
 
-
-        $services= $data['services'];
-
-        if (!empty($services)) {
-          $newApartment->services()->attach($services);
+        if (!empty($data['services'])) {
+            $services= $data['services'];
+            $newApartment->services()->attach($services);
         }
-
-
 
         return redirect(route('home.show', $newApartment));
     }
