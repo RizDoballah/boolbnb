@@ -26,7 +26,7 @@ class SearchApartmentController extends Controller
             'dist'=>$dist
           ]);
 
-          $result = Apartment::where('dist', "<=", 20)->orderBy('dist', 'asc')->get();
+          $result = Apartment::where('dist', "<=", 20)->where('published', '1')->orderBy('dist', 'asc')->get();
 
       }
       return view('apartment-search', compact('result', 'coord'));

@@ -72,7 +72,7 @@
                     <div class="form-group">
                         <label for="main_img" >Immagine</label>
                         @isset($apartment->main_img)
-                            <img src="{{asset($apartment->main_img)}}" style="width: 300px" alt="">
+                            <img src="{{asset('storage/' . $apartment->main_img)}}" style="width: 300px" alt="">
                         @endisset
 
                         <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*">
