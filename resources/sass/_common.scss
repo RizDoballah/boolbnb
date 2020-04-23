@@ -231,7 +231,7 @@ header{
 
 .title_input {
   display: inline-block;
-  margin-right: 150px;
+  width: 200px;
 }
 .counter {
 width: 45px;
@@ -240,6 +240,8 @@ text-align: center;
 color: $text-color;
 font-weight: bold;
 font-size: 18px;
+background-color: #F8FAFC;
+border: none;
 }
 .up_count,
 .down_count {
@@ -255,6 +257,15 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
   vertical-align: middle;
   font-size: 10px;
 }
+#address {
+  border: 1px solid #008489;
+  height: 50px;
+}
+
+
+
+
+
 // Messages page
 .message {
   display: flex;

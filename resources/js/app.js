@@ -14,21 +14,12 @@ require('./bootstrap');
 $(document).ready(function () {
 
   // Plus minus counter input
-  $('button').click(function(e){
-       var button_classes, value = +$('.counter').val();
-       button_classes = $(e.currentTarget).prop('class');
-       if(button_classes.indexOf('up_count') !== -1){
-           value = (value) + 1;
-       } else {
-           value = (value) - 1;
-       }
-       value = value < 0 ? 0 : value;
-       $('.counter').val(value);
-   });
-   $('.counter').click(function(){
-       $(this).focus().select();
-   });
-
+  $(document).on('click', '.up_count', function () {
+     $(this).prev().val(+$(this).prev().val() + 1);
+  });
+  $(document).on('click', '.down_count', function () {
+     if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
+  });
 
 
     var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';

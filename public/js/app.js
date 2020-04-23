@@ -37336,22 +37336,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 
 $(document).ready(function () {
   // Plus minus counter input
-  $('button').click(function (e) {
-    var button_classes,
-        value = +$('.counter').val();
-    button_classes = $(e.currentTarget).prop('class');
-
-    if (button_classes.indexOf('up_count') !== -1) {
-      value = value + 1;
-    } else {
-      value = value - 1;
-    }
-
-    value = value < 0 ? 0 : value;
-    $('.counter').val(value);
+  $(document).on('click', '.up_count', function () {
+    $(this).prev().val(+$(this).prev().val() + 1);
   });
-  $('.counter').click(function () {
-    $(this).focus().select();
+  $(document).on('click', '.down_count', function () {
+    if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
   });
   var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X'; // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
   // Chiamata Ajax address Create & Edit
@@ -37612,8 +37601,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\mump_project\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\mump_project\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

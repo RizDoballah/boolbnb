@@ -11128,7 +11128,7 @@ header {
 
 .title_input {
   display: inline-block;
-  margin-right: 150px;
+  width: 200px;
 }
 
 .counter {
@@ -11138,6 +11138,8 @@ header {
   color: #3F3F3F;
   font-weight: bold;
   font-size: 18px;
+  background-color: #F8FAFC;
+  border: none;
 }
 
 .up_count,
@@ -11154,6 +11156,11 @@ header {
   color: #008489;
   vertical-align: middle;
   font-size: 10px;
+}
+
+#address {
+  border: 1px solid #008489;
+  height: 50px;
 }
 
 .message {
