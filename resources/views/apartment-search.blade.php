@@ -99,7 +99,7 @@
                 <div class="col-5">
                     <a href="{{route('home.show', $apartment)}}">
                         <img data-lat="{{$apartment->lat}}" data-lon="{{$apartment->lon}}" class="apartment_img addPin"
-                            src="{{asset($apartment->main_img)}}" alt="">
+                            src="{{asset('storage/' . $apartment->main_img)}}" alt="">
                     </a>
                 </div>
 
