@@ -10,7 +10,7 @@
 
               <div class="message">
                   <div class="message_img">
-                      <img src="{{$message->apartment->main_img}}" alt="">
+                      <img src="{{asset('storage/' . $message->apartment->main_img)}}" alt="">
                   </div>
 
                   <div class="message_text">
