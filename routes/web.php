@@ -38,4 +38,6 @@ Route::post('/apartment/search', 'SearchApartmentController@index')->name('apart
 Route::get('/apartment/search', 'SearchApartmentController@filter')->name('apartment.filter');
 
 
+Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
+
 
