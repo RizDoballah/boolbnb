@@ -39,5 +39,10 @@ class Apartment extends Model
         return $this->hasMany('App\Message');
     }
 
+    public function sponsorships()
+    {
+        return $this->belongsToMany('App\Sponsorship')->withTimestamps();
+    }
+
 
 }

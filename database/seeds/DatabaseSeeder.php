@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-// use UserSeeder;
-// use ApartmentSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ServiceSeeder::class);
         $this->call(ApartmentServiceSeeder::class);
         $this->call(MessageSeeder::class);
+        $this->call(SponsorshipSeeder::class);
+        $this->call(ApartmentSponsorshipSeeder::class);
     }
 }
