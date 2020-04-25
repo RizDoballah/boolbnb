@@ -6,7 +6,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('Host')->middleware('auth')->group(function () {
 
-  Route::resource('host', 'ApartmentController');
+    //Sponsorship
+    Route::get('/host/sponsorships', 'SponsorshipController@index')->name('sponsorships.index');
+    
+    Route::resource('host', 'ApartmentController');
+
+    
 
 });
 
@@ -17,6 +22,7 @@ Auth::routes();
 
 // Messaggi
 Route::get('/messages', 'MessageController@index')->name('messages.index');
+
 
 // HOME
 Route::get('/home', 'HomeController@index')->name('home');
@@ -30,3 +36,6 @@ Route::post('/apartment/search', 'SearchApartmentController@index')->name('apart
 
 // Filtra appartamenti
 Route::get('/apartment/search', 'SearchApartmentController@filter')->name('apartment.filter');
+
+
+
