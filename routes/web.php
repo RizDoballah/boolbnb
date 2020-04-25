@@ -9,35 +9,34 @@ Route::namespace('Host')->middleware('auth')->group(function () {
     //Sponsorship
     Route::get('/host/sponsorships', 'SponsorshipController@index')->name('sponsorships.index');
     
+    // Apartments
     Route::resource('host', 'ApartmentController');
-
-    
 
 });
 
 
 
-// AUTENTICAZIONE
+// Auth
 Auth::routes();
 
-// Messaggi
+// Message
 Route::get('/messages', 'MessageController@index')->name('messages.index');
 
-
-// HOME
+// Home
 Route::get('/home', 'HomeController@index')->name('home');
 
-// APPARTAMENTO
+// Apartments
 Route::get('/', 'ApartmentController@index')->name('home');
 Route::get('/{id}', 'ApartmentController@show')->name('home.show');
 
-// RICERCA APPARTAMENTI
+// Search apartments
 Route::post('/apartment/search', 'SearchApartmentController@index')->name('apartment.search');
 
-// Filtra appartamenti
+// Filter apartments
 Route::get('/apartment/search', 'SearchApartmentController@filter')->name('apartment.filter');
 
-
+//Payments
 Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
 
 

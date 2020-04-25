@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang='{{ app()->getLocale() }}'>
+
 <head>
     <meta charset=”utf-8">
     <meta http-equiv=”X-UA-Compatible” content=”IE=edge”>
@@ -9,35 +10,39 @@
     <script src='https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js'></script>
     <link href="{{ asset('css/app.css') }}" rel='stylesheet'>
 </head>
+
 <body>
     <div class='container'>
         <div class='row'>
             <div class='col-md-8 col-md-offset-2'>
+                <div id="checkout-message"></div>
                 <div id='dropin-container'></div>
                 <button id='submit-button'>Request payment method</button>
             </div>
         </div>
     </div>
-<script>
-var button = document.querySelector('#submit-button');
-braintree.dropin.create({
-    authorization: 'sandbox_q75zpb2v_c6jshf3qwztvndzs',
-    container: '#dropin-container'
-    }, 
-    function (createErr, instance) {
-        button.addEventListener('click', function () {
-            instance.requestPaymentMethod(function (err, payload) {
-                $.get('{{ route('payment.make') }}', {payload}, function (response) {
-                    if (response.success) {
-                        alert('Payment successfull!');
-                        } else {
-                            alert('Payment failed');
-                            }
-                            },
-                            'json');
-});
-});
-});
-</script>
+    <script>
+        var button = document.querySelector('#submit-button');
+        braintree.dropin.create({
+                authorization: 'sandbox_ndtvsb9p_2rx4vw7qxr2bfrhc',
+                container: '#dropin-container'
+            },
+            function (createErr, instance) {
+                button.addEventListener('click', function () {
+                    instance.requestPaymentMethod(function (err, payload) {
+                        $.get('{{ route('payment.process') }}', {payload}, function (response) {
+                                if (response.success) {
+                                    console.log(response);
+                                    
+                                    alert('Payment successfull!');
+                                } else {
+                                    alert('Payment failed');
+                                }
+                            },'json');
+                    });
+                });
+            });
+    </script>
 </body>
+
 </html>
