@@ -10,7 +10,7 @@
 
 header{
   height: 100vh;
-  background-image: url('img/img_carousel.jpg');
+  background-image: url('images/img_carousel.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -255,10 +255,10 @@ header{
   outline: none;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 
