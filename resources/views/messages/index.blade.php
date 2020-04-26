@@ -14,13 +14,13 @@
                   </div>
 
                   <div class="message_text">
-                      <h5>{{$message->name}}</h5>
-                      <small>{{$message->email}}</small>
-                      <time>{{$message->created_at}}</time>
+                      <h6>{{$message->name}}</h6>
+                      <time class="text-muted time">{{$message->created_at}}</time>
                   </div>
 
                   <div class="message_body">
-                      {{$message->body}}
+                      <p>{{$message->body}}</p>
+                      <small class="email">Rispondi a <a class="email_link" href="mailto:{{$message->email}}">{{$message->email}}</a></small>
                   </div>
               </div>
 

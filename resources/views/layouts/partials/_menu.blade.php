@@ -1,4 +1,4 @@
-<nav class="{{(Request::is('/')) ? 'navbar navbar-expand navbar-light menu-index' : 'navbar navbar-expand navbar-light menu' }}">
+<nav class="{{(Request::is('/')) ? 'navbar navbar-expand navbar-light menu-index px-md-5' : 'navbar navbar-expand navbar-light menu px-md-5' }}">
   <div class="container-fluid my-4">
     <a class="navbar-brand" href="{{ url('/') }}">
       @include('layouts.partials._logo')
@@ -38,6 +38,9 @@
         @endif
         @else
             <li class="nav-item dropdown">
+                @if (Request::is('host'))
+                <a class="btn btn_create mr-4" href="{{route('host.create') }}">Crea un nuovo annuncio</a>
+                @endif
 
                 {{-- Button with avatar --}}
                 <button type="button" id="navbarDropdown" class="button-host" data-toggle="dropdown">

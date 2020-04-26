@@ -10890,6 +10890,10 @@ a.text-dark:focus {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.grey_border {
+  border-color: #D8D8D8;
+}
+
 header {
   height: 100vh;
   background-image: url(/images/img_carousel.jpg?d7ad69257d05bb26b04f9f75961ad4b6);
@@ -11078,13 +11082,13 @@ header {
 
 .container_checkbox:hover input ~ .checkmark {
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #3F3F3F;
 }
 
 /* When the checkbox is checked, add a blue background */
 
 .container_checkbox input:checked ~ .checkmark {
-  background-color: black;
+  background-color: #3F3F3F;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -11121,6 +11125,16 @@ header {
 .map_apartment_search {
   width: 100%;
   height: 100vh;
+}
+
+.btn_create {
+  background-color: #008588;
+  color: white;
+}
+
+.btn_create:hover {
+  color: white;
+  background-color: #006b6d;
 }
 
 .show_image {
@@ -11189,7 +11203,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .message {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: nowrap;
   border-bottom: 1px solid #ebebeb;
   padding: 30px 0;
 }
@@ -11210,76 +11224,35 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
 }
 
+.message .message_body p {
+  color: #767676;
+}
+
 .message .message_text {
-  margin: 0 40px;
-  width: 185px;
+  margin: 0 30px;
+  min-width: 120px;
 }
 
-.container_informazioni {
-  background-color: #f7f7f7;
-  border-bottom: solid 1px lightgrey;
-  padding-left: 80px;
-  padding-right: 80px;
+.time {
+  font-size: 11px;
 }
 
-.container_informazioni .li_info {
-  list-style: none;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+.email {
+  font-size: 13px;
 }
 
-.container_informazioni p {
-  color: #717171;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.container_informazioni a {
-  color: #222222;
-  font-size: 16px;
-  line-height: 20px;
-}
-
-.container_informazioni ul {
-  padding-bottom: 100px;
-}
-
-.container_informazioni hr {
-  width: auto;
-  text-align: center;
-}
-
-.container_informazioni h3 {
-  font-size: 18px;
-}
-
-.title_info {
-  padding-left: 40px;
-  padding-top: 90px;
-  padding-bottom: 40px;
-  font-size: 22px;
+.email_link,
+.email_link:hover {
+  color: #FF5862;
 }
 
 .container_footertop {
   background-color: white;
-  padding-left: 80px;
   padding-top: 40px;
 }
 
-.container_footertop li {
-  list-style: none;
-  line-height: 38px;
-}
-
 .container_footertop a {
-  color: black;
-}
-
-.pad1 {
-  padding: 40px 100px;
-}
-
-.pad2 {
-  padding: 40px 140px;
+  color: #3F3F3F;
 }
 
 .footer_titles {
@@ -11287,25 +11260,14 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: bold;
 }
 
-.footer_bottom a {
-  color: black;
+.footer_col {
+  margin-bottom: 30px;
 }
 
-.pad1 {
-  padding: 40px 100px;
-}
-
-.pad2 {
-  padding: 40px 140px;
-}
-
-.footer_titles {
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.footer_bottom a {
-  color: black;
+.footer_col a {
+  color: #3F3F3F;
+  display: block;
+  margin-top: 10px;
 }
 
 .slidecontainer {
@@ -11395,16 +11357,20 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 5px 5px 5px 16px;
   align-items: center;
   border-radius: 21px;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
   height: 42px;
   transition: box-shadow 0.2s ease;
   background-color: #ffffff;
-  border-color: #ebebeb;
+  border: 1px solid #ebebeb;
   color: #222222;
 }
 
 .button-host:hover {
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+.button-host:focus {
+  outline: none;
 }
 
 .avatar {

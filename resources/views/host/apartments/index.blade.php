@@ -5,27 +5,23 @@
     {{ session('delete') }}
 </div>
 @endif
-<div class="container">
-    <div class="row my-5">
-        <div class="col-12">
-            <a class="btn btn-info float-right" href="{{route('host.create') }}">Crea un nuovo annuncio</a>
-        </div>
-
-    </div>
+<div class="container pt-5">
     <div class="row">
         @foreach ($apartments as $apartment)
-        <div class="col-4">
+        <div class="col-4 mb-5">
             <a href="{{route('home.show', $apartment)}}">
                 <img class="apartment_img" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
             </a>
-            <h3>{{$apartment->title}}</h3>
-            <a class="btn btn-outline-dark" href="{{ route('host.edit', $apartment) }}">Modifica</a>
+            <h4 class="mt-3 mb-4">{{$apartment->title}}</h4>
 
-            <form class=" d-inline" action="{{route('host.destroy', $apartment)}}" method="post">
+            
+            <form class="d-inline" action="{{route('host.destroy', $apartment)}}" method="post">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-outline-danger">Cancella</button>
+                <button type="submit" class="btn btn-outline-dark float-right">Elimina</button>
             </form>
+            <a class="btn btn-outline-dark float-right mr-2" href="{{ route('host.edit', $apartment) }}">Modifica</a>
+
         </div>
 
 
