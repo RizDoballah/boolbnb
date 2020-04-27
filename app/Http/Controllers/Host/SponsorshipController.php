@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Host;
 
 use App\Apartment;
+use App\Sponsorship;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -21,16 +22,21 @@ class SponsorshipController extends Controller
 
     }
 
-    public function store(Request $request) {
+    public function store(Request $request, $price, $apartmentId) {
         
-        $price = $request->price;
+        $data = [
+            'price' => $price,
+            'apartmentId' => $apartmentId
+        ];
+
+        $apartment = Apartment::find($apartmentId);
+        $sponsorship = Sponsorship::where('price', $price)->first();
+
+        $result = $apartment->sponsorships()->attach($sponsorship);
 
 
-            // $apartment->services()->attach($services);
 
-
-
-        return response()->json($request->price);
+        return response()->json($result);
 
     }
 }

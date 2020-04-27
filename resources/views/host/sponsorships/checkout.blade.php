@@ -45,11 +45,6 @@
 
                                     saveSponsorship();
 
-                                    // Redirect
-                                    // setTimeout(function() {
-                                    //     window.location.href = "{{ route('sponsorships.index')}}";
-                                    // }, 3000);
-
                                 } else {
                                     alert('Payment failed');
                                     $('#container_checkout').append('<div class = "alert alert-danger">Pagamento non effettuato</div>');
@@ -62,10 +57,15 @@
 
             function saveSponsorship() {
                 $.ajax({
-                    'url': '{{ route('payment.done', $price)}}',
+                    'url': '{{ route('payment.done', ['price' => $price, 'apartmentId' => $apartmentId])}}',
                     'method': 'GET',
                     'success': function (data) {
                         console.log(data);
+                        
+                        // Redirect
+                        setTimeout(function() {
+                            window.location.href = "{{ route('sponsorships.index')}}";
+                        }, 3000);
                     },
                     'error': function (request, state, error) {
                         alert('Errore' + error);

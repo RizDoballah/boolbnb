@@ -8,7 +8,7 @@ Route::namespace('Host')->middleware('auth')->group(function () {
 
     //Sponsorship
     Route::get('/host/sponsorships', 'SponsorshipController@index')->name('sponsorships.index');
-    Route::get('/payment/done/{price}', 'SponsorshipController@store')->name('payment.done');
+    Route::get('/payment/done/{price}/{apartmentId}', 'SponsorshipController@store')->name('payment.done');
 
     // Apartments
     Route::resource('host', 'ApartmentController');

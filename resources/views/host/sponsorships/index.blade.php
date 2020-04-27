@@ -8,8 +8,9 @@
         @foreach ($apartments as $apartment)
         <div class="col-6 col-sm-4 col-lg-3">
             <img class="mt-5 w-100" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
-            <h5 class="my-3">{{$apartment->title}}</h5>
-            <button class="btn btn_main w-100" data-toggle="modal" data-target="#exampleModalCenter" href="#">Sponsorizza</button>
+            <h5 data-id="{{$apartment->id}}" class="my-3">{{$apartment->title}}</h5>
+            <button class="btn btn_main w-100 sponsorship"  data-toggle="modal" data-target="#exampleModalCenter" href="#">Sponsorizza</button>
+            {{-- {{$apartment->has('sponsorship') ? 'colorato' : 'no'}} --}}
         </div>
         @endforeach
     </div>
@@ -49,6 +50,7 @@
                     9.99 € per 144 ore di sponsorizzazione
                   </label>
                 </div>
+                <input type="hidden" id="aptId" name="id" value="">
               </div>
               <div class="modal-footer">
 

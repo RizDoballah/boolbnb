@@ -238,4 +238,13 @@ $(document).ready(function () {
         });
       });
 
+
+      // Sponsorships index getId
+
+      $(document).on('click', '.sponsorship', function() {
+        var apartmentId = $(this).siblings('h5').attr('data-id');
+        $('#aptId').val(apartmentId);
+      })
+      
+
 });

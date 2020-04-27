@@ -37539,6 +37539,11 @@ $(document).ready(function () {
       var $nav = $(".navbar-expand");
       $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
+  }); // Sponsorships index getId
+
+  $(document).on('click', '.sponsorship', function () {
+    var apartmentId = $(this).siblings('h5').attr('data-id');
+    $('#aptId').val(apartmentId);
   });
 });
 

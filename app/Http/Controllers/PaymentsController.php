@@ -10,15 +10,14 @@ class PaymentsController extends Controller
 {
     public function make(Request $request) {
 
-
-      $price = $request->price;
-      $sponsorship = new Sponsorship;
-
-      $sponsorship = $sponsorship->where('price', $price)->first();
+        $price = $request->price;
+        $sponsorship = new Sponsorship;
+        $sponsorship = $sponsorship->where('price', $price)->first();
 
       $data = [
-        'price'=>$price,
-        'duration'=>$sponsorship->duration
+        'price' => $price,
+        'duration' => $sponsorship->duration,
+        'apartmentId' => $request->id
       ];
 
         return view('host.sponsorships.checkout', $data);
