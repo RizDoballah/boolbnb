@@ -227,7 +227,7 @@ header{
     // right: 0;
   }
 
-// Host index 
+// Host index
 .btn_create {
  background-color: #008588;
  color: white;
@@ -286,7 +286,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-
 .up_count,
 .down_count {
 border-radius: 50%;
@@ -306,11 +305,62 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
   width: 400px;
   height: 50px;
   border: 1px solid #008489;
+  border-radius: 8px;
 }
 #description {
   width: 400px;
   border: 1px solid #008489;
+  border-radius: 8px;
 }
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn_foto {
+  border: 1px solid #008489;
+  color: $text-color;
+  background-color: white;
+  padding: 5px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.services_create {
+  i {
+    color: #008489;
+  }
+  .container_checkbox input:checked ~ .checkmark {
+    background-color: #008489;
+  }
+}
+  #published {
+    width: 200px;
+    padding: 8px 20px;
+    border: 1px solid #008489;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  #save_apt {
+  width: 100px;
+  color: white;
+  font-weight: bold;
+  background-color: #008489;
+  transition: background-color 0.15s ease-in-out;
+  &:hover {
+    background-color: #06696d;
+  }
+}
+
+
 
 
 // Messages page
