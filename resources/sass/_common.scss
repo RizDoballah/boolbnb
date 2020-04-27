@@ -227,7 +227,7 @@ header{
     // right: 0;
   }
 
-//   Host index 
+// Host index 
 .btn_create {
  background-color: #008588;
  color: white;
@@ -432,6 +432,8 @@ color: $main-color;
   }
 
   .navbar-expand.scrolled {
-    background-color: #fff !important;
+    background-color: #fff;
     transition: background-color 200ms linear;
+    border-bottom: 1px solid #DFDFDF;
+    box-shadow: 0 0 3px #DFDFDF;
   }

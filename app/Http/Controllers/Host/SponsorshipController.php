@@ -20,4 +20,8 @@ class SponsorshipController extends Controller
         return view('host.sponsorships.index', compact('apartments'));
 
     }
+
+    public function store() {
+        
+    }
 }

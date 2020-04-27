@@ -20,7 +20,7 @@
                 <button id='submit-button'>Paga</button>
             </div>
             <div class="col-md-6" id="order_summary">
-              <h4 class="mt-5">Repilogo ordine</h4>
+              <h4 class="mt-5">Riepilogo ordine</h4>
               <h5>Sponsorizza il tuo alloggio per {{$duration}} ore</h5>
               <h6>Totale: €{{$price}}</h6>
             </div>
@@ -41,19 +41,22 @@
                         $.get('{{ route('payment.process', $price)}}', {payload}, function (response) {
                                 if (response.success) {
                                     console.log(response.transaction.amount);
-                                    // alert('Payment successfull!');
                                     $('#container_checkout').append('<div class = "alert alert-success">Il tuo pagamento è andato a buon fine</div>');
+                                    
+                                    // Redirect
+                                    setTimeout(function() {
+                                        window.location.href = "{{ route('sponsorships.index')}}";
+                                    }, 3000);
+
                                 } else {
                                     alert('Payment failed');
                                     $('#container_checkout').append('<div class = "alert alert-danger">Pagamento non effettuato</div>');
-                                    // $('#submit-button').show();
                                     $('#order_summary').show();
                                 }
                             },'json');
                     });
                 });
             });
-            $('.braintree-sheet__text').html('Inserisci i dati della tua carta');
     </script>
 </body>
 

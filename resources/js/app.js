@@ -230,6 +230,7 @@ $(document).ready(function () {
         });
     });
 
+    // Scroll navbar backround
     $(function () {
         $(document).scroll(function () {
           var $nav = $(".navbar-expand");
