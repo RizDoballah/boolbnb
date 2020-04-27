@@ -20,17 +20,17 @@ class PaymentsController extends Controller
         'price'=>$price,
         'duration'=>$sponsorship->duration
       ];
-    
+
         return view('host.sponsorships.checkout', $data);
     }
 
-    public function process(Request $request)
+    public function process(Request $request, $price)
     {
         $payload = $request->input('payload', false);
         $nonce = $payload['nonce'];
 
         $status = \Braintree\Transaction::sale([
-            'amount' => '10.00',
+            'amount' => $price,
             'paymentMethodNonce' => $nonce,
             'options' => [
                 'submitForSettlement' => True
