@@ -106,6 +106,9 @@ $(document).ready(function () {
                         var address = element.address.freeformAddress;
                         var autoComplete = address + ', ' + region;
                         $('#search_autocomplete').append(`<li data-lat="${lat}" data-lon="${lon}" class="listElement">${autoComplete}</li>`);
+                        if ($('#search_input') == '') {
+                            $('#search_autocomplete').hide();
+                        }
                     });
                 },
                 'error': function (request, state, error) {

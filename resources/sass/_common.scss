@@ -237,7 +237,15 @@ header{
  }
 }
 
+// Checkout Page
 
+[data-braintree-id='toggle'] {
+  display: none;
+}
+
+[data-braintree-id='methods-label'] {
+  display: none;
+}
 
 
 // Show page CSS

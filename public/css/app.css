@@ -11137,6 +11137,14 @@ header {
   background-color: #006b6d;
 }
 
+[data-braintree-id=toggle] {
+  display: none;
+}
+
+[data-braintree-id=methods-label] {
+  display: none;
+}
+
 .show_image {
   height: 400px;
   overflow: hidden;

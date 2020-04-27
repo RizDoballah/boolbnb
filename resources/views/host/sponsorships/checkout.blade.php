@@ -14,21 +14,20 @@
 <body>
     <div class='container mt-5'>
         <div class='row pt-5'>
-            <div class='col-md-6'>
+            <div class='col-md-6' id="container_checkout">
                 <div id="checkout-message"></div>
                 <div id='dropin-container'></div>
-                <button id='submit-button'>Request payment method</button>
+                <button id='submit-button'>Paga</button>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" id="order_summary">
               <h4 class="mt-5">Repilogo ordine</h4>
               <h5>Sponsorizza il tuo alloggio per {{$duration}} ore</h5>
               <h6>Totale: €{{$price}}</h6>
-
-
             </div>
         </div>
     </div>
     <script>
+        // // braintree-heading 
         var button = document.querySelector('#submit-button');
         braintree.dropin.create({
                 authorization: 'sandbox_ndtvsb9p_2rx4vw7qxr2bfrhc',
@@ -36,19 +35,25 @@
             },
             function (createErr, instance) {
                 button.addEventListener('click', function () {
+                    $('#submit-button').hide();
+                    $('#order_summary').hide();
                     instance.requestPaymentMethod(function (err, payload) {
                         $.get('{{ route('payment.process', $price)}}', {payload}, function (response) {
                                 if (response.success) {
                                     console.log(response.transaction.amount);
-
-                                    alert('Payment successfull!');
+                                    // alert('Payment successfull!');
+                                    $('#container_checkout').append('<div class = "alert alert-success">Il tuo pagamento è andato a buon fine</div>');
                                 } else {
                                     alert('Payment failed');
+                                    $('#container_checkout').append('<div class = "alert alert-danger">Pagamento non effettuato</div>');
+                                    // $('#submit-button').show();
+                                    $('#order_summary').show();
                                 }
                             },'json');
                     });
                 });
             });
+            $('.braintree-sheet__text').html('Inserisci i dati della tua carta');
     </script>
 </body>
 
