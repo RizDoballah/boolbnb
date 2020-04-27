@@ -230,5 +230,11 @@ $(document).ready(function () {
         });
     });
 
+    $(function () {
+        $(document).scroll(function () {
+          var $nav = $(".navbar-expand");
+          $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+        });
+      });
 
 });

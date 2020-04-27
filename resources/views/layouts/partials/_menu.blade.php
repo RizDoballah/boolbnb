@@ -1,5 +1,5 @@
 <nav class="{{(Request::is('/')) ? 'navbar navbar-expand navbar-light menu-index px-md-5' : 'navbar navbar-expand navbar-light menu px-md-5' }}">
-  <div class="container-fluid my-4">
+  <div class="container-fluid my-4 scrolled">
     <a class="navbar-brand" href="{{ url('/') }}">
       @include('layouts.partials._logo')
       {{-- <img class="logo" src="{{asset('img/logo.png')}}" alt="Airbnb logo"> --}}

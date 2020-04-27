@@ -11348,6 +11348,11 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 13px;
 }
 
+.navbar-expand.scrolled {
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
+}
+
 .img-container {
   border-radius: 50%;
   height: 30px;

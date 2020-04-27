@@ -430,3 +430,8 @@ color: $main-color;
       font-size: 13px;
     }
   }
+
+  .navbar-expand.scrolled {
+    background-color: #fff !important;
+    transition: background-color 200ms linear;
+  }
