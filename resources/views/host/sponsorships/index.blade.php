@@ -28,27 +28,33 @@
                 </button>
             </div>
             <div class="modal-body">
+              <form class="" action="{{route('checkout')}}" method="post">
+                @csrf
+                @method('post')
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="price" id="offer24" value="option1" checked>
-                    <label class="form-check-label" for="offer24">
-                        2,99 € per 24 ore di sponsorizzazione
-                    </label>
+                  <input class="form-check-input" type="radio" name="price" id="offer24" value="2.99" checked>
+                  <label class="form-check-label" for="offer24">
+                    2,99 € per 24 ore di sponsorizzazione
+                  </label>
                 </div>
                 <div class="form-check my-2">
-                    <input class="form-check-input" type="radio" name="price" id="offer72" value="option2">
-                    <label class="form-check-label" for="offer72">
-                        5.99 € per 72 ore di sponsorizzazione
-                    </label>
+                  <input class="form-check-input" type="radio" name="price" id="offer72" value="5.99">
+                  <label class="form-check-label" for="offer72">
+                    5.99 € per 72 ore di sponsorizzazione
+                  </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="price" id="offer144" value="option3">
-                    <label class="form-check-label" for="offer144">
-                        9.99 € per 144 ore di sponsorizzazione
-                    </label>
+                  <input class="form-check-input" type="radio" name="price" id="offer144" value="9.99">
+                  <label class="form-check-label" for="offer144">
+                    9.99 € per 144 ore di sponsorizzazione
+                  </label>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn_main">Vai al pagamento</button>
+              </div>
+              <div class="modal-footer">
+
+                <button type="submit" class="btn btn_main">Vai al pagamento</button>
+
+              </form>
             </div>
         </div>
     </div>

@@ -8,12 +8,14 @@ Route::namespace('Host')->middleware('auth')->group(function () {
 
     //Sponsorship
     Route::get('/host/sponsorships', 'SponsorshipController@index')->name('sponsorships.index');
-    
+
     // Apartments
     Route::resource('host', 'ApartmentController');
 
 });
 
+// Checkout
+Route::post('/checkout', 'PaymentsController@make')->name('checkout');
 
 
 // Auth
@@ -38,5 +40,3 @@ Route::get('/apartment/search', 'SearchApartmentController@filter')->name('apart
 //Payments
 Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
 Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
-
-

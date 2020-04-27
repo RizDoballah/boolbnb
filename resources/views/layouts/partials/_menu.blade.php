@@ -29,7 +29,7 @@
         <li class="nav-item">
             <a class="nav-link menu-link" data-toggle="modal" data-target="#exampleModalCenter" href="">Accedi</a>
         </li>
-        
+
         @if (Route::has('register'))
             <li class="nav-item">
                 <a data-toggle="modal" data-target="#register" class="nav-link menu-link" href="">Registrati</a>
