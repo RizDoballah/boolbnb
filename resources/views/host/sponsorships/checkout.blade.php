@@ -42,11 +42,13 @@
                                 if (response.success) {
                                     console.log(response.transaction.amount);
                                     $('#container_checkout').append('<div class = "alert alert-success">Il tuo pagamento è andato a buon fine</div>');
-                                    
+
+                                    saveSponsorship();
+
                                     // Redirect
-                                    setTimeout(function() {
-                                        window.location.href = "{{ route('sponsorships.index')}}";
-                                    }, 3000);
+                                    // setTimeout(function() {
+                                    //     window.location.href = "{{ route('sponsorships.index')}}";
+                                    // }, 3000);
 
                                 } else {
                                     alert('Payment failed');
@@ -57,6 +59,20 @@
                     });
                 });
             });
+
+            function saveSponsorship() {
+                $.ajax({
+                    'url': '{{ route('payment.done', $price)}}',
+                    'method': 'GET',
+                    'success': function (data) {
+                        console.log(data);
+                    },
+                    'error': function (request, state, error) {
+                        alert('Errore' + error);
+                    }
+                });
+            }    
+
     </script>
 </body>
 

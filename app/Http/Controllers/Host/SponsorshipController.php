@@ -21,7 +21,16 @@ class SponsorshipController extends Controller
 
     }
 
-    public function store() {
+    public function store(Request $request) {
         
+        $price = $request->price;
+
+
+            // $apartment->services()->attach($services);
+
+
+
+        return response()->json($request->price);
+
     }
 }
