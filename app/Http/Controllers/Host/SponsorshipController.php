@@ -3,29 +3,30 @@
 namespace App\Http\Controllers\Host;
 
 use App\Apartment;
-use App\Sponsorship;
 use Carbon\Carbon;
+use App\Sponsorship;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class SponsorshipController extends Controller
 {
-    // public function __construct() {
-    //     // Prendere l'appartamento 
-    //     $apartments = Apartment::whereHas('sponsorships')->get();
-    //     // prendere la duration Sponsorship
-    //     foreach ($apartments as $apartment) {
-    //        $duration = $apartment->sponsorships[0]->duration;
-    //        $createdDate = $apartment->created_at;
-    //        $now = Carbon::now()->subHours($duration);
-    //         if($createdDate >= $now) {
-    //             $apartment->sponsorships()->detach();
-    //         }
-    //     }
-    //     // created 19.25 28/04/2020 creato nuovo sponsorship
-    //     // now = 19.26 27/04/2020
-    // }
+    public function __construct() {
+
+        $apartments = Apartment::whereHas('sponsorships')->get();
+        foreach ($apartments as $apartment) {
+
+           $duration = $apartment->sponsorships[0]->duration;
+           $createdAt = $apartment->sponsorships[0]->pivot->created_at;
+           $expiring_date = $createdAt->addHours($duration);
+           $now = Carbon::now();
+
+            if($now > $expiring_date) {
+                $apartment->sponsorships()->detach();
+            }
+        }
+    }
 
     public function index() {
 

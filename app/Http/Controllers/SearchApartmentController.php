@@ -1,12 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Apartment;
 use App\Service;
+use App\Apartment;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Host\SponsorshipController;
 
 class SearchApartmentController extends Controller
 {
+
+    public function __construct()
+    {
+        //Calling construct from SponsorshipController
+        $result = (new SponsorshipController)->__construct();
+    }
 
 
     public function index(Request $request){
@@ -45,14 +52,10 @@ class SearchApartmentController extends Controller
         }
 
         $resultPlus = $apartmentsPlus->where('dist', "<=", 20)->sortBy('dist');
-        
         $collection = collect($resultPlus);
-
         $merged = $collection->merge($result);
-
         $result = $merged->all();
         
-
       
       return view('apartment-search', compact('result', 'coord'));
     }

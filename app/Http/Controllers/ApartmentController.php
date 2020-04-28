@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Apartment;
 use App\User;
+use App\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Host\SponsorshipController;
 
 class ApartmentController extends Controller
-{
+{   
+    public function __construct()
+    {
+        //Calling construct from SponsorshipController
+        $result = (new SponsorshipController)->__construct();
+    }
 
     public function index()
     {
