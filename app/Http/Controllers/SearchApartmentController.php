@@ -10,25 +10,50 @@ class SearchApartmentController extends Controller
 
 
     public function index(Request $request){
-      $data = $request->all();
-      // dd($data);
-      $coord = [
-      'lat'=>$data['lat'],
-      'lon'=>$data['lon'],
-      'city'=>$data['city'],
-      ];
-      $apartments = Apartment::all();
-      foreach ($apartments as $apartment) {
-         $lat = $apartment->lat;
-         $lon = $apartment->lon;
-         $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
-         $apartment->update([
-            'dist'=>$dist
-          ]);
+        $data = $request->all();
+        
+        $coord = [
+            'lat'=>$data['lat'],
+            'lon'=>$data['lon'],
+            'city'=>$data['city'],
+        ];
 
-          $result = Apartment::where('dist', "<=", 20)->where('published', '1')->orderBy('dist', 'asc')->get();
+        // Get apartments and filter filter by distance
+        $apartments = Apartment::where('published', '1')->whereDoesntHave('sponsorships')->get();
 
-      }
+        foreach ($apartments as $apartment) {
+            $lat = $apartment->lat;
+            $lon = $apartment->lon;
+            $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
+            $apartment->update([
+                'dist'=>$dist
+            ]);
+        }
+
+        $result = $apartments->where('dist', "<=", 20)->sortBy('dist');
+        
+
+        //  Get Sponsorized apartments and filter by distance
+        $apartmentsPlus = Apartment::where('published', '1')->whereHas('sponsorships')->get();
+        foreach ($apartmentsPlus as $apartment) {
+            $lat = $apartment->lat;
+            $lon = $apartment->lon;
+            $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
+            $apartment->update([
+                'dist'=>$dist
+            ]);
+        }
+
+        $resultPlus = $apartmentsPlus->where('dist', "<=", 20)->sortBy('dist');
+        
+        $collection = collect($resultPlus);
+
+        $merged = $collection->merge($result);
+
+        $result = $merged->all();
+        
+
+      
       return view('apartment-search', compact('result', 'coord'));
     }
 

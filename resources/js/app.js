@@ -247,4 +247,11 @@ $(document).ready(function () {
       })
 
 
+    //   Rounds distance apartment search page
+      $('.dist_km').each(function() {
+        var distKm = $(this).html();
+        var dist = parseInt(distKm).toFixed();
+        $(this).html(dist);
+    });
+
 });
