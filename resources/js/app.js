@@ -194,11 +194,11 @@ $(document).ready(function () {
         output.innerHTML = this.value;
         }
     }
-    
+
 
     // Invio messaggio
 
-    $('#send').on('click', function(){        
+    $('#send').on('click', function(){
         var name = $('#name').val();
         var email = $('#email').val();
         var body = $('#body').val();
@@ -242,9 +242,9 @@ $(document).ready(function () {
       // Sponsorships index getId
 
       $(document).on('click', '.sponsorship', function() {
-        var apartmentId = $(this).siblings('h5').attr('data-id');
+        var apartmentId = $(this).siblings('h6').attr('data-id');
         $('#aptId').val(apartmentId);
       })
-      
+
 
 });

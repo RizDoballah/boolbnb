@@ -42,6 +42,3 @@ Route::get('/apartment/search', 'SearchApartmentController@filter')->name('apart
 //Payments
 Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
 Route::get('/payment/process/{price}', 'PaymentsController@process')->name('payment.process');
-
-
-

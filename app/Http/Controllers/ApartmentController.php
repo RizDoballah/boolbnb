@@ -13,7 +13,7 @@ class ApartmentController extends Controller
 
     public function index()
     {
-        $apartments = Apartment::take(8)->where('published', '1')->whereHas('sponsorships')->get();
+        $apartments = Apartment::take(6)->where('published', '1')->whereHas('sponsorships')->get();
         // $apartments = Apartment::where('published', '1')->take(3)->whereHas('sponsorships')->get();
 
         return view('index', compact('apartments'));
