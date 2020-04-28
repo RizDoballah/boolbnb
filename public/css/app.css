@@ -11217,6 +11217,12 @@ input[type=number]::-webkit-outer-spin-button {
   display: inline-block;
 }
 
+.upload-btn-wrapper i {
+  color: #008489;
+  font-size: 20px;
+  padding-right: 2px;
+}
+
 .btn_foto {
   border: 1px solid #008489;
   color: #3F3F3F;

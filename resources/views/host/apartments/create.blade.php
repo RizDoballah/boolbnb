@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
             <form method='POST' action="{{route('host.store')}}" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
@@ -64,7 +64,7 @@
                 </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
             <div class="form-group">
                 <h4 class="mt-5 mb-3">Dove si trova il tuo alloggio?</h4>
                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror"name='address' placeholder="inserisci l'indirizzo" value="{{old('address')}}">
@@ -87,7 +87,7 @@
             <div class="form-group">
                 <h4 class="mt-5 mb-3">Aggiungi foto al tuo annuncio</h4>
                 <div class="upload-btn-wrapper">
-                    <button type="submit" class="btn_foto">Carica foto</button>
+                    <button type="submit" class="btn_foto"><i class="fas fa-cloud-upload-alt"></i> Carica foto</button>
                     <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" >
                     @error('main_img')
                         <small class="form-text text-danger">{{$message}}</small>

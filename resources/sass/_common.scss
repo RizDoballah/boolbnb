@@ -316,6 +316,11 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
   position: relative;
   overflow: hidden;
   display: inline-block;
+  i {
+    color:  #008489;
+    font-size: 20px;
+    padding-right: 2px;
+  }
 }
 
 .btn_foto {
