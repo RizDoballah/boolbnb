@@ -37544,6 +37544,12 @@ $(document).ready(function () {
   $(document).on('click', '.sponsorship', function () {
     var apartmentId = $(this).siblings('h6').attr('data-id');
     $('#aptId').val(apartmentId);
+  }); //   Rounds distance apartment search page
+
+  $('.dist_km').each(function () {
+    var distKm = $(this).html();
+    var dist = parseInt(distKm).toFixed();
+    $(this).html(dist);
   });
 });
 
@@ -37612,8 +37618,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

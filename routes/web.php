@@ -9,11 +9,14 @@ Route::namespace('Host')->middleware('auth')->group(function () {
     //Sponsorship
     Route::get('/host/sponsorships', 'SponsorshipController@index')->name('sponsorships.index');
     Route::get('/payment/done/{price}/{apartmentId}', 'SponsorshipController@store')->name('payment.done');
+    Route::get('/test', 'SponsorshipController@test')->name('sponsor.test');
 
     // Apartments
     Route::resource('host', 'ApartmentController');
 
 });
+
+
 
 // Checkout
 Route::post('/checkout', 'PaymentsController@make')->name('checkout');
