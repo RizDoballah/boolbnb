@@ -10,6 +10,9 @@
             <a href="{{route('home.show', $apartment)}}">
                 <img class="apartment_img mb-2" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
             </a>
+            @if ($apartment->sponsorships->isNotEmpty())
+              <span class="badge  plus">Plus</span>
+            @endif
             <h5 class="mb-5">{{$apartment->title}}</h5>
         </div>
         @endforeach

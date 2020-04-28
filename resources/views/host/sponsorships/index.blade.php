@@ -1,18 +1,26 @@
 @extends('layouts.app')
 @section('content')
 
-
 <div class="container pt-5">
     <h1 class="">Sponsorizza alloggi</h1>
     <div class="row">
-        @foreach ($apartments as $apartment)
+      @foreach ($apartments as $apartment)
         <div class="col-6 col-sm-4 col-lg-3">
-            <img class="mt-5 w-100" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
-            <h5 data-id="{{$apartment->id}}" class="my-3">{{$apartment->title}}</h5>
-            <button class="btn btn_main w-100 sponsorship"  data-toggle="modal" data-target="#exampleModalCenter" href="#">Sponsorizza</button>
+          <img class="mt-5 w-100 mb-3 rounded" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
+            @if ($apartment->sponsorships->isNotEmpty())
+              <span class="badge  plus">Plus</span>
+            @endif
+          <h6 data-id="{{$apartment->id}}" class=" d-inline">{{$apartment->title}}</h6>
+
+          @if ($apartment->sponsorships->isEmpty())
+            <a class=" btn_sponsorship sponsorship mt-2 d-block"data-toggle="modal" data-target="#exampleModalCenter" href="#">Sponsorizza<i class="fas fa-coins"></i></a>
+          @endif
+
+
             {{-- {{$apartment->has('sponsorship') ? 'colorato' : 'no'}} --}}
-        </div>
-        @endforeach
+          </div>
+
+      @endforeach
     </div>
 </div>
 

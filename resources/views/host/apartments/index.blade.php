@@ -13,8 +13,6 @@
                 <img class="apartment_img" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
             </a>
             <h4 class="mt-3 mb-4">{{$apartment->title}}</h4>
-
-            
             <form class="d-inline" action="{{route('host.destroy', $apartment)}}" method="post">
                 @csrf
                 @method('DELETE')
