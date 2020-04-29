@@ -21,14 +21,7 @@ class SearchApartmentController extends Controller
         // Get apartments and filter filter by distance
         $apartments = Apartment::where('published', '1')->whereDoesntHave('sponsorships')->get();
 
-        foreach ($apartments as $apartment) {
-            $lat = $apartment->lat;
-            $lon = $apartment->lon;
-            $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
-            $apartment->update([
-                'dist'=>$dist
-            ]);
-        }
+        $this->setDistance($apartmentsAll, $request);
 
         $result = $apartments->where('dist', "<=", 20)->sortBy('dist');
         
@@ -44,14 +37,7 @@ class SearchApartmentController extends Controller
 
         $apartmentsPlus = $apartmentPlus->get();
 
-        foreach ($apartmentsPlus as $apartment) {
-            $lat = $apartment->lat;
-            $lon = $apartment->lon;
-            $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
-            $apartment->update([
-                'dist' => $dist
-            ]);
-        }
+        $this->setDistance($apartmentsAll, $request);
 
         $resultPlus = $apartmentsPlus->where('dist', "<=", 20)->sortBy('dist');
         $collection = collect($resultPlus);
@@ -61,20 +47,7 @@ class SearchApartmentController extends Controller
       return view('apartment-search', compact('result', 'coord'));
     }
 
-
-    public function distance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371)
-      {
-        $latFrom = deg2rad($latitudeFrom);
-        $lonFrom = deg2rad($longitudeFrom);
-        $latTo = deg2rad($latitudeTo);
-        $lonTo = deg2rad($longitudeTo);
-        $latDelta = $latTo - $latFrom;
-        $lonDelta = $lonTo - $lonFrom;
-        $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) + cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
-        return $angle * $earthRadius;
-      }
-
-
+    
       public function filter(Request $request)
       {
 
@@ -97,31 +70,71 @@ class SearchApartmentController extends Controller
         if (!empty($data['rooms'])) {
             $apartments = $apartments->where('rooms', $data['rooms']);
         }
+
         if (!empty($data['services'])) {
             foreach ($data['services'] as $service) {
                 $apartments = $apartments->whereHas('services', function($query) use($service) {
                     $query->where('name', $service);
                 });
             }
+            
         }
 
-        $filteredApt = $apartments->get();
+        $apartmentsAll = $apartments->whereDoesntHave('sponsorships')->where('published', '1');
+        
+        $apartmentsAll = $apartmentsAll->get();
 
-        $result = [];
-        foreach ($filteredApt as $apartment) {
-           $lat = $apartment->lat;
-           $lon = $apartment->lon;
-           $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
-           if($dist <= $data['km']){
-             $result[]=$apartment;
-           }
-        }
+        $this->setDistance($apartmentsAll, $request);
+
+
+        $result = $apartmentsAll->where('dist', "<=", $km)->sortBy('dist');
+
+        //  Get Sponsorized apartments and filter by distance
+
+        $apartmentPlus = $apartments->where('published', '1');
+        $apartmentPlus->whereHas('sponsorships', function ($query) {
+            $query->where("expires_at", ">", Carbon::now());
+        });
+
+        $apartmentPlus = $apartmentPlus->get();
+
+        $this->setDistance($apartmentsAll, $request);
+
+
+        $resultPlus = $apartmentPlus->where('dist', "<=", $km)->sortBy('dist');
+
+        $collection = collect($resultPlus);
+        $merged = $collection->merge($result);
+        $result = $merged->all();
 
         return view('apartment-search', compact('result', 'coord', 'km', 'data'));
     }
 
 
+    // Methods
 
+    protected function setDistance($apartmentsAll, $request) {
+        foreach ($apartmentsAll as $apartment) {
+            $lat = $apartment->lat;
+            $lon = $apartment->lon;
+            $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
+            $apartment->update([
+                'dist'=>$dist
+            ]);
+        }
+    }
 
+    public function distance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371)
+      {
+        $latFrom = deg2rad($latitudeFrom);
+        $lonFrom = deg2rad($longitudeFrom);
+        $latTo = deg2rad($latitudeTo);
+        $lonTo = deg2rad($longitudeTo);
+        $latDelta = $latTo - $latFrom;
+        $lonDelta = $lonTo - $lonFrom;
+        $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) + cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+        return $angle * $earthRadius;
+      }
 
     }
+

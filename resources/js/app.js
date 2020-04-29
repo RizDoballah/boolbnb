@@ -17,8 +17,9 @@ $(document).ready(function () {
 
 
     // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
-    // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
-    var key = 'LbMZ7czn7WGWFrpGsjzcCu1JmYZLiH0Q';
+    var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
+    // var key = 'LbMZ7czn7WGWFrpGsjzcCu1JmYZLiH0Q';
+    // A8p4RHYLPVFkmdSk3a0acLxVQKvCJNzhIs
 
     // Chiamata Ajax address Create & Edit
 

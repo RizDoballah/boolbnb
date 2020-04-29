@@ -37337,9 +37337,10 @@ $(document).ready(function () {
   $(document).on('click', '.down_count', function () {
     if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
   }); // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
-  // var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
 
-  var key = 'LbMZ7czn7WGWFrpGsjzcCu1JmYZLiH0Q'; // Chiamata Ajax address Create & Edit
+  var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze'; // var key = 'LbMZ7czn7WGWFrpGsjzcCu1JmYZLiH0Q';
+  // A8p4RHYLPVFkmdSk3a0acLxVQKvCJNzhIs
+  // Chiamata Ajax address Create & Edit
 
   $('#address').on('blur', function () {
     var addressVal = $('#address').val();
