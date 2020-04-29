@@ -11,6 +11,8 @@ class Sponsorship extends Model
         'price'
     ];
 
+    public $timestamps = false;
+
     public function apartments()
     {
         return $this->belongsToMany('App\Apartment')->withTimestamps();

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 use App\Service;
 use App\Apartment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SearchApartmentController extends Controller
 {
-
 
     public function index(Request $request){
         $data = $request->all();
@@ -34,13 +34,22 @@ class SearchApartmentController extends Controller
         
 
         //  Get Sponsorized apartments and filter by distance
-        $apartmentsPlus = Apartment::where('published', '1')->whereHas('sponsorships')->get();
+        $apartmentPlus = new Apartment;
+        
+        $apartmentPlus = $apartmentPlus->where('published', '1');
+        
+        $apartmentPlus->whereHas('sponsorships', function ($query) {
+            $query->where("expires_at", ">", Carbon::now());
+        });
+
+        $apartmentsPlus = $apartmentPlus->get();
+
         foreach ($apartmentsPlus as $apartment) {
             $lat = $apartment->lat;
             $lon = $apartment->lon;
             $dist = $this->distance($request->lat, $request->lon, $lat, $lon);
             $apartment->update([
-                'dist'=>$dist
+                'dist' => $dist
             ]);
         }
 
@@ -49,7 +58,6 @@ class SearchApartmentController extends Controller
         $merged = $collection->merge($result);
         $result = $merged->all();
         
-      
       return view('apartment-search', compact('result', 'coord'));
     }
 
@@ -67,7 +75,6 @@ class SearchApartmentController extends Controller
       }
 
 
-
       public function filter(Request $request)
       {
 
@@ -83,7 +90,7 @@ class SearchApartmentController extends Controller
         ];
 
         $apartments = new Apartment;
-        
+
         if (!empty($data['beds'])) {
             $apartments = $apartments->where('beds', $data['beds']);
         }
@@ -91,7 +98,6 @@ class SearchApartmentController extends Controller
             $apartments = $apartments->where('rooms', $data['rooms']);
         }
         if (!empty($data['services'])) {
-
             foreach ($data['services'] as $service) {
                 $apartments = $apartments->whereHas('services', function($query) use($service) {
                     $query->where('name', $service);
@@ -110,7 +116,8 @@ class SearchApartmentController extends Controller
              $result[]=$apartment;
            }
         }
-          return view('apartment-search', compact('result', 'coord', 'km', 'data'));
+
+        return view('apartment-search', compact('result', 'coord', 'km', 'data'));
     }
 
 

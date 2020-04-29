@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {   
-       //    $duration = $apartment->sponsorships[0]->duration;
-        //    $expiring_date = $createdAt->addHours($duration);
 
     public function index()
     {
@@ -20,31 +18,12 @@ class ApartmentController extends Controller
         $apartments = new Apartment;
         
             $apartments = $apartments->where('published', '1');
-            $apartments = $apartments->whereHas('sponsorships');
-            $apartments = $apartments->get();
+            
+            $apartments->whereHas('sponsorships', function ($query) {
+                $query->where("expires_at", ">", Carbon::now());
+            })->take(4);
 
-            foreach ($apartments as $apartment) {
-
-                foreach ($apartment->sponsorships as $sponsorship) {
-                    
-                    $expiring_date = $sponsorship->pivot->created_at->addHours($sponsorship->duration);
-                    $now = Carbon::now();
-
-                    $active = false;
-                    if($now < $expiring_date) {
-                        $active = true;
-                        // dd($active);
-                    }
-                }
-                if($active == false) {
-                    $apartments->forget($apartment->id);
-                }
-            }
-
-            $apartmentsPlus = $apartments;
-            // dd($apartmentsPlus);
-
-
+            $apartmentsPlus = $apartments->get();
 
         $apartments = Apartment::take(4)->where('published', '1')->whereDoesntHave('sponsorships')->get();
 

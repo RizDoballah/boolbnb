@@ -17,7 +17,6 @@ class CreateSponsorshipsTable extends Migration
             $table->id();
             $table->integer('duration');
             $table->decimal('price', 4, 2);
-            $table->timestamps();
         });
     }
 

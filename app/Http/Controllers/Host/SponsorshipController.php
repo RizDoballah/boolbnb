@@ -32,9 +32,16 @@ class SponsorshipController extends Controller
 
         $apartment = Apartment::find($apartmentId);
         $sponsorship = Sponsorship::where('price', $price)->first();
+        $duration = $sponsorship->duration;
+        $expiringDate = Carbon::now()->addHours($duration);
 
-        $result = $apartment->sponsorships()->attach($sponsorship);
-        
+        $result = $apartment->sponsorships()->attach($sponsorship, ['expires_at' => $expiringDate]);
+
+        // $apartment->sponsorship->pivot->update([
+        //     'expires_at' = carbon(now) + tempo
+            
+        // ]);
+
 
         return response()->json($result);
 
