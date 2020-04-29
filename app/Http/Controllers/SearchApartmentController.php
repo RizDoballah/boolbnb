@@ -21,7 +21,7 @@ class SearchApartmentController extends Controller
         // Get apartments and filter filter by distance
         $apartments = Apartment::where('published', '1')->whereDoesntHave('sponsorships')->get();
 
-        $this->setDistance($apartmentsAll, $request);
+        $this->setDistance($apartments, $request);
 
         $result = $apartments->where('dist', "<=", 20)->sortBy('dist');
         
@@ -37,7 +37,7 @@ class SearchApartmentController extends Controller
 
         $apartmentsPlus = $apartmentPlus->get();
 
-        $this->setDistance($apartmentsAll, $request);
+        $this->setDistance($apartmentsPlus, $request);
 
         $resultPlus = $apartmentsPlus->where('dist', "<=", 20)->sortBy('dist');
         $collection = collect($resultPlus);
@@ -98,7 +98,7 @@ class SearchApartmentController extends Controller
 
         $apartmentPlus = $apartmentPlus->get();
 
-        $this->setDistance($apartmentsAll, $request);
+        $this->setDistance($apartmentPlus, $request);
 
 
         $resultPlus = $apartmentPlus->where('dist', "<=", $km)->sortBy('dist');
