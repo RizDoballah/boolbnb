@@ -12,21 +12,6 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class SponsorshipController extends Controller
 {
-    public function __construct() {
-
-        $apartments = Apartment::whereHas('sponsorships')->get();
-        foreach ($apartments as $apartment) {
-
-           $duration = $apartment->sponsorships[0]->duration;
-           $createdAt = $apartment->sponsorships[0]->pivot->created_at;
-           $expiring_date = $createdAt->addHours($duration);
-           $now = Carbon::now();
-
-            if($now > $expiring_date) {
-                $apartment->sponsorships()->detach();
-            }
-        }
-    }
 
     public function index() {
 
@@ -49,6 +34,7 @@ class SponsorshipController extends Controller
         $sponsorship = Sponsorship::where('price', $price)->first();
 
         $result = $apartment->sponsorships()->attach($sponsorship);
+        
 
         return response()->json($result);
 

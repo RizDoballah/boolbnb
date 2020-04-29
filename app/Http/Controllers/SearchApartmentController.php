@@ -4,16 +4,9 @@ namespace App\Http\Controllers;
 use App\Service;
 use App\Apartment;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Host\SponsorshipController;
 
 class SearchApartmentController extends Controller
 {
-
-    public function __construct()
-    {
-        //Calling construct from SponsorshipController
-        $result = (new SponsorshipController)->__construct();
-    }
 
 
     public function index(Request $request){
@@ -90,6 +83,7 @@ class SearchApartmentController extends Controller
         ];
 
         $apartments = new Apartment;
+        
         if (!empty($data['beds'])) {
             $apartments = $apartments->where('beds', $data['beds']);
         }

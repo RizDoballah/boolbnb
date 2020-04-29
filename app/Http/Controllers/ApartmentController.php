@@ -4,22 +4,48 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Apartment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Host\SponsorshipController;
 
 class ApartmentController extends Controller
 {   
-    public function __construct()
-    {
-        //Calling construct from SponsorshipController
-        $result = (new SponsorshipController)->__construct();
-    }
+       //    $duration = $apartment->sponsorships[0]->duration;
+        //    $expiring_date = $createdAt->addHours($duration);
 
     public function index()
     {
-        $apartmentsPlus = Apartment::take(4)->where('published', '1')->whereHas('sponsorships')->get();
+
+        $apartments = new Apartment;
+        
+            $apartments = $apartments->where('published', '1');
+            $apartments = $apartments->whereHas('sponsorships');
+            $apartments = $apartments->get();
+
+            foreach ($apartments as $apartment) {
+
+                foreach ($apartment->sponsorships as $sponsorship) {
+                    
+                    $expiring_date = $sponsorship->pivot->created_at->addHours($sponsorship->duration);
+                    $now = Carbon::now();
+
+                    $active = false;
+                    if($now < $expiring_date) {
+                        $active = true;
+                        // dd($active);
+                    }
+                }
+                if($active == false) {
+                    $apartments->forget($apartment->id);
+                }
+            }
+
+            $apartmentsPlus = $apartments;
+            // dd($apartmentsPlus);
+
+
+
         $apartments = Apartment::take(4)->where('published', '1')->whereDoesntHave('sponsorships')->get();
 
         return view('index', compact('apartments', 'apartmentsPlus'));
