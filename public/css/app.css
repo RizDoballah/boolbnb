@@ -10947,8 +10947,9 @@ header {
 }
 
 .show_image {
-  height: 400px;
+  height: 410px;
   overflow: hidden;
+  padding: 0;
 }
 
 .show_image img {
@@ -11495,7 +11496,7 @@ h1 {
 
 .map_show {
   width: 100%;
-  height: 500px;
+  height: 450px;
 }
 
 .map_apartment_search {

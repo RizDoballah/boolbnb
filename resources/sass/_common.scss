@@ -71,16 +71,17 @@ header{
 
 
 // Show page CSS
-  .show_image {
-      height: 400px;
-      overflow: hidden;
-      img {
-          transform: translate(0, -25%);
-      }
-  }
-  .h1_show_title {
-      max-width: 80%;
-  }
+.show_image {
+    height: 410px;
+    overflow: hidden;
+    padding: 0;
+    img {
+        transform: translate(0, -25%);
+    }
+}
+.h1_show_title {
+    max-width: 80%;
+}
 
 
 // Create page host
