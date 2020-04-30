@@ -68,6 +68,9 @@ header{
 [data-braintree-id='methods-label'] {
   display: none;
 }
+#submit-button{
+  background-color: #008489;
+}
 .card{
   border-top: 5px solid #008489;
   background-color: #F7F7F7;
@@ -91,7 +94,6 @@ header{
   justify-content: space-between;
   border-radius: 10px;
   padding: 0.75rem 1.25rem;
-
 }
 
 

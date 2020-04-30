@@ -10946,6 +10946,10 @@ header {
   display: none;
 }
 
+#submit-button {
+  background-color: #008489;
+}
+
 .card {
   border-top: 5px solid #008489;
   background-color: #F7F7F7;
