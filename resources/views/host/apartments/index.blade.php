@@ -16,9 +16,9 @@
             <form class="d-inline" action="{{route('host.destroy', $apartment)}}" method="post">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-outline-dark float-right">Elimina</button>
+                <button type="submit" class="btn btn_main float-right">Elimina</button>
             </form>
-            <a class="btn btn-outline-dark float-right mr-2" href="{{ route('host.edit', $apartment) }}">Modifica</a>
+            <a class="btn btn-edit float-right mr-2" href="{{ route('host.edit', $apartment) }}">Modifica</a>
 
         </div>
 
