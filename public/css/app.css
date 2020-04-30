@@ -11391,6 +11391,11 @@ h1 {
   margin-top: 82px;
 }
 
+.city-home {
+  font-size: 14px;
+  color: #5d5d5d;
+}
+
 .filter_form input {
   display: block;
 }
@@ -11498,6 +11503,6 @@ h1 {
   height: 100vh;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 82px;
 }
 
