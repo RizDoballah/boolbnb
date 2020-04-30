@@ -101,7 +101,6 @@
   .map_apartment_search {
     width: 100%;
     height: 100vh;
-    // position: fixed;
-    // top:82px;
-    // right: 0;
+    position: sticky;
+    top:0;
   }

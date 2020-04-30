@@ -87,7 +87,7 @@
 
                 </div>
             </div>
-            <button class="mt-4 mb-5" type="submit">Filtra</button>
+            <button class="mt-4 mb-5 btn btn_main" type="submit">Filtra</button>
 
             </form>
             @if (empty($result))
