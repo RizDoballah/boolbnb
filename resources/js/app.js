@@ -39,6 +39,7 @@ $(document).ready(function () {
                 var lon = results[0].position.lon;
                 $('#lat').val(lat);
                 $('#lon').val(lon);
+                $('#city').val(city);
             },
             'error': function (request, state, error) {
                 alert('Errore' + error);

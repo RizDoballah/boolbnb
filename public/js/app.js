@@ -37358,6 +37358,7 @@ $(document).ready(function () {
         var lon = results[0].position.lon;
         $('#lat').val(lat);
         $('#lon').val(lon);
+        $('#city').val(city);
       },
       'error': function error(request, state, _error) {
         alert('Errore' + _error);
@@ -37620,13 +37621,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! /Users/Zeus/code/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/Zeus/code/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> master
+__webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

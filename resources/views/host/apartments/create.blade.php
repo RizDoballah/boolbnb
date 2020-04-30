@@ -17,8 +17,8 @@
                 </div>
 
                 <div class="form-group">
-                    <h4>Quante camere da letto possono utilizzare gli ospiti?</h4>
-                    <label class="my-5 label_create" for="rooms">Camere</label>
+                    <h4 class="mt-5 mb-3">Quante camere da letto possono utilizzare gli ospiti?</h4>
+                    <label class="my-3 label_create" for="rooms">Camere</label>
                     <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
                     <input autocomplete="off" class='counter' name='rooms' type="number" min="1"
                         value="{{(empty(old('rooms'))) ? '0' : old('rooms')}}" />
@@ -29,8 +29,8 @@
                 </div>
 
                 <div class="form-group">
-                    <h4>Quanti letti possono utilizzare gli ospiti?</h4>
-                    <label class="my-5 label_create" for="beds">letti</label>
+                    <h4 class="mt-5 mb-3">Quanti letti possono utilizzare gli ospiti?</h4>
+                    <label class="my-3 label_create" for="beds">letti</label>
                     <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
                     <input autocomplete="off" class='counter' name="beds" type="number" min="1"
                         value="{{(empty(old('beds'))) ? '0' : old('beds')}}" />
@@ -41,8 +41,8 @@
                 </div>
 
                 <div class="form-group">
-                    <h4>Quanti bagni?</h4>
-                    <label class="my-5 label_create" for="bathroom">Bagni</label>
+                    <h4 class="mt-5 mb-3">Quanti bagni?</h4>
+                    <label class="my-3 label_create" for="bathroom">Bagni</label>
                     <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
                     <input autocomplete="off" class='counter' name="bathroom" type="number" min="1"
                         value="{{(empty(old('bathroom'))) ? '0' : old('bathroom')}}" />
@@ -53,8 +53,8 @@
                 </div>
 
                 <div class="form-group">
-                    <h4>Quanto é grande il tuo allogio?</h4>
-                    <label class="my-5 label_create" for="square_meters">Metri Quadri</label>
+                    <h4 class="mt-5 mb-3">Quanto é grande il tuo allogio?</h4>
+                    <label class="my-3 label_create" for="square_meters">Metri Quadri</label>
                     <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
                     <input autocomplete="off" class='counter' name="square_meters" type="number" min="1" value="{{(empty(old('square_meters'))) ? '0' : old('square_meters')}}" />
                     <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
@@ -73,6 +73,7 @@
                 @enderror
                 <input id="lat" type="hidden" name="lat" value="">
                 <input id="lon" type="hidden" name="lon" value="">
+                <input id="city" type="hidden" name="city" value="">
             </div>
 
             <div class="form-group">
@@ -171,9 +172,9 @@
                     <option value="0">Non Pubblicato</option>
                 </select>
             </div>
-            <button id="save_apt" class="btn mt-4" type='submit'>Salva</button>
-            </form>
+            <button id="save_apt" class="btn my-4" type='submit'>Salva</button>
         </div>
+      </form>
     </div>
 </div>
   {{-- </div> --}}
