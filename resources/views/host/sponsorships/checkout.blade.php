@@ -17,7 +17,7 @@
             <div class='col-md-6' id="container_checkout">
                 <div id="checkout-message"></div>
                 <div id='dropin-container'></div>
-                <button id='submit-button'>Paga</button>
+                <button class="btn btn-primary" id='submit-button'>Paga</button>
             </div>
             <div class="col-md-6" id="order_summary">
               <h4 class="mt-5">Riepilogo ordine</h4>
