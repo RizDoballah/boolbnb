@@ -68,6 +68,31 @@ header{
 [data-braintree-id='methods-label'] {
   display: none;
 }
+.card{
+  border-top: 5px solid #008489;
+  background-color: #F7F7F7;
+  height: 250px;
+}
+.card-header{
+    background-color: #F7F7F7;
+}
+#order_summary{
+ margin-top: 33px;
+ hr {
+   margin-top: 0;
+ }
+}
+#riepilogo_ordine{
+  margin: 10px;
+}
+.p_for_checkout{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+
+}
 
 
 // Show page CSS
