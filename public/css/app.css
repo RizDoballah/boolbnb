@@ -11022,12 +11022,6 @@ input[type=number]::-webkit-outer-spin-button {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.fas {
-  color: #008489;
-  vertical-align: middle;
-  font-size: 10px;
-}
-
 #address,
 #title {
   width: 400px;
@@ -11422,8 +11416,9 @@ h1 {
 }
 
 .city-home {
+  margin-left: 5px;
   font-size: 14px;
-  color: #5d5d5d;
+  color: #686868;
 }
 
 .filter_form input {
