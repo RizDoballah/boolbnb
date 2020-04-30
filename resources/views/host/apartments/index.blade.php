@@ -8,7 +8,7 @@
 <div class="container pt-5">
     <div class="row">
         @foreach ($apartments as $apartment)
-        <div class="col-4 mb-5">
+        <div class="col-lg-4 col-md-6 col-xs-12 mb-5">
             <a href="{{route('home.show', $apartment)}}">
                 <img class="apartment_img" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
             </a>

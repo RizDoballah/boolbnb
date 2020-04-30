@@ -14,7 +14,7 @@
 </div>
 <div class="container mt-4">
     <div class="row">
-        <div class="col-7">
+        <div class="col-lg-7 col-md-12 col-xs-12">
             <h1 class="h1_show_title">{{$apartment->title}}</h1>
             <ul class="list-inline">
                 <li class="list-inline-item">{{$apartment->square_meters}} Mq</li>
@@ -25,7 +25,7 @@
             <p>{{$apartment->description}}</p>
         </div>
 
-        <div class="col-5">
+        <div class="col-lg-5 col-md-12 col-xs-12">
             <h3>La posizione</h3>
             <div id='map' class='map_show'></div>
         </div>

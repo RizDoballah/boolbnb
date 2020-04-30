@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 py-5">
+        <div class="col-lg-12 py-5">
           <h1>I miei messaggi</h1>
           @foreach ($messages as $apartment_messages)
             @foreach ($apartment_messages as $message)

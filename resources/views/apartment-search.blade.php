@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid coord" data-lat="{{$coord['lat']}}" data-lon="{{$coord['lon']}}" >
     <div class="row">
-        <div class="col-5">
+        <div class="col-lg-5 col-md-12">
             <h1 class="pt-5">Soggiorni a {{$coord['city']}}</h1>
          <form method="GET" action="{{route('apartment.filter')}}">
          @csrf
@@ -130,7 +130,7 @@
 
         </div>
 
-        <div class="col-7">
+        <div class="col-lg-7 col-md-12">
             <div id='map' class='map_apartment_search'></div>
         </div>
 
