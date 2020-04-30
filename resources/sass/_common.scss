@@ -68,6 +68,33 @@ header{
 [data-braintree-id='methods-label'] {
   display: none;
 }
+#submit-button{
+  background-color: #008489;
+}
+.card{
+  border-top: 5px solid #008489;
+  background-color: #F7F7F7;
+  height: 250px;
+}
+.card-header{
+    background-color: #F7F7F7;
+}
+#order_summary{
+ margin-top: 33px;
+ hr {
+   margin-top: 0;
+ }
+}
+#riepilogo_ordine{
+  margin: 10px;
+}
+.p_for_checkout{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+}
 
 
 // Show page CSS
@@ -118,11 +145,11 @@ padding: 3px 10px;
 border: 1px solid #008489;
 transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.fas {
-  color: #008489;
-  vertical-align: middle;
-  font-size: 10px;
-}
+// .fas {
+//   color: #008489;
+//   vertical-align: middle;
+//   font-size: 10px;
+// }
 #address,
 #title {
   width: 400px;

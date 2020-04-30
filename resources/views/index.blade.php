@@ -28,7 +28,7 @@
             <a href="{{route('home.show', $apartment)}}">
                 <img class="apartment_img mb-2" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
             </a>
-            <span class="city-home">{{$apartment->city}}</span>
+            <i class="fas fa-map-marker-alt"></i> <span class="city-home">{{$apartment->city}}</span>
             <h5 class="mb-5">{{$apartment->title}}</h5>
         </div>
         @endforeach
