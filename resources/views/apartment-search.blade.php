@@ -140,5 +140,3 @@
 @include('layouts.partials._register-modal')
 
 @endsection
-
-{{-- AAAAAAAAAA --}}
