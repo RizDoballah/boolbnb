@@ -180,11 +180,11 @@ $(document).ready(function () {
             let lat = $(this).attr('data-lat');
             let lon = $(this).attr('data-lon');
             let title = $(this).parent().parent().parent().children('.col-7').find('h4').html();
+            let image = $(this).attr('src');
             var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
-            marker.setPopup(new tt.Popup().setHTML(title));
-        });
+            marker.setPopup(new tt.Popup().setHTML('<img class="w-100" src="' + image + '" alt="">' + title + ''));
+        })
     }
-
 
     // Slider km
     if ($('#distanza_km').length) {

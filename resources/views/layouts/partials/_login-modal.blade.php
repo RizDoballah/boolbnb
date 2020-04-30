@@ -74,8 +74,16 @@
                             @endif
                         </div>
                     </div>
+                    @if($errors->has('email') || $errors->has('password'))
+                      <script>
+                      $(function() {
+                        $('#exampleModalCenter').modal({
+                          show: true
+                        });
+                      });
+                      </script>
+                    @endif
                 </form>
-
                 {{-- ENDFORM LOGIN --}}
             </div>
         </div>

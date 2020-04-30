@@ -37488,8 +37488,9 @@ $(document).ready(function () {
       var lat = $(this).attr('data-lat');
       var lon = $(this).attr('data-lon');
       var title = $(this).parent().parent().parent().children('.col-7').find('h4').html();
+      var image = $(this).attr('src');
       var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
-      marker.setPopup(new tt.Popup().setHTML(title));
+      marker.setPopup(new tt.Popup().setHTML('<img class="w-100" src="' + image + '" alt="">' + title + ''));
     });
   } // Slider km
 
@@ -37619,8 +37620,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

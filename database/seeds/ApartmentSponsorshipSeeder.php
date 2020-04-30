@@ -2,6 +2,7 @@
 
 use App\Apartment;
 use App\Sponsorship;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class ApartmentSponsorshipSeeder extends Seeder
@@ -13,12 +14,14 @@ class ApartmentSponsorshipSeeder extends Seeder
      */
     public function run()
     {
-        $apartments = Apartment::take(10)->get();
-        
+        $apartments = Apartment::take(20)->get();
+
         for ($i=1; $i <= 10; $i++) {
             $apartment = Apartment::find($i);
-            $rand1 = rand(1, 3);
-            $apartment->sponsorships()->sync([$rand1]);
+            $now = Carbon::now()->addHours(24);
+            $apartment->sponsorships()->attach(1, ['expires_at' => $now]);
+
+          }
+
          }
-    }
-}
+  }

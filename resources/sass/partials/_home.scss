@@ -1,0 +1,69 @@
+// Home page
+
+.btn_main{
+    color: white;
+    background-color: $main-color;
+    &:hover {
+        color: white;
+        background-color: darken($main-color, 2%)
+    }
+}
+
+.box-search-index {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 35px;
+  margin-top: 160px;
+}
+.search_input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #EBEBEB;
+  padding: 10px;
+  color: #484848;
+  margin-bottom: 15px;
+  outline: none;
+}
+.search_input::placeholder {
+  color: #767676;
+}
+.search_input:focus {
+    border: 1px solid #232323;
+  }
+.search {
+  display: block;
+  border-radius: 3px;
+  font-weight: bold;
+  width: 100%;
+  background-color: #FF5862;
+  border: none;
+  color: white;
+  padding: 7px;
+  font-size: 16px;
+}
+#search_autocomplete {
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  position: absolute;
+  background-color: white;
+  padding: 0;
+    li {
+    padding: 8px 15px;
+    list-style: none;
+    cursor: pointer;
+     &:hover{
+      background-color: #EBEBEB;
+     }
+    }
+
+  }
+  .apartment_img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.padding-top {
+    margin-top: 82px;
+}

@@ -16,7 +16,7 @@ class ApartmentSeeder extends Seeder
     public function run(Faker $faker)
     {
       $faker = Faker::create('it_IT');
-        for ($i = 0; $i < 40 ; $i++) {
+        for ($i = 0; $i < 200 ; $i++) {
 
           $imgs = [
             'images/img_1.jpg',
@@ -51,6 +51,9 @@ class ApartmentSeeder extends Seeder
               'Relaxing and design apartment',
               'Nice studio flat'
           ];
+          $cities = [
+            'Roma', 'Firenze', 'Bologna', 'Milano', 'Rimini', 'Napoli', 'Palermo', 'Venezia', 'Siena', 'Terni', 'Perugia', 'Assisi'
+          ];
 
           $newApartment = new Apartment;
           $newApartment->user_id= User::inRandomOrder()->first()->id;
@@ -60,9 +63,10 @@ class ApartmentSeeder extends Seeder
           $newApartment->beds = rand(1, 3);
           $newApartment->bathroom = rand(1, 3);
           $newApartment->square_meters = rand(20, 500);
-          $newApartment->lat = rand(4440, 4430) / 100;
-          $newApartment->lon = rand(1110, 1150) / 100;
+          $newApartment->lat = rand(4380, 4482) / 100;
+          $newApartment->lon = rand(1040, 1220) / 100;
           $newApartment->address = $faker->address();
+          $newApartment->city = $cities[array_rand($cities)];
           $newApartment->dist = rand(1, 20);
           $newApartment->main_img = $imgs[array_rand($imgs)];
           $newApartment->published = rand(0, 1);

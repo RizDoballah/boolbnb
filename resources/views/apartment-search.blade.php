@@ -94,7 +94,7 @@
               <h4>Nessun risultato</h4>
               <p>Prova a modificare la tua ricerca rimuovendo filtri o ampliando l'area nella mappa</p>
             @endif
-            
+
             @foreach ($result as $apartment)
             <div class="row">
                 <div class="col-5">
@@ -120,8 +120,8 @@
                                 <li class="list-inline-item">{{$service->name}}</li>
                         @endforeach
                     </ul>
-                    <p><span class="dist_km">{{$apartment->dist}}</span> km da {{$coord['city']}}</p> 
-                    
+                    <p><span class="dist_km">{{$apartment->dist}}</span> km da {{$coord['city']}}</p>
+
                 </div>
             </div>
 
@@ -136,4 +136,7 @@
 
     </div>
 </div>
+@include('layouts.partials._login-modal')
+@include('layouts.partials._register-modal')
+
 @endsection

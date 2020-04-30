@@ -19,6 +19,7 @@ class Apartment extends Model
         "lat",
         "lon",
         "dist",
+        "city",
         "address",
         "main_img",
         "published"

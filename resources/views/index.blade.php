@@ -14,7 +14,8 @@
             @if ($apartment->sponsorships->isNotEmpty())
               <span class="badge  plus">Plus</span>
             @endif
-            <h6 class="mb-5 mt-2 ">{{$apartment->title}}</h6>
+            <small>{{$apartment->city}}</small>
+            <h5 class="mb-5 mt-2 ">{{$apartment->title}}</h5>
         </div>
         @endforeach
     </div>
@@ -27,7 +28,8 @@
             <a href="{{route('home.show', $apartment)}}">
                 <img class="apartment_img mb-2" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
             </a>
-            <h6 class="mb-5">{{$apartment->title}}</h6>
+            <small>{{$apartment->city}}</small>
+            <h5 class="mb-5">{{$apartment->title}}</h5>
         </div>
         @endforeach
     </div>

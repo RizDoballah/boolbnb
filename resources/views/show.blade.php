@@ -83,5 +83,7 @@
         </div>
     </div>
 
+  @include('layouts.partials._login-modal')
+  @include('layouts.partials._register-modal')
 
 @endsection

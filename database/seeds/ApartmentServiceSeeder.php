@@ -9,8 +9,8 @@ class ApartmentServiceSeeder extends Seeder
     public function run()
     {
         $apartments = Apartment::all();
-        
-            for ($i=1; $i <= 40; $i++) {
+
+            for ($i=1; $i <= 200; $i++) {
                 $apartment = Apartment::find($i);
                 $rand1 = rand(1, 6);
                 $rand2 = rand(1, 6);

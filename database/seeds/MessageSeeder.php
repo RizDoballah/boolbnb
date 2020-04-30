@@ -14,7 +14,7 @@ class MessageSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i= 1; $i <= 40 ; $i++) {
+        for ($i= 1; $i <= 200 ; $i++) {
           $newMessage = new Message;
           $newMessage->email = $faker->email;
           $newMessage->name = $faker->name;

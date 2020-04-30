@@ -11,7 +11,7 @@ class SearchApartmentController extends Controller
 
     public function index(Request $request){
         $data = $request->all();
-        
+
         $coord = [
             'lat'=>$data['lat'],
             'lon'=>$data['lon'],
@@ -24,13 +24,13 @@ class SearchApartmentController extends Controller
         $this->setDistance($apartments, $request);
 
         $result = $apartments->where('dist', "<=", 20)->sortBy('dist');
-        
+
 
         //  Get Sponsorized apartments and filter by distance
         $apartmentPlus = new Apartment;
-        
+
         $apartmentPlus = $apartmentPlus->where('published', '1');
-        
+
         $apartmentPlus->whereHas('sponsorships', function ($query) {
             $query->where("expires_at", ">", Carbon::now());
         });
@@ -43,11 +43,11 @@ class SearchApartmentController extends Controller
         $collection = collect($resultPlus);
         $merged = $collection->merge($result);
         $result = $merged->all();
-        
+
       return view('apartment-search', compact('result', 'coord'));
     }
 
-    
+
       public function filter(Request $request)
       {
 
@@ -77,17 +77,18 @@ class SearchApartmentController extends Controller
                     $query->where('name', $service);
                 });
             }
-            
+
         }
 
         $apartmentsAll = $apartments->whereDoesntHave('sponsorships')->where('published', '1');
-        
+
         $apartmentsAll = $apartmentsAll->get();
 
         $this->setDistance($apartmentsAll, $request);
 
 
-        $result = $apartmentsAll->where('dist', "<=", $km)->sortBy('dist');
+        $result = $apartmentsAll->where('dist', "<=", $km['km'])->sortBy('dist');
+
 
         //  Get Sponsorized apartments and filter by distance
 
@@ -101,7 +102,7 @@ class SearchApartmentController extends Controller
         $this->setDistance($apartmentPlus, $request);
 
 
-        $resultPlus = $apartmentPlus->where('dist', "<=", $km)->sortBy('dist');
+        $resultPlus = $apartmentPlus->where('dist', "<=",$km['km'])->sortBy('dist');
 
         $collection = collect($resultPlus);
         $merged = $collection->merge($result);
@@ -137,4 +138,3 @@ class SearchApartmentController extends Controller
       }
 
     }
-
