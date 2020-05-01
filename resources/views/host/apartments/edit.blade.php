@@ -3,7 +3,7 @@
 @section('content')
   <div class='container'>
     <div class="row">
-          <div class="col-md-6 col-sm-12">
+          <div class="col-lg-6 col-md-12 col-sm-12 ">
             <form method='POST' action="{{route('host.update', $apartment->id)}}" enctype="multipart/form-data">
               @csrf
               @method('PUT')
@@ -72,7 +72,7 @@
                   <input id="city_address" type="hidden" name="city" value="{{$apartment->city}}">
           </div>
 
-          <div class="col-md-6 col-sm-12">
+          <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="form-group">
               <h4 class="mt-5 mb-3">Modifica la descrizione del tuo alloggio</h4>
               <textarea id="description" class="form-control @error('description') is-invalid @enderror" name='description' rows="5">{{$apartment->description}}</textarea>

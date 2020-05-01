@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
             <form method='POST' action="{{route('host.store')}}" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
@@ -62,7 +62,7 @@
                 </div>
         </div>
 
-        <div class="col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="form-group">
                 <h4 class="mt-5 mb-3">Dove si trova il tuo alloggio?</h4>
                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror"name='address' placeholder="inserisci l'indirizzo" value="{{old('address')}}">
