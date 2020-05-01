@@ -55,9 +55,7 @@
                 <div class="form-group">
                     <h4 class="mt-5 mb-3">Quanto é grande il tuo allogio?</h4>
                     <label class="my-3 label_create" for="square_meters">Metri Quadri</label>
-                    <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
-                    <input autocomplete="off" class='counter' name="square_meters" type="number" min="1" value="{{(empty(old('square_meters'))) ? '0' : old('square_meters')}}" />
-                    <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
+                    <input id="square_meters" class='form-control' name="square_meters" type="number" min="1" value="{{(empty(old('square_meters'))) ? '' : old('square_meters')}}" />
                     @error('square_meters')
                     <small class="form-text text-danger">{{$message}}</small>
                     @enderror

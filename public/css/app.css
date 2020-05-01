@@ -11035,6 +11035,13 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: 8px;
 }
 
+#square_meters {
+  width: 60px;
+  border: 1px solid #008489;
+  border-radius: 8px;
+  display: inline-block;
+}
+
 #description {
   width: 400px;
   border: 1px solid #008489;
