@@ -42,6 +42,7 @@ $(document).ready(function () {
                 var results = data.results;
                 var lat = results[0].position.lat;
                 var lon = results[0].position.lon;
+                var city = results[0].address.municipality;
                 $('#lat').val(lat);
                 $('#lon').val(lon);
                 $('#city_address').val(city);
