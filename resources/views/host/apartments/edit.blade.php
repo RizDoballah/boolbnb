@@ -88,7 +88,8 @@
                 @endisset
               <div class="upload-btn-wrapper">
                 <button type="submit" class="btn_foto"><i class="fas fa-cloud-upload-alt"></i> Modifica foto</button>
-                <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" >
+                <input id="file-upload"  type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" >
+                  <label id="file-name"></label>
                 @error('main_img')
                   <small class="form-text text-danger">{{$message}}</small>
                 @enderror

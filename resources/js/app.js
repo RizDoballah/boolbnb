@@ -15,6 +15,11 @@ $(document).ready(function () {
      if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
   });
 
+  // Carica foto input
+  $("#file-upload").change(function(){
+    $("#file-name").text(this.files[0].name);
+  });
+
 
     // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
     var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze';
