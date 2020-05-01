@@ -116,6 +116,9 @@ header{
 .label_create {
   width: 250px;
   font-size: 18px;
+  @media only screen and (max-width: 407px) {
+    width: 150px;
+  }
 }
 
 .counter {
@@ -156,6 +159,13 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
   height: 50px;
   border: 1px solid #008489;
   border-radius: 8px;
+}
+#square_meters {
+  width: 60px;
+  border: 1px solid #008489;
+  border-radius: 8px;
+  display: inline-block
+
 }
 #description {
   width: 400px;

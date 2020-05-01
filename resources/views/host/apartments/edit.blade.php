@@ -3,7 +3,7 @@
 @section('content')
   <div class='container'>
     <div class="row">
-          <div class="col-md-6 col-sm-12">
+          <div class="col-lg-6 col-md-12 col-sm-12 ">
             <form method='POST' action="{{route('host.update', $apartment->id)}}" enctype="multipart/form-data">
               @csrf
               @method('PUT')
@@ -69,10 +69,10 @@
                   </div>
                   <input id="lat" type="hidden" name="lat" value="{{$apartment->lat}}">
                   <input id="lon" type="hidden" name="lon" value="{{$apartment->lon}}">
-                  <input id="city" type="hidden" name="city" value="{{$apartment->city}}">
+                  <input id="city_address" type="hidden" name="city" value="{{$apartment->city}}">
           </div>
 
-          <div class="col-md-6 col-sm-12">
+          <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="form-group">
               <h4 class="mt-5 mb-3">Modifica la descrizione del tuo alloggio</h4>
               <textarea id="description" class="form-control @error('description') is-invalid @enderror" name='description' rows="5">{{$apartment->description}}</textarea>
@@ -88,7 +88,8 @@
                 @endisset
               <div class="upload-btn-wrapper">
                 <button type="submit" class="btn_foto"><i class="fas fa-cloud-upload-alt"></i> Modifica foto</button>
-                <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" >
+                <input id="file-upload"  type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" >
+                  <label id="file-name"></label>
                 @error('main_img')
                   <small class="form-text text-danger">{{$message}}</small>
                 @enderror

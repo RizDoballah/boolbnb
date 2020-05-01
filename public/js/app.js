@@ -37336,6 +37336,10 @@ $(document).ready(function () {
   });
   $(document).on('click', '.down_count', function () {
     if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
+  }); // Carica foto input
+
+  $("#file-upload").change(function () {
+    $("#file-name").text(this.files[0].name);
   }); // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
 
   var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze'; // var key = 'LbMZ7czn7WGWFrpGsjzcCu1JmYZLiH0Q';
@@ -37358,7 +37362,7 @@ $(document).ready(function () {
         var lon = results[0].position.lon;
         $('#lat').val(lat);
         $('#lon').val(lon);
-        $('#city').val(city);
+        $('#city_address').val(city);
       },
       'error': function error(request, state, _error) {
         alert('Errore' + _error);
