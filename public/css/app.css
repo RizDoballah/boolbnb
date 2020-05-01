@@ -11168,6 +11168,22 @@ input[type=number]::-webkit-outer-spin-button {
   color: #FF5862;
 }
 
+.icon_footer {
+  font-size: 17px;
+}
+
+.fa-twitter {
+  padding: 0 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .icon_footer {
+    display: flex;
+    text-align: center;
+    margin: auto;
+  }
+}
+
 .container_footertop {
   background-color: white;
   padding-top: 40px;
