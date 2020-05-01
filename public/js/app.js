@@ -37336,6 +37336,10 @@ $(document).ready(function () {
   });
   $(document).on('click', '.down_count', function () {
     if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
+  }); // Carica foto input
+
+  $("#file-upload").change(function () {
+    $("#file-name").text(this.files[0].name);
   }); // var key = 'HjM5IazrxAoZztEZSlruNaZ2aoTR498X';
 
   var key = 'yNUDSdr4fVsAu1CGpXrd74mh8D8UE2Ze'; // var key = 'LbMZ7czn7WGWFrpGsjzcCu1JmYZLiH0Q';
@@ -37358,6 +37362,7 @@ $(document).ready(function () {
         var lon = results[0].position.lon;
         $('#lat').val(lat);
         $('#lon').val(lon);
+        $('#city_address').val(city);
       },
       'error': function error(request, state, _error) {
         alert('Errore' + _error);
@@ -37626,8 +37631,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

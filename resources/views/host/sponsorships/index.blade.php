@@ -5,7 +5,7 @@
     <h1 class="">Sponsorizza alloggi</h1>
     <div class="row">
       @foreach ($apartments as $apartment)
-        <div class="col-6 col-sm-4 col-lg-3">
+        <div class="col-md-6 col-sm-6 col-lg-3">
           <img class="mt-5 w-100 mb-3 rounded" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
             @if ($apartment->sponsorships->isNotEmpty())
               <span class="badge plus">Plus</span>

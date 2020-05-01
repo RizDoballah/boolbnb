@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
             <form method='POST' action="{{route('host.store')}}" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
@@ -17,8 +17,8 @@
                 </div>
 
                 <div class="form-group">
-                    <h4>Quante camere da letto possono utilizzare gli ospiti?</h4>
-                    <label class="my-5 label_create" for="rooms">Camere</label>
+                    <h4 class="mt-5 mb-3">Quante camere da letto possono utilizzare gli ospiti?</h4>
+                    <label class="my-3 label_create" for="rooms">Camere</label>
                     <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
                     <input autocomplete="off" class='counter' name='rooms' type="number" min="1"
                         value="{{(empty(old('rooms'))) ? '0' : old('rooms')}}" />
@@ -29,8 +29,8 @@
                 </div>
 
                 <div class="form-group">
-                    <h4>Quanti letti possono utilizzare gli ospiti?</h4>
-                    <label class="my-5 label_create" for="beds">letti</label>
+                    <h4 class="mt-5 mb-3">Quanti letti possono utilizzare gli ospiti?</h4>
+                    <label class="my-3 label_create" for="beds">letti</label>
                     <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
                     <input autocomplete="off" class='counter' name="beds" type="number" min="1"
                         value="{{(empty(old('beds'))) ? '0' : old('beds')}}" />
@@ -41,8 +41,8 @@
                 </div>
 
                 <div class="form-group">
-                    <h4>Quanti bagni?</h4>
-                    <label class="my-5 label_create" for="bathroom">Bagni</label>
+                    <h4 class="mt-5 mb-3">Quanti bagni?</h4>
+                    <label class="my-3 label_create" for="bathroom">Bagni</label>
                     <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
                     <input autocomplete="off" class='counter' name="bathroom" type="number" min="1"
                         value="{{(empty(old('bathroom'))) ? '0' : old('bathroom')}}" />
@@ -53,18 +53,16 @@
                 </div>
 
                 <div class="form-group">
-                    <h4>Quanto é grande il tuo allogio?</h4>
-                    <label class="my-5 label_create" for="square_meters">Metri Quadri</label>
-                    <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
-                    <input autocomplete="off" class='counter' name="square_meters" type="number" min="1" value="{{(empty(old('square_meters'))) ? '0' : old('square_meters')}}" />
-                    <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
+                    <h4 class="mt-5 mb-3">Quanto é grande il tuo allogio?</h4>
+                    <label class="my-3 label_create" for="square_meters">Metri Quadri</label>
+                    <input id="square_meters" class='form-control' name="square_meters" type="number" min="1" value="{{(empty(old('square_meters'))) ? '' : old('square_meters')}}" />
                     @error('square_meters')
                     <small class="form-text text-danger">{{$message}}</small>
                     @enderror
                 </div>
         </div>
 
-        <div class="col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="form-group">
                 <h4 class="mt-5 mb-3">Dove si trova il tuo alloggio?</h4>
                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror"name='address' placeholder="inserisci l'indirizzo" value="{{old('address')}}">
@@ -73,6 +71,7 @@
                 @enderror
                 <input id="lat" type="hidden" name="lat" value="">
                 <input id="lon" type="hidden" name="lon" value="">
+                <input id="city_address" type="hidden" name="city" value="">
             </div>
 
             <div class="form-group">
@@ -88,7 +87,8 @@
                 <h4 class="mt-5 mb-3">Aggiungi foto al tuo annuncio</h4>
                 <div class="upload-btn-wrapper">
                     <button type="submit" class="btn_foto"><i class="fas fa-cloud-upload-alt"></i> Carica foto</button>
-                    <input type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" >
+                    <input id="file-upload" type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" >
+                      <label id="file-name"></label>
                     @error('main_img')
                         <small class="form-text text-danger">{{$message}}</small>
                     @enderror
@@ -171,9 +171,9 @@
                     <option value="0">Non Pubblicato</option>
                 </select>
             </div>
-            <button id="save_apt" class="btn mt-4" type='submit'>Salva</button>
-            </form>
+            <button id="save_apt" class="btn my-4" type='submit'>Salva</button>
         </div>
+      </form>
     </div>
 </div>
   {{-- </div> --}}

@@ -39,11 +39,16 @@
             </div>
 
                 <div class="row border-top grey_border">
-                    <div class="col-12 py-4">
+                    <div class="col-10 py-4 d-sm-none d-md-block ">
                         <span> © 2020 Airbnb, Inc All rights reserved</span>
                         <a href="#">Termini</a>
                         <a href="#">Mappa del sito</a>
                         <a href="#">Dettagli dell'azienda</a>
+                    </div>
+                    <div class="col-2 py-3 icon_footer ">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 

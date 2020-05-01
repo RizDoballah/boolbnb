@@ -10946,6 +10946,40 @@ header {
   display: none;
 }
 
+#submit-button {
+  background-color: #008489;
+}
+
+.card {
+  border-top: 5px solid #008489;
+  background-color: #F7F7F7;
+  height: 250px;
+}
+
+.card-header {
+  background-color: #F7F7F7;
+}
+
+#order_summary {
+  margin-top: 33px;
+}
+
+#order_summary hr {
+  margin-top: 0;
+}
+
+#riepilogo_ordine {
+  margin: 10px;
+}
+
+.p_for_checkout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+}
+
 .show_image {
   height: 410px;
   overflow: hidden;
@@ -10963,6 +10997,12 @@ header {
 .label_create {
   width: 250px;
   font-size: 18px;
+}
+
+@media only screen and (max-width: 407px) {
+  .label_create {
+    width: 150px;
+  }
 }
 
 .counter {
@@ -10993,18 +11033,19 @@ input[type=number]::-webkit-outer-spin-button {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.fas {
-  color: #008489;
-  vertical-align: middle;
-  font-size: 10px;
-}
-
 #address,
 #title {
   width: 400px;
   height: 50px;
   border: 1px solid #008489;
   border-radius: 8px;
+}
+
+#square_meters {
+  width: 60px;
+  border: 1px solid #008489;
+  border-radius: 8px;
+  display: inline-block;
 }
 
 #description {
@@ -11138,6 +11179,22 @@ input[type=number]::-webkit-outer-spin-button {
 .email_link,
 .email_link:hover {
   color: #FF5862;
+}
+
+.icon_footer {
+  font-size: 17px;
+}
+
+.fa-twitter {
+  padding: 0 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .icon_footer {
+    display: flex;
+    text-align: center;
+    margin: auto;
+  }
 }
 
 .container_footertop {
@@ -11402,8 +11459,9 @@ h1 {
 }
 
 .city-home {
+  margin-left: 5px;
   font-size: 14px;
-  color: #5d5d5d;
+  color: #686868;
 }
 
 .filter_form input {
