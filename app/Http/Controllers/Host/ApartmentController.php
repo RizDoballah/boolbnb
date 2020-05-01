@@ -62,7 +62,7 @@ class ApartmentController extends Controller
             'address' => $data['address'],
             'lat' => $data['lat'],
             'lon' => $data['lon'],
-            'lon' => $data['city'],
+            'city' => $data['city'],
             'description' => $data['description'],
             'rooms' => $data['rooms'],
             'beds' => $data['beds'],
