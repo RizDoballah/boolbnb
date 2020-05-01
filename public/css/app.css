@@ -10999,6 +10999,12 @@ header {
   font-size: 18px;
 }
 
+@media only screen and (max-width: 407px) {
+  .label_create {
+    width: 150px;
+  }
+}
+
 .counter {
   width: 45px;
   border: none;

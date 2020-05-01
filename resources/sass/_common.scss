@@ -116,6 +116,9 @@ header{
 .label_create {
   width: 250px;
   font-size: 18px;
+  @media only screen and (max-width: 407px) {
+    width: 150px;
+  }
 }
 
 .counter {
