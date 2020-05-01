@@ -187,7 +187,13 @@ $(document).ready(function () {
             let lon = $(this).attr('data-lon');
             let title = $(this).parent().parent().parent().children('.col-7').find('h4').html();
             let image = $(this).attr('src');
-            var marker = new tt.Marker().setLngLat([lon, lat]).addTo(map);
+            var element = document.createElement('i');
+            element.class = 'fas fa-home';
+            $(element).addClass('fas fa-home');
+            console.log(element);
+            
+            
+            var marker = new tt.Marker({element: element}).setLngLat([lon, lat]).addTo(map);
             marker.setPopup(new tt.Popup().setHTML('<img class="w-100" src="' + image + '" alt="">' + title + ''));
         })
     }
