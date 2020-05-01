@@ -142,23 +142,9 @@ class ApartmentController extends Controller
 
     $updated = $apartment->update($data);
 
-
-
-
-    // if (!empty($request->tags)) {
-    //     $tagsArray = $request->tags;
-    //     foreach ($tagsArray as $key => $tag) {
-    //         if(empty(Tag::find($tag))) {
-    //             unset($tagsArray[$key]);
-    //         }
-    //     }
-    // }
-
         if(!empty($data['services'])){
             $apartment->services()->sync($data['services']);
         }
-
-
 
         if ($updated) {
             return redirect()->route('home.show', $apartment);

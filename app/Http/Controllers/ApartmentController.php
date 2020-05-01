@@ -41,8 +41,6 @@ class ApartmentController extends Controller
             abort('404');
         }
 
-
-
         return view('show', compact('apartment'));
     }
 
