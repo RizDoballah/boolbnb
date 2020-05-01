@@ -10999,6 +10999,12 @@ header {
   font-size: 18px;
 }
 
+@media only screen and (max-width: 407px) {
+  .label_create {
+    width: 150px;
+  }
+}
+
 .counter {
   width: 45px;
   border: none;
@@ -11033,6 +11039,13 @@ input[type=number]::-webkit-outer-spin-button {
   height: 50px;
   border: 1px solid #008489;
   border-radius: 8px;
+}
+
+#square_meters {
+  width: 60px;
+  border: 1px solid #008489;
+  border-radius: 8px;
+  display: inline-block;
 }
 
 #description {
