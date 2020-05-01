@@ -13,7 +13,21 @@ use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
-
+    private $toValidate = [
+        'title'=> 'required',
+        'description'=> 'required|string',
+        'lat'=> 'required|numeric',
+        'lon'=> 'required|numeric',
+        'city'=> 'required',
+        'main_img'=>'image',
+        'square_meters'=>'required|numeric',
+        'rooms'=>'required|numeric',
+        'bathroom'=>'required|numeric',
+        'address'=> 'required|string',
+        'beds'=>'required|numeric',
+        'published'=>'required|boolean',
+        'user_id'=>'exists:users,id'
+    ];
 
     public function index()
     {
@@ -37,21 +51,7 @@ class ApartmentController extends Controller
         $data = $request->all();
 
         // VALIDAZIONE
-        $validatedData = $request->validate([
-                'title'=> 'required',
-                'description'=> 'required|string',
-                'address'=> 'required|string',
-                'lat'=> 'required|numeric',
-                'lon'=> 'required|numeric',
-                'city'=> 'required',
-                'main_img'=>'required|image',
-                'square_meters'=>'required|numeric',
-                'rooms'=>'required|numeric|min:1',
-                'bathroom'=>'required|numeric',
-                'beds'=>'required|numeric',
-                'published'=>'required|boolean',
-                'user_id'=>'exists:users,id'
-            ]);
+        $validatedData = $request->validate($this->toValidate);
 
         $path = Storage::disk('public')->put('images', $request->main_img);
 
@@ -110,21 +110,7 @@ class ApartmentController extends Controller
            abort(404);
         }
         // VALIDAZIONE
-        $validatedData = $request->validate([
-            'title'=> 'required',
-            'description'=> 'required|string',
-            'lat'=> 'required|numeric',
-            'lon'=> 'required|numeric',
-            'city'=> 'required',
-            'main_img'=>'image',
-            'square_meters'=>'required|numeric',
-            'rooms'=>'required|numeric',
-            'bathroom'=>'required|numeric',
-            'user_id'=>'exists:users,id',
-            'address'=> 'required|string',
-            'beds'=>'required|numeric',
-            'published'=>'required|boolean'
-         ]);
+        $validatedData = $request->validate($this->toValidate);
 
 
     $data = $request->all();
@@ -156,6 +142,6 @@ class ApartmentController extends Controller
 
         $apartment->delete();
 
-        return redirect()->route('host.index')->with('delete', " You deleted the post with id: $apartment->id");
+        return redirect()->route('host.index')->with('delete', "Hai cancellato l'appartamento: $apartment->title");
     }
 }

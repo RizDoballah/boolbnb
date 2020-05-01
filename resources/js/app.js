@@ -67,7 +67,6 @@ $(document).ready(function () {
                 'method': 'GET',
                 'success': function (data) {
                     $('#city').text(searchVal);
-                    // console.log($('#city').text(searchVal));
 
                     var results = data.results;
                     var lat = results[0].position.lat;
@@ -104,16 +103,15 @@ $(document).ready(function () {
                 'success': function (data) {
                     $('#search_autocomplete').html('');
                     var results = data.results;
-                    console.log(results);
 
                     results.forEach(element => {
                         let lat = element.position.lat;
                         let lon = element.position.lon;
-                        console.log(lat, lon);
+                        let city = element.address.municipality;
                         var region = element.address.countrySubdivision;
                         var address = element.address.freeformAddress;
                         var autoComplete = address + ', ' + region;
-                        $('#search_autocomplete').append(`<li data-lat="${lat}" data-lon="${lon}" class="listElement">${autoComplete}</li>`);
+                        $('#search_autocomplete').append(`<li data-lat="${lat}" data-lon="${lon}" data-city="${city}" class="listElement"><i class="fas fa-map-marker-alt mr-2"></i> <span class="autocompleteVal">${autoComplete}</span></li>`);
                         if ($('#search_input') == '') {
                             $('#search_autocomplete').hide();
                         }
@@ -141,20 +139,23 @@ $(document).ready(function () {
     $(document).on('click', '.listElement', function (event) {
         // event.stopPropagation();
         var valInput = $('#search_input').val();
-        var elementValue = $(this).html();
+        var elementValue = $(this).find('.autocompleteVal').html();
         $('#search_input').val(elementValue);
-        $('#search_autocomplete').html('');
+        $('#search_autocomplete').hide();
         if (valInput.length = 0) {
             $('#search_autocomplete').html('');
         }
         let lat = $(this).attr('data-lat');
         let lon = $(this).attr('data-lon');
+        let city = $(this).attr('data-city');
         $('#lat').val(lat);
         $('#lon').val(lon);
+        $('#city').val(city);
     });
 
     $(document).on('click', '#search_input', function () {
         $('.listElement').show();
+        $('#search_autocomplete').show();
     });
 
 
@@ -191,7 +192,6 @@ $(document).ready(function () {
             var element = document.createElement('i');
             element.class = 'fas fa-home';
             $(element).addClass('fas fa-home');
-            console.log(element);
             
             
             var marker = new tt.Marker({element: element}).setLngLat([lon, lat]).addTo(map);

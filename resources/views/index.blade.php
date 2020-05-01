@@ -2,14 +2,14 @@
 @section('content')
 <div class="container my-5">
     <div class="row mt-4">
-        <div class="col-12">
+        <div class="col-12 pt-5">
             <h1 class="mb-5">Scopri intere case e stanze perfette per ogni viaggi</h1>
-            <h4 class="mb-3 font-weight-bold">Appartamenti in evidenza</h4>
+            <h4 class="mb-4 font-weight-bold">Appartamenti in evidenza</h4>
         </div>
         @foreach ($apartmentsPlus as $apartment)
         <div class="col-lg-3 col-md-6 col-12">
             <a href="{{route('home.show', $apartment)}}">
-                <img class="apartment_img mb-2" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
+                <img class="apartment_img border_plus mb-2" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
             </a>
             @if ($apartment->sponsorships->isNotEmpty())
               <span class="badge  plus">Plus</span>
@@ -21,7 +21,7 @@
     </div>
     <div class="row mt-4">
         <div class="col-12">
-            <h4 class="mb-3 font-weight-bold">Altri appartamenti</h4>
+            <h4 class="mb-4 font-weight-bold">Altri appartamenti</h4>
         </div>
         @foreach ($apartments as $apartment)
         <div class="col-lg-3 col-md-6 col-12">

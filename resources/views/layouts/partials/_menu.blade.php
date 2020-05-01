@@ -52,13 +52,14 @@
                 {{-- end button with avatar --}}
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('host.index') }}">Gestisci alloggi</a>
-                    <a class="dropdown-item" href="{{ route('sponsorships.index') }}">Sponsorizza alloggi</a>
-                    <a class="dropdown-item" href="{{ route('messages.index') }}">Messaggi</a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    <a class="dropdown-item mt-2" href="{{ route('host.index') }}">Gestisci alloggi</a>
+                    <a class="dropdown-item mt-2" href="{{ route('sponsorships.index') }}">Sponsorizza alloggi</a>
+                    <a class="dropdown-item mt-2" href="{{ route('messages.index') }}">Messaggi</a>
+                    <hr>
+                    <a class="dropdown-item mb-1" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                    Logout
+                    Esci
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

@@ -42,7 +42,7 @@
               <h4 class="mt-5 mb-3">Modifica il numero di bagni</h4>
               <label class="my-3 label_create" for="bathroom">Bagni</label>
               <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
-              <input  autocomplete="off" class="counter @error('bathroom') is-invalid @enderror" min="1" type="number" name="beds" value="{{$apartment->bathroom}}">
+              <input  autocomplete="off" class="counter @error('bathroom') is-invalid @enderror" min="1" type="number" name="bathroom" value="{{$apartment->bathroom}}">
               <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
               @error('bathroom')
                 <small class="form-text text-danger">{{$message}}</small>

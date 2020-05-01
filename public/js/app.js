@@ -37384,8 +37384,7 @@ $(document).ready(function () {
         },
         'method': 'GET',
         'success': function success(data) {
-          $('#city').text(searchVal); // console.log($('#city').text(searchVal));
-
+          $('#city').text(searchVal);
           var results = data.results;
           var lat = results[0].position.lat;
           var lon = results[0].position.lon;
@@ -37417,15 +37416,14 @@ $(document).ready(function () {
         'success': function success(data) {
           $('#search_autocomplete').html('');
           var results = data.results;
-          console.log(results);
           results.forEach(function (element) {
             var lat = element.position.lat;
             var lon = element.position.lon;
-            console.log(lat, lon);
+            var city = element.address.municipality;
             var region = element.address.countrySubdivision;
             var address = element.address.freeformAddress;
             var autoComplete = address + ', ' + region;
-            $('#search_autocomplete').append("<li data-lat=\"".concat(lat, "\" data-lon=\"").concat(lon, "\" class=\"listElement\">").concat(autoComplete, "</li>"));
+            $('#search_autocomplete').append("<li data-lat=\"".concat(lat, "\" data-lon=\"").concat(lon, "\" data-city=\"").concat(city, "\" class=\"listElement\"><i class=\"fas fa-map-marker-alt mr-2\"></i> <span class=\"autocompleteVal\">").concat(autoComplete, "</span></li>"));
 
             if ($('#search_input') == '') {
               $('#search_autocomplete').hide();
@@ -37456,9 +37454,9 @@ $(document).ready(function () {
   $(document).on('click', '.listElement', function (event) {
     // event.stopPropagation();
     var valInput = $('#search_input').val();
-    var elementValue = $(this).html();
+    var elementValue = $(this).find('.autocompleteVal').html();
     $('#search_input').val(elementValue);
-    $('#search_autocomplete').html('');
+    $('#search_autocomplete').hide();
 
     if (valInput.length = 0) {
       $('#search_autocomplete').html('');
@@ -37466,11 +37464,14 @@ $(document).ready(function () {
 
     var lat = $(this).attr('data-lat');
     var lon = $(this).attr('data-lon');
+    var city = $(this).attr('data-city');
     $('#lat').val(lat);
     $('#lon').val(lon);
+    $('#city').val(city);
   });
   $(document).on('click', '#search_input', function () {
     $('.listElement').show();
+    $('#search_autocomplete').show();
   });
   $('#app').click(function () {
     $('.listElement').hide();
@@ -37498,7 +37499,6 @@ $(document).ready(function () {
       var element = document.createElement('i');
       element["class"] = 'fas fa-home';
       $(element).addClass('fas fa-home');
-      console.log(element);
       var marker = new tt.Marker({
         element: element
       }).setLngLat([lon, lat]).addTo(map);

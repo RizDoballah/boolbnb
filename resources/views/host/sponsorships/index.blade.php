@@ -2,11 +2,16 @@
 @section('content')
 
 <div class="container pt-5">
-    <h1 class="">Sponsorizza alloggi</h1>
+    <h1 class="mb-5">Sponsorizza alloggi</h1>
+
+    @if (!count($apartments))
+        <h4 class="mb-5">Non hai ancora inserito nessun annuncio</h4>
+    @endif
     <div class="row">
+        
       @foreach ($apartments as $apartment)
-        <div class="col-md-6 col-sm-6 col-lg-3">
-          <img class="mt-5 w-100 mb-3 rounded" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
+        <div class="col-md-6 col-sm-6 col-lg-3 my-5">
+          <img class="w-100 mb-3 apartment_img {{($apartment->sponsorships->isNotEmpty()) ? 'border_plus' : ''}}" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
             @if ($apartment->sponsorships->isNotEmpty())
               <span class="badge plus">Plus</span>
             @endif
@@ -16,8 +21,6 @@
             <a class=" btn_sponsorship sponsorship mt-2 d-block"data-toggle="modal" data-target="#exampleModalCenter" href="#">Sponsorizza<i class="fas fa-coins"></i></a>
           @endif
 
-
-            {{-- {{$apartment->has('sponsorship') ? 'colorato' : 'no'}} --}}
           </div>
 
       @endforeach

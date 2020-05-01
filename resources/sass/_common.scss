@@ -1,16 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;700&display=swap');
 
-//prova Test Francesco
-//prova Test Francesco 2
-//prova Matteo
-//prova Matteo 2
-// prova erasmo
-//prova Francesco
-//prova Emanuele
-// prova riz
-//ok
-// ok
-//ok
+
 * {
   font-family: 'Manrope', sans-serif;
   color: $text-color;
@@ -52,6 +42,23 @@ header{
     z-index: 10;
     height: 82px;
     background-color: rgba(255, 255, 255, 0);
+}
+
+.dropdown-item {
+    color: $text-color;
+}
+.dropdown-item:active {
+    background-color: none;
+    color: $text-color;
+}
+.dropdown-item:hover {
+    background-color: #e6e6e6;
+}
+.dropdown-menu {
+    margin: 10px 0 0 0;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
 }
 
 .logo {
@@ -264,13 +271,13 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
 .message {
   display: flex;
   flex-wrap: nowrap;
-
   border-bottom: 1px solid #ebebeb;
   padding: 30px 0;
+
   .message_img {
-    width: 60px;
-    min-width: 60px;
-    height: 60px;
+    width: 80px;
+    min-width: 80px;
+    height: 80px;
     border-radius: 50%;
     overflow: hidden;
     img {
