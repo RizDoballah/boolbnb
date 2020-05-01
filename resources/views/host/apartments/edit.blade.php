@@ -69,7 +69,7 @@
                   </div>
                   <input id="lat" type="hidden" name="lat" value="{{$apartment->lat}}">
                   <input id="lon" type="hidden" name="lon" value="{{$apartment->lon}}">
-                  <input id="city" type="hidden" name="city" value="{{$apartment->city}}">
+                  <input id="city_address" type="hidden" name="city" value="{{$apartment->city}}">
           </div>
 
           <div class="col-md-6 col-sm-12">

@@ -37358,7 +37358,7 @@ $(document).ready(function () {
         var lon = results[0].position.lon;
         $('#lat').val(lat);
         $('#lon').val(lon);
-        $('#city').val(city);
+        $('#city_address').val(city);
       },
       'error': function error(request, state, _error) {
         alert('Errore' + _error);

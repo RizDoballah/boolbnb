@@ -73,7 +73,7 @@
                 @enderror
                 <input id="lat" type="hidden" name="lat" value="">
                 <input id="lon" type="hidden" name="lon" value="">
-                <input id="city" type="hidden" name="city" value="">
+                <input id="city_address" type="hidden" name="city" value="">
             </div>
 
             <div class="form-group">
