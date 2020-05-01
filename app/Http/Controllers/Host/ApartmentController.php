@@ -35,7 +35,6 @@ class ApartmentController extends Controller
 
     {
         $data = $request->all();
-        // dd($data);
 
         // VALIDAZIONE
         $validatedData = $request->validate([
@@ -56,28 +55,20 @@ class ApartmentController extends Controller
 
         $path = Storage::disk('public')->put('images', $request->main_img);
 
-        $newApartment = Apartment::create([
-            'user_id' => Auth::id(),
-            'title' => $data['title'],
-            'address' => $data['address'],
-            'lat' => $data['lat'],
-            'lon' => $data['lon'],
-            'city' => $data['city'],
-            'description' => $data['description'],
-            'rooms' => $data['rooms'],
-            'beds' => $data['beds'],
-            'bathroom' => $data['bathroom'],
-            'square_meters' => $data['square_meters'],
-            'main_img' => $path,
-            'published' => $data['published'],
-        ]);
+        $apartment = new Apartment;
+        $apartment->fill($validatedData);
+        $apartment->user_id = Auth::id();
+        $apartment->main_img = $path;
+        $saved = $apartment->save();
+
+        abort_if(!$saved, 404);
 
         if (!empty($data['services'])) {
             $services= $data['services'];
-            $newApartment->services()->attach($services);
+            $apartment->services()->attach($services);
         }
 
-        return redirect(route('home.show', $newApartment));
+        return redirect(route('home.show', $apartment));
     }
 
 
@@ -124,6 +115,7 @@ class ApartmentController extends Controller
             'description'=> 'required|string',
             'lat'=> 'required|numeric',
             'lon'=> 'required|numeric',
+            'city'=> 'required',
             'main_img'=>'image',
             'square_meters'=>'required|numeric',
             'rooms'=>'required|numeric',
