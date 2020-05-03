@@ -1,7 +1,7 @@
 require('./bootstrap');
 
 
-
+$('.collapse').collapse();
 
 
 // Jquery code
@@ -90,7 +90,7 @@ $(document).ready(function () {
     $(document).on('keyup', '#search_input', delay(function () {
         // alert('ok');
         var searchVal = $('#search_input').val();
-        if (searchVal.length > 1) {
+        if (searchVal.length >= 1) {
             var url = 'https://api.tomtom.com/search/2/geocode/' + searchVal + '.json';
             $.ajax({
                 'url': url,
@@ -111,6 +111,7 @@ $(document).ready(function () {
                         var region = element.address.countrySubdivision;
                         var address = element.address.freeformAddress;
                         var autoComplete = address + ', ' + region;
+                        
                         $('#search_autocomplete').append(`<li data-lat="${lat}" data-lon="${lon}" data-city="${city}" class="listElement"><i class="fas fa-map-marker-alt mr-2"></i> <span class="autocompleteVal">${autoComplete}</span></li>`);
                         if ($('#search_input') == '') {
                             $('#search_autocomplete').hide();

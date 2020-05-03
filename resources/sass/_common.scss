@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;700&display=swap');
-
+@import 'partials/mixins';
 
 * {
   font-family: 'Manrope', sans-serif;
@@ -23,42 +23,37 @@ header{
 }
 
 .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    height: 82px;
-    background-color: white;
-    border-bottom: 1px solid #DFDFDF;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.06);
+  @include fixedMenu;
+  z-index: 10;
+  background-color: white;
+  border-bottom: 1px solid #DFDFDF;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .menu-index {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    height: 82px;
-    background-color: rgba(255, 255, 255, 0);
+  @include fixedMenu;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .dropdown-item {
-    color: $text-color;
+  color: $text-color;
 }
+
 .dropdown-item:active {
-    background-color: none;
-    color: $text-color;
+  background-color: none;
+  color: $text-color;
 }
+
 .dropdown-item:hover {
-    background-color: #e6e6e6;
+  background-color: #e6e6e6;
 }
+
 .dropdown-menu {
-    margin: 10px 0 0 0;
-    border: 0;
-    border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
+  margin: 10px 0 0 0;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
 }
 
 .logo {
@@ -84,26 +79,22 @@ header{
 [data-braintree-id='methods-label'] {
   display: none;
 }
+
 #submit-button{
   background-color: #008489;
 }
-.card{
-  border-top: 5px solid #008489;
-  background-color: #F7F7F7;
-  height: 250px;
-}
-.card-header{
-    background-color: #F7F7F7;
-}
+
 #order_summary{
  margin-top: 33px;
  hr {
    margin-top: 0;
  }
 }
+
 #riepilogo_ordine{
   margin: 10px;
 }
+
 .p_for_checkout{
   display: flex;
   flex-wrap: wrap;
@@ -112,20 +103,22 @@ header{
   padding: 0.75rem 1.25rem;
 }
 
-
 // Show page CSS
 .show_image {
-    height: 410px;
-    overflow: hidden;
-    padding: 0;
-    img {
-        transform: translate(0, -25%);
-    }
+  height: 410px;
+  overflow: hidden;
+  padding: 0;
+  @media only screen and (max-width: 700px) {
+    height: 210px;
+  }
+  img {
+    transform: translate(0, -25%);
+  }
 }
+
 .h1_show_title {
     max-width: 80%;
 }
-
 
 // Create page host
 
@@ -157,18 +150,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 .up_count,
 .down_count {
-border-radius: 50%;
-background: white;
-color: #008489;
-padding: 3px 10px;
-border: 1px solid #008489;
-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-radius: 50%;
+  background: white;
+  color: #008489;
+  padding: 3px 10px;
+  border: 1px solid #008489;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-// .fas {
-//   color: #008489;
-//   vertical-align: middle;
-//   font-size: 10px;
-// }
+
 #address,
 #title {
   width: 400px;
@@ -176,6 +165,7 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
   border: 1px solid #008489;
   border-radius: 8px;
 }
+
 #square_meters {
   width: 60px;
   border: 1px solid #008489;
@@ -183,11 +173,13 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
   display: inline-block
 
 }
+
 #description {
   width: 400px;
   border: 1px solid #008489;
   border-radius: 8px;
 }
+
 .upload-btn-wrapper {
   position: relative;
   overflow: hidden;
@@ -215,6 +207,7 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
   top: 0;
   opacity: 0;
 }
+
 .services_create {
   i {
     color: #008489;
@@ -223,14 +216,16 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
     background-color: #008489;
   }
 }
-  #published {
-    width: 200px;
-    padding: 8px 20px;
-    border: 1px solid #008489;
-    border-radius: 8px;
-    font-size: 16px;
-  }
-  #save_apt {
+
+#published {
+  width: 200px;
+  padding: 8px 20px;
+  border: 1px solid #008489;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#save_apt {
   width: 100px;
   color: white;
   font-weight: bold;
@@ -248,16 +243,15 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
   padding: 5px;
   font-size: 12px;
 }
+
 .btn_sponsorship {
-  // background-color: lightgrey;
   color: $text-color;
   font-size: 14px;
   font-weight: bold;
   text-decoration: underline;
-  &:hover {
-  text-decoration: underline;
-  color: #944667;
-
+    &:hover {
+    text-decoration: underline;
+    color: #944667;
   }
   i {
     color:  #944667;
@@ -265,7 +259,6 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
     margin-left: 5px;
   }
 }
-
 
 // Messages page
 .message {
@@ -299,28 +292,32 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
 .time {
     font-size: 11px;
 }
+
 .email {
     font-size: 13px;
 }
+
 .email_link,
 .email_link:hover {
 color: $main-color;
 }
+
 .icon_footer {
   font-size: 17px;
 }
+
 .fa-twitter {
   padding: 0 15px;
 }
+
 @media screen and (max-width: 768px){
   .icon_footer {
     display: flex;
     text-align: center;
     margin: auto;
-
-
   }
 }
+
 // Footer section
 
 .container_footertop {
@@ -345,68 +342,115 @@ color: $main-color;
     width: 100%;
   }
 
-  .slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 3px;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-  }
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
 
-  .slider:hover {
-    opacity: 1;
-  }
+.slider:hover {
+  opacity: 1;
+}
 
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: $main-color;
-    cursor: pointer;
-  }
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: $main-color;
+  cursor: pointer;
+}
 
-  .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: $main-color;
-    cursor: pointer;
-  }
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: $main-color;
+  cursor: pointer;
+}
 
-  .search_apartment_input {
-    border-radius: 10px;
-    outline: none;
-    border-style: none;
-    border: 1px solid white;
-    padding: 7px;
-    box-shadow: 0px 1px 4px #8a8a8a;
-    margin-right: 10px;
-    display: inline-block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    &::placeholder {
-      font-size: 13px;
-    }
+.search_apartment_input {
+  border-radius: 10px;
+  outline: none;
+  border-style: none;
+  border: 1px solid white;
+  padding: 10px 30px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+  margin-right: 10px;
+  &::placeholder {
+    font-size: 12px;
   }
+}
 
-  .navbar-expand.scrolled {
-    background-color: #fff;
-    transition: background-color 200ms linear;
-    border-bottom: 1px solid #DFDFDF;
-    box-shadow: 0 0 3px #DFDFDF;
-  }
+.navbar-expand.scrolled {
+  background-color: #fff;
+  transition: background-color 200ms linear;
+  border-bottom: 1px solid #DFDFDF;
+  box-shadow: 0 0 3px #DFDFDF;
+}
 
-  .container-show {
-    padding: 40px;
-  }
+// Show 
 
-  .close-btn {
-    background-color: #767676;
-    color: white;
+.container-show {
+  padding: 40px;
+}
+
+.close-btn {
+  background-color: #767676;
+  color: white;
+}
+
+.btn_show {
+  border: 1.5px solid #398489;
+  color: #398489;
+  padding: 10px 15px;
+}
+
+.btn_show:hover {
+  color: #398489 ;
+}
+
+.btn_show:active {
+  color: rgb(0, 106, 112);
+  background: rgba(0, 132, 137, 0.15);
+  border-color: rgb(0, 106, 112);
+}
+
+.avatar_show {
+  width: 70px;
+  border-radius: 50%;
+}
+
+.box-show {
+  display: flex;
+  align-items: center;
+}
+
+// Apartment Search
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn_search {
+  color: rgb(34, 34, 34) ;
+  padding: 8px 25px;
+  border: 1px solid rgb(176, 176, 176);
+  border-radius: 24px;
+  font-weight: 500;
+  &:hover {
+    color:  rgb(34, 34, 34);
+    border-color: rgb(34, 34, 34) ;
   }
+  &:active {
+    border-color: rgb(34, 34, 34) ;
+  }
+}

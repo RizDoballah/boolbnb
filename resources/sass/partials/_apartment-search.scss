@@ -114,4 +114,38 @@
     box-shadow: 2px 2px 8px lightgrey;
   }
  
+  #card {
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .slidecontainer {
+    padding-left: 15px;
+    margin-top: 30px;
+  }
+
+  .collapse-filter {
+    margin: 20px 0;
+  }
   
+  .card {
+    background-color: white;
+    border-radius: 13px;
+    height: 250px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+  }
+  .card-header{
+      background-color: #F7F7F7;
+  }
+
+  .input-service {
+    border-radius: 50px;
+    border: 1px solid #b0b0b0;
+    width: 70px;
+    margin-top: 10px;
+    padding: 3px;
+    padding-left: 10px;
+    &:hover {
+      border-color: black;
+    }
+  }
