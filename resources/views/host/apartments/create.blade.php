@@ -7,7 +7,7 @@
                 @csrf
                 @method('POST')
 
-                <div class="form-group">
+                <div class="form-group create_edit">
                     <h4 class="mt-5 mb-3">Crea un titolo per il tuo annuncio</h4>
                     <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name='title'
                         placeholder="inserisci un titolo" value="{{old('title')}}">
@@ -18,11 +18,15 @@
 
                 <div class="form-group">
                     <h4 class="mt-5 mb-3">Quante camere da letto possono utilizzare gli ospiti?</h4>
-                    <label class="my-3 label_create" for="rooms">Camere</label>
-                    <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
-                    <input autocomplete="off" class='counter' name='rooms' type="number" min="1"
+                    <div class="flex_container">
+                      <label class="my-3 label_create_edit" for="rooms">Camere</label>
+                      <div class="input_counter_container">
+                        <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
+                        <input autocomplete="off" class='counter' name='rooms' type="number" min="1"
                         value="{{(empty(old('rooms'))) ? '0' : old('rooms')}}" />
-                    <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
+                        <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
+                      </div>
+                    </div>
                     @error('rooms')
                     <small class="form-text text-danger">{{$message}}</small>
                     @enderror
@@ -30,11 +34,15 @@
 
                 <div class="form-group">
                     <h4 class="mt-5 mb-3">Quanti letti possono utilizzare gli ospiti?</h4>
-                    <label class="my-3 label_create" for="beds">letti</label>
-                    <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
-                    <input autocomplete="off" class='counter' name="beds" type="number" min="1"
+                    <div class="flex_container">
+                      <label class="my-3 label_create_edit" for="beds">letti</label>
+                      <div class="input_counter_container">
+                        <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
+                        <input autocomplete="off" class='counter' name="beds" type="number" min="1"
                         value="{{(empty(old('beds'))) ? '0' : old('beds')}}" />
-                    <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
+                        <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
+                      </div>
+                    </div>
                     @error('beds')
                     <small class="form-text text-danger">{{$message}}</small>
                     @enderror
@@ -42,11 +50,15 @@
 
                 <div class="form-group">
                     <h4 class="mt-5 mb-3">Quanti bagni?</h4>
-                    <label class="my-3 label_create" for="bathroom">Bagni</label>
-                    <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
-                    <input autocomplete="off" class='counter' name="bathroom" type="number" min="1"
+                    <div class="flex_container">
+                      <label class="my-3 label_create_edit" for="bathroom">Bagni</label>
+                      <div class="input_counter_container">
+                        <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
+                        <input autocomplete="off" class='counter' name="bathroom" type="number" min="1"
                         value="{{(empty(old('bathroom'))) ? '0' : old('bathroom')}}" />
-                    <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
+                        <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
+                      </div>
+                    </div>
                     @error('bathroom')
                     <small class="form-text text-danger">{{$message}}</small>
                     @enderror
@@ -54,8 +66,10 @@
 
                 <div class="form-group">
                     <h4 class="mt-5 mb-3">Quanto é grande il tuo allogio?</h4>
-                    <label class="my-3 label_create" for="square_meters">Metri Quadri</label>
-                    <input id="square_meters" class='form-control' name="square_meters" type="number" min="1" value="{{(empty(old('square_meters'))) ? '' : old('square_meters')}}" />
+                    <div class="flex_container">
+                      <label class="my-3 label_create_edit" for="square_meters">Metri Quadri</label>
+                      <input id="square_meters" class='form-control' name="square_meters" type="number" min="1" value="{{(empty(old('square_meters'))) ? '' : old('square_meters')}}" />
+                    </div>
                     @error('square_meters')
                     <small class="form-text text-danger">{{$message}}</small>
                     @enderror
@@ -86,7 +100,7 @@
             <div class="form-group">
                 <h4 class="mt-5 mb-3">Aggiungi foto al tuo annuncio</h4>
                 <div class="upload-btn-wrapper">
-                    <button type="submit" class="btn_foto"><i class="fas fa-cloud-upload-alt"></i> Carica foto</button>
+                    <button type="submit" id="btn_foto"><i class="fas fa-cloud-upload-alt"></i> Carica foto</button>
                     <input id="file-upload" type="file" class="form-control-file @error('main_img') is-invalid @enderror" name="main_img" accept="image/*" >
                       <label id="file-name"></label>
                     @error('main_img')

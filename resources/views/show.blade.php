@@ -35,17 +35,17 @@
                     <button type="button" class="btn btn_main mt-3 mb-sm-5 mb-md-5" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Invia un messaggio</button>
                 @endif
             </div>
-    
+
             <div class=" col-lg-5 col-md-12 col-xs-12">
                 <h3 class="font-weight-bold mb-3">La posizione</h3>
                 <div id='map' class='map_show'></div>
             </div>
         </div>
-    
+
     </div>
-    
+
         {{-- ***************************************** --}}
-    
+
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -55,7 +55,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-    
+
                     <div id="modal" class="modal-body">
                         <input type="hidden" name="_token" id="csrf" value="{{Session::token()}}">
                         <div class="form-group">
@@ -73,12 +73,12 @@
                         <input type="hidden" value="{{$apartment->id}}" id="id-apt" name="apartment_id">
                         <small id="errors" class="form-text text-danger"></small>
                     </div>
-    
+
                     <div class="modal-footer">
                         <button type="button" class="btn close-btn" data-dismiss="modal">Chiudi</button>
                         <button id='send' type="button" class="btn btn_main">Invia</button>
                     </div>
-    
+
                 </div>
             </div>
         </div>

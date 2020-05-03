@@ -12,7 +12,11 @@
 .grey_border {
     border-color: $grey-color;
 }
-
+.flex_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 header{
   height: 100vh;
@@ -74,6 +78,25 @@ header{
     background-color: #006b6d;
  }
 }
+.btn_delete,
+.btn_edit {
+  padding: 0;
+  color: #008489;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: #008489;
+  }
+}
+.fa-pencil-alt,
+.fa-trash-alt {
+  color: #008489;
+  font-size: 12px;
+  padding-left: 5px;
+  vertical-align: middle;
+}
 
 // Checkout Page
 
@@ -129,12 +152,8 @@ header{
 
 // Create page host
 
-.label_create {
-  width: 250px;
-  font-size: 18px;
-  @media only screen and (max-width: 407px) {
-    width: 150px;
-  }
+.label_create_edit {
+  font-size: 17px;
 }
 
 .counter {
@@ -160,15 +179,10 @@ input[type=number]::-webkit-outer-spin-button {
 border-radius: 50%;
 background: white;
 color: #008489;
-padding: 3px 10px;
 border: 1px solid #008489;
 transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-// .fas {
-//   color: #008489;
-//   vertical-align: middle;
-//   font-size: 10px;
-// }
+
 #address,
 #title {
   width: 400px;
@@ -192,20 +206,24 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
   position: relative;
   overflow: hidden;
   display: inline-block;
-  i {
-    color:  #008489;
-    font-size: 20px;
-    padding-right: 2px;
-  }
 }
 
-.btn_foto {
+
+#btn_foto {
   border: 1px solid #008489;
   color: $text-color;
   background-color: white;
   padding: 5px 20px;
   border-radius: 8px;
   font-size: 16px;
+  i {
+    color:  #008489;
+    font-size: 20px;
+    padding-right: 2px;
+    &:hover {
+      background-color: red;
+    }
+  }
 }
 
 .upload-btn-wrapper input[type=file] {
@@ -229,6 +247,9 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
     border: 1px solid #008489;
     border-radius: 8px;
     font-size: 16px;
+    &:hover {
+      cursor: pointer;
+    }
   }
   #save_apt {
   width: 100px;
@@ -317,8 +338,6 @@ color: $main-color;
     display: flex;
     text-align: center;
     margin: auto;
-
-
   }
 }
 // Footer section

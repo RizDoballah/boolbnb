@@ -10894,6 +10894,12 @@ a.text-dark:focus {
   border-color: #D8D8D8;
 }
 
+.flex_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 header {
   height: 100vh;
   background-image: url(/images/img_carousel.jpg?d7ad69257d05bb26b04f9f75961ad4b6);
@@ -10958,6 +10964,29 @@ header {
   background-color: #006b6d;
 }
 
+.btn_delete,
+.btn_edit {
+  padding: 0;
+  color: #008489;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn_delete:hover,
+.btn_edit:hover {
+  text-decoration: underline;
+  color: #008489;
+}
+
+.fa-pencil-alt,
+.fa-trash-alt {
+  color: #008489;
+  font-size: 12px;
+  padding-left: 5px;
+  vertical-align: middle;
+}
+
 [data-braintree-id=toggle] {
   display: none;
 }
@@ -11014,15 +11043,8 @@ header {
   max-width: 80%;
 }
 
-.label_create {
-  width: 250px;
-  font-size: 18px;
-}
-
-@media only screen and (max-width: 407px) {
-  .label_create {
-    width: 150px;
-  }
+.label_create_edit {
+  font-size: 17px;
 }
 
 .counter {
@@ -11048,7 +11070,6 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: 50%;
   background: white;
   color: #008489;
-  padding: 3px 10px;
   border: 1px solid #008489;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -11080,19 +11101,23 @@ input[type=number]::-webkit-outer-spin-button {
   display: inline-block;
 }
 
-.upload-btn-wrapper i {
-  color: #008489;
-  font-size: 20px;
-  padding-right: 2px;
-}
-
-.btn_foto {
+#btn_foto {
   border: 1px solid #008489;
   color: #3F3F3F;
   background-color: white;
   padding: 5px 20px;
   border-radius: 8px;
   font-size: 16px;
+}
+
+#btn_foto i {
+  color: #008489;
+  font-size: 20px;
+  padding-right: 2px;
+}
+
+#btn_foto i:hover {
+  background-color: red;
 }
 
 .upload-btn-wrapper input[type=file] {
@@ -11117,6 +11142,10 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid #008489;
   border-radius: 8px;
   font-size: 16px;
+}
+
+#published:hover {
+  cursor: pointer;
 }
 
 #save_apt {
@@ -11380,6 +11409,10 @@ h1 {
   font-weight: bold;
 }
 
+h4 {
+  font-size: 19px;
+}
+
 .menu-link {
   color: #3F3F3F;
   font-weight: bold;
@@ -11505,7 +11538,7 @@ h1 {
 .checkbox_filter i {
   text-align: center;
   color: #3F3F3F;
-  font-size: 15px;
+  font-size: 14px;
   width: 20px;
   margin-right: 5px;
 }
@@ -11516,7 +11549,7 @@ h1 {
   padding-left: 35px;
   margin-bottom: 8px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -11539,8 +11572,8 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 22px;
+  width: 22px;
   background-color: white;
   border: 1px solid #b0b0b0;
   border-radius: 6px;
