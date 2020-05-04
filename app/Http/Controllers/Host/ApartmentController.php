@@ -75,6 +75,7 @@ class ApartmentController extends Controller
     public function show($id)
     {
         $apartment = Apartment::find($id);
+        visits($apartment)->increment();
 
         abort_if(empty($apartment), 404);
 

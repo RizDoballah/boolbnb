@@ -67,11 +67,11 @@
                 <div id='map' class='map_show'></div>
             </div>
         </div>
-    
+
     </div>
-    
+
         {{-- ***************************************** --}}
-    
+
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -81,7 +81,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-    
+
                     <div id="modal" class="modal-body">
                         <input type="hidden" name="_token" id="csrf" value="{{Session::token()}}">
                         <div class="form-group">
@@ -99,11 +99,11 @@
                         <input type="hidden" value="{{$apartment->id}}" id="id-apt" name="apartment_id">
                         <small id="errors" class="form-text text-danger"></small>
                     </div>
-    
+
                     <div class="modal-footer">
                         <button id='send' type="button" class="btn btn_main">Invia</button>
                     </div>
-    
+
                 </div>
             </div>
         </div>

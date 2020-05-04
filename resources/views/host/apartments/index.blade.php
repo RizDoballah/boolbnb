@@ -19,13 +19,13 @@
             <a href="{{route('home.show', $apartment)}}">
                 <img class="apartment_img" src="{{asset('storage/' . $apartment->main_img)}}" alt="">
             </a>
-            <h4 class="mt-3 mb-4">{{$apartment->title}}</h4>
+            <h4 class="mt-3 mb-3">{{$apartment->title}}</h4>
+            <a class=" btn btn_edit" href="{{ route('host.edit', $apartment) }}">Modifica <i class="fas fa-pencil-alt"></i></a>
             <form class="d-inline" action="{{route('host.destroy', $apartment)}}" method="post">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn_main float-right">Elimina</button>
+                <button type="submit" class=" btn btn_delete d-block">Elimina <i class="fas fa-trash-alt"></i></button>
             </form>
-            <a class="btn btn-edit float-right mr-2" href="{{ route('host.edit', $apartment) }}">Modifica</a>
 
         </div>
 
