@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <h4 class="mt-5 mb-3">Quanti letti possono utilizzare gli ospiti?</h4>
                     <div class="flex_container">
-                      <label class="my-3 label_create_edit" for="beds">letti</label>
+                      <label class="my-3 label_create_edit" for="beds">Letti</label>
                       <div class="input_counter_container">
                         <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
                         <input autocomplete="off" class='counter' name="beds" type="number" min="1"
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="form-group">
-                    <h4 class="mt-5 mb-3">Quanto é grande il tuo allogio?</h4>
+                    <h4 class="mt-5 mb-3">Quanto é grande il tuo alloggio?</h4>
                     <div class="flex_container">
                       <label class="my-3 label_create_edit" for="square_meters">Metri Quadri</label>
                       <input id="square_meters" class='form-control' name="square_meters" type="number" min="1" value="{{(empty(old('square_meters'))) ? '' : old('square_meters')}}" />

@@ -62,14 +62,10 @@
               </div>
 
               <div class="form-group">
-                <h4 class="mt-5 mb-3">Modifica la metratura del tuo allogio</h4>
+                <h4 class="mt-5 mb-3">Modifica la metratura del tuo alloggio</h4>
                 <div class="flex_container">
-                  <label class="my-3 label_create_edit" for="square_meters">metri quadri</label>
-                  <div class="input_counter_container">
-                    <span class='down_count btn' title='Down'><i class="fas fa-minus"></i></span>
-                    <input  autocomplete="off" class="counter @error('square_meters') is-invalid @enderror" min="1" type="number" name="square_meters" value="{{$apartment->square_meters}}">
-                      <span class='up_count btn' title='Up'><i class="fas fa-plus"></i></span>
-                    </div>
+                  <label class="my-3 label_create_edit" for="square_meters">Metri quadri</label>
+                    <input  autocomplete="off" class='form-control' id="square_meters"  @error('square_meters') is-invalid @enderror" min="1" type="number" name="square_meters" value="{{$apartment->square_meters}}">
                 </div>
                   @error('square_meters')
                     <small class="form-text text-danger">{{$message}}</small>

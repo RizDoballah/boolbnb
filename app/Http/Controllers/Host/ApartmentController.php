@@ -68,6 +68,9 @@ class ApartmentController extends Controller
             $apartment->services()->attach($services);
         }
 
+        // dd($apartment->services);
+
+
         return redirect(route('home.show', $apartment));
     }
 

@@ -83,6 +83,15 @@
                         </button>
                     </div>
                 </div>
+                {{-- @if($errors->has('email') || $errors->has('password'))
+                <script>
+                $(function() {
+                  $('#exampleModalCenterTitle').modal({
+                    show: true
+                  });
+                });
+                </script>
+              @endif --}}
             </form>
         </div>
       </div>

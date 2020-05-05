@@ -31,7 +31,7 @@
                             @if ($service->name == 'Piscina')
                                 <span class="mr-3"><i class="fas fa-swimming-pool mr-2"></i>{{$service->name}}</span>
                             @elseif($service->name == 'Sauna')
-                                <span class="mr-3"><i class="fas fa-smog mr-2"></i>{{$service->name}}</span>
+                                <span class="mr-3"><i class="fas fa-hot-tub mr-2"></i>{{$service->name}}</span>
                             @elseif($service->name == 'Wi-fi')
                                 <span class="mr-3"><i class="fas fa-wifi mr-2"></i>{{$service->name}}</span>
                             @elseif($service->name == 'Portineria')
@@ -58,8 +58,6 @@
                 @if($apartment->user_id != Auth::id())
                     <button type="button" class="mb-3 btn btn_show mt-5 mb-sm-5 mb-md-5 d-block" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Contatta l'host</button>
                 @endif
-                <a class="btn btn_main" href="{{URL::previous()}}">Torna indietro</a>
-
             </div>
     
             <div class="mt-sm-4 col-lg-5 col-md-12 col-xs-12">

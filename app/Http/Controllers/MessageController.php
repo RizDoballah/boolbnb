@@ -51,6 +51,8 @@ class MessageController extends Controller
             'apartment_id' => $data['apartment_id']
         ]);
 
+        // dd($newMessage);
+
         return response()->json([
             'errors' => false,
             'sent' => true]);

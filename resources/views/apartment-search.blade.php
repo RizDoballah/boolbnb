@@ -130,7 +130,7 @@
                         @foreach ($apartment->services as $service)
 
                             @if ($service->name == 'Sauna')
-                                {{-- <li class="list-inline-item"><i class="fas fa-smog mr-2">{{$service->name}}</li> --}}
+                                <li class="list-inline-item"><i class="fas fa-hot-tub mr-2"></i>{{$service->name}}</li>
                             @elseif($service->name == 'Piscina')
                                 <li class="list-inline-item"><i class="fas fa-swimming-pool mr-2"></i>{{$service->name}}</li>
                             @elseif($service->name == 'Wi-fi')
@@ -157,7 +157,7 @@
 
         </div>
 
-        <div class="col-lg-7 col-md-12">
+        <div class="col-lg-7 col-md-12 d-none d-lg-block">
             <div id='map' class='map_apartment_search'></div>
         </div>
 

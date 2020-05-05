@@ -7,7 +7,7 @@
 @endif
 <div class="container pt-5">
     <h1 class="mb-5">Gestisci i tuoi alloggi</h1>
-
+    <a class="btn btn_create mr-4 d-inline d-sm-none" href="{{route('host.create') }}">Crea un nuovo annuncio</a>
     @if (!count($apartments))
     <h4 class="my-5">Non hai ancora inserito nessun annuncio</h4>
     @endif

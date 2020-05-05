@@ -37496,6 +37496,11 @@ $(document).ready(function () {
       var lat = $(this).attr('data-lat');
       var lon = $(this).attr('data-lon');
       var title = $(this).parent().parent().parent().children('.col-7').find('h4').html();
+
+      if (title == undefined) {
+        title = $('.h1_show_title').html();
+      }
+
       var image = $(this).attr('src');
       var element = document.createElement('i');
       element["class"] = 'fas fa-home';
@@ -37633,8 +37638,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\ASUS\Desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

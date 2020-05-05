@@ -189,6 +189,9 @@ $(document).ready(function () {
             let lat = $(this).attr('data-lat');
             let lon = $(this).attr('data-lon');
             let title = $(this).parent().parent().parent().children('.col-7').find('h4').html();
+            if (title == undefined) {
+                title = $('.h1_show_title').html();
+            }
             let image = $(this).attr('src');
             var element = document.createElement('i');
             element.class = 'fas fa-home';

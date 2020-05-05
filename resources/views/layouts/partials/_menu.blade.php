@@ -9,7 +9,7 @@
       <ul class="navbar-nav mr-auto">
       </ul>
       ​@if (Request::is('apartment/search'))
-      <form method="POST" action="{{route('apartment.search')}}">
+      <form method="POST" class="d-none d-lg-block" action="{{route('apartment.search')}}">
         @csrf
         @method('POST')
         <input autocomplete="off" id="search_input" class="search_apartment_input" type="text" placeholder="Aggiungi una città o un indirizzo" name="search_input">
@@ -18,7 +18,7 @@
         <input id="lon" type="hidden" name="lon" value="">
         <input id="city" type="hidden" name="city" value="">
         <button id="search" class="btn btn_main" type="submit">Cerca</button>
-    </form>
+      </form>
       @endif
 
       <!-- Right Side Of Navbar -->
@@ -39,7 +39,7 @@
         @else
             <li class="nav-item dropdown">
                 @if (Request::is('host'))
-                <a class="btn btn_create mr-4" href="{{route('host.create') }}">Crea un nuovo annuncio</a>
+                <a class="btn btn_create mr-4 d-none d-sm-inline" href="{{route('host.create') }}">Crea un nuovo annuncio</a>
                 @endif
 
                 {{-- Button with avatar --}}
